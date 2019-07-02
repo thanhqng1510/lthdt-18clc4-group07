@@ -10,16 +10,18 @@ enum class ACCOUNT_TYPE {
 
 class Account {
 private:
-	std::string m_username, m_pass;
+	std::string m_username, m_pass, m_email;
 	ACCOUNT_TYPE m_type;
 
 public:
 	static std::string s_customer_account_path;
 	static std::string s_manager_account_path;
 	static std::string s_seller_account_path;
+	static std::string s_email_sample;
 
 public:
-	Account(const std::string& username, const std::string& pass, ACCOUNT_TYPE type);
+	// Assume that all parameters are valid
+	Account(const std::string& username, const std::string& pass, const std::string& email, ACCOUNT_TYPE type);
 
 public:
 	void UpdatePassword();

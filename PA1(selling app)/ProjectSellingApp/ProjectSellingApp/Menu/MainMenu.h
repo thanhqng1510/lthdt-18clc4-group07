@@ -1,16 +1,21 @@
 #pragma once
 
+enum class LOG_IN_KEY {
+	EMAIL = 0,
+	USERNAME
+};
+
 class MainMenu {
 private:
 	unsigned int m_option;
 
 private:
-	static void LogIn();
+	// Log in with username or email
+	static void LogIn(LOG_IN_KEY key);
 	static void CreateAccount();
 
 public:
 	MainMenu();
-	~MainMenu() = default;
 
 public:
 	// Show all option available and ask for user's input

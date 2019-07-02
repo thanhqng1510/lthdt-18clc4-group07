@@ -6,8 +6,10 @@
 std::string Account::s_customer_account_path = "Account/Data/CustomerAccount.data";
 std::string Account::s_manager_account_path = "Account/Data/ManagerAccount.data";
 std::string Account::s_seller_account_path = "Account/Data/SellerAccount.data";
+std::string Account::s_email_sample = "([a-zA-Z0-9_\.]+@[a-zA-Z]+(\.[a-zA-Z]+)+)";
 
-Account::Account(const std::string& username, const std::string& pass, ACCOUNT_TYPE type) : m_username(username), m_pass(pass), m_type(type) {}
+Account::Account(const std::string& username, const std::string& pass, const std::string& email, ACCOUNT_TYPE type) 
+	: m_username(username), m_pass(pass), m_email(email), m_type(type) {}
 
 void Account::UpdatePassword() {
 	std::string new_pass, pass;
