@@ -5,7 +5,7 @@
 #include "../Account/Account.h"
 
 class Person {
-protected:
+private:
 	Account m_account;
 	std::string m_email;
 

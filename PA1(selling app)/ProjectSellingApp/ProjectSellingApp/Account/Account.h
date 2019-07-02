@@ -9,7 +9,7 @@ enum class ACCOUNT_TYPE {
 };
 
 class Account {
-protected:
+private:
 	std::string m_username, m_pass;
 	ACCOUNT_TYPE m_type;
 

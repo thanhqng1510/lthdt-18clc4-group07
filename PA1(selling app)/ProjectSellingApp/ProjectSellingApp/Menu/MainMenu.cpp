@@ -22,7 +22,7 @@ void MainMenu::LogIn() {
 	for (const std::pair<std::string, ACCOUNT_TYPE>& s : path) {
 		std::ifstream fin(s.first);
 		if (!fin.is_open())
-			std::cout << "Fail to open " << s.first << "\n";
+			promptMessage("Fail to open " + s.first);
 		std::string line;
 		while (getline(fin, line, '\n')) {
 			std::stringstream ss(line);
@@ -34,7 +34,7 @@ void MainMenu::LogIn() {
 
 				}
 				else {
-					std::cout << "Wrong password\n";
+					promptMessage("Wrong password");
 					fin.close();
 					return;
 				}
@@ -43,7 +43,7 @@ void MainMenu::LogIn() {
 		fin.close();
 	}
 
-	std::cout << "Wrong username\n";
+	promptMessage("Wrong username");
 }
 
 void MainMenu::CreateAccount() {
@@ -55,7 +55,7 @@ void MainMenu::CreateAccount() {
 
 	std::ifstream fin("Account/Data/CustomerAccount.data");
 	if (!fin.is_open()) {
-		std::cout << "Fail to open CustomerAccount.data\n";
+		promptMessage("Fail to open CustomerAccount.data");
 		return;
 	}
 	std::string line;
@@ -64,7 +64,7 @@ void MainMenu::CreateAccount() {
 		std::string word;
 		ss >> word;
 		if (word == username) {
-			std::cout << "This username has been used\n";
+			promptMessage("This username has been used");
 			fin.close();
 			return;
 		}
@@ -74,12 +74,15 @@ void MainMenu::CreateAccount() {
 	std::ofstream fout("Account/Data/CustomerAccount.data", std::ios::app);
 	fout << "\n" << username << " " << pass;
 	fout.close();
+
+	promptMessage("Account created successfully");
 }
 
 MainMenu::MainMenu() : m_option(0) {}
 
 void MainMenu::Process() {
 	while (m_option != 3) {
+		system("cls");
 		std::cout << "Welcome\n";
 		std::cout << "1. Log in\n";
 		std::cout << "2. Create account (for customer only)\n";

@@ -7,3 +7,8 @@ void getStringInput(std::string& input, std::function<bool(const std::string& va
 		std::cout << "Error, please try again: ";
 	}
 }
+
+void promptMessage(const std::string& message) {
+	std::cout << message << "\nPress any key to continue...";
+	std::cin.get();
+}

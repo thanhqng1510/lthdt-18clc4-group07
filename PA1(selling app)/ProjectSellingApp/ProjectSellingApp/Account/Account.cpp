@@ -17,13 +17,13 @@ void Account::UpdatePassword() {
 	getline(std::cin, pass, '\n');
 
 	if (pass != m_pass) {
-		std::cout << "Wrong password\n";
+		promptMessage("Wrong password");
 		return;
 	}
 	if (new_pass == m_pass) {
-		std::cout << "This is your current password\n";
+		promptMessage("This is your current password");
 		return;
 	}
 	m_pass = new_pass;
-	std::cout << "Change password successfully\n";
+	promptMessage("Change password successfully");
 }
