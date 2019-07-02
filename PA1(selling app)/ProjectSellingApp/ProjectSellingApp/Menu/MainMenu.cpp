@@ -14,11 +14,15 @@ void MainMenu::LogIn() {
 	std::cout << "Enter password: ";
 	getStringInput(pass, nullptr);
 
-	std::string path[3] = { Account::s_customer_account_path, Account::s_manager_account_path, Account::s_seller_account_path };
-	for (const std::string& s : path) {
-		std::ifstream fin(s);
+	std::pair<std::string, ACCOUNT_TYPE> path[3] = {
+		{ Account::s_customer_account_path, ACCOUNT_TYPE::CUSTOMER },
+		{ Account::s_manager_account_path, ACCOUNT_TYPE::MANAGER },
+		{ Account::s_seller_account_path, ACCOUNT_TYPE::SELLER } 
+	};
+	for (const std::pair<std::string, ACCOUNT_TYPE>& s : path) {
+		std::ifstream fin(s.first);
 		if (!fin.is_open())
-			std::cout << "Fail to open " << s << "\n";
+			std::cout << "Fail to open " << s.first << "\n";
 		std::string line;
 		while (getline(fin, line, '\n')) {
 			std::stringstream ss(line);
