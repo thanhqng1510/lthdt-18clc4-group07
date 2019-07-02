@@ -124,19 +124,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Account\Account.cpp" />
-    <ClCompile Include="Account\CustomerAccount.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Menu\MainMenu.cpp" />
+    <ClCompile Include="Person\Person.cpp" />
     <ClCompile Include="Util.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Account\Account.h" />
-    <ClInclude Include="Account\CustomerAccount.h" />
     <ClInclude Include="Menu\MainMenu.h" />
+    <ClInclude Include="Person\Person.h" />
     <ClInclude Include="Util.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Account\data\CustomerAccount.data" />
+    <None Include="Account\Data\ManagerAccount.data" />
+    <None Include="Account\Data\SellerAccount.data" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

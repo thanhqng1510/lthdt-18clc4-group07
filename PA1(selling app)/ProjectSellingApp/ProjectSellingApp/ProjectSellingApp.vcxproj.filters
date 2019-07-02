@@ -27,7 +27,7 @@
     <ClCompile Include="Account\Account.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Account\CustomerAccount.cpp">
+    <ClCompile Include="Person\Person.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -41,11 +41,13 @@
     <ClInclude Include="Account\Account.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Account\CustomerAccount.h">
+    <ClInclude Include="Person\Person.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Account\data\CustomerAccount.data" />
+    <None Include="Account\Data\ManagerAccount.data" />
+    <None Include="Account\Data\SellerAccount.data" />
   </ItemGroup>
 </Project>

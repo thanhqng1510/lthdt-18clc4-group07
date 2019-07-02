@@ -7,9 +7,18 @@ protected:
 	std::string m_username, m_pass;
 
 public:
-	Account(const std::string& username, const std::string& pass);
-	virtual ~Account() = default;
+	static std::string s_customer_account_path;
+	static std::string s_manager_account_path;
+	static std::string s_seller_account_path;
+
+protected:
+	void UpdateUsername();
+	void UpdatePassword();
 
 public:
-	virtual bool UpdateInfo() = 0;
+	Account(const std::string& username, const std::string& pass);
+
+public:
+	// Change username and password
+	void UpdateInfo();
 };
