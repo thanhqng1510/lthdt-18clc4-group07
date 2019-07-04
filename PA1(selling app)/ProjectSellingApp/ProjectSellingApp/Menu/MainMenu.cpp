@@ -29,6 +29,7 @@ void MainMenu::LogIn(LOG_IN_KEY key) {
 		{ Account::s_manager_account_path, ACCOUNT_TYPE::MANAGER },
 		{ Account::s_seller_account_path, ACCOUNT_TYPE::SELLER }
 	};
+
 	for (const std::pair<std::string, ACCOUNT_TYPE>& p : path) {
 		std::ifstream fin(p.first);
 		if (!fin.is_open()) {

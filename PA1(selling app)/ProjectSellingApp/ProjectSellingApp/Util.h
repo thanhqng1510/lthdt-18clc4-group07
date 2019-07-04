@@ -22,4 +22,4 @@ void getOptionInput(T& input, std::function<bool(const T& value)> isValid) {
 void getStringInput(std::string& input, std::function<bool(const std::string& value)> isValid);
 
 // Print message to console and wait for user to press any key to continue
-void promptMessage(const std::string& message);
+void promptMessage(const std::string&& message);

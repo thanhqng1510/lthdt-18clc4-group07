@@ -9,7 +9,7 @@ void getStringInput(std::string& input, std::function<bool(const std::string& va
 	}
 }
 
-void promptMessage(const std::string& message) {
+void promptMessage(const std::string&& message) {
 	std::cout << message << "\nPress any key to continue...";
 	std::cin.get();
 }
