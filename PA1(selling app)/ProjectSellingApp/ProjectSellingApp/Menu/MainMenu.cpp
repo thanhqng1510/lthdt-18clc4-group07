@@ -37,7 +37,7 @@ void MainMenu::LogIn(LOG_IN_KEY key) {
 		}
 		std::string line;
 		while (getline(fin, line, '\n')) {
-			std::stringstream ss(line);
+			std::stringstream ss(std::move(line));
 			std::string cur_username, cur_pass, cur_email;
 			ss >> cur_username >> cur_pass >> cur_email;
 			if ((key == LOG_IN_KEY::USERNAME && cur_username == username) || (key == LOG_IN_KEY::EMAIL && cur_email == email)) {
@@ -75,7 +75,7 @@ void MainMenu::CreateAccount() {
 	}
 	std::string line;
 	while (getline(fin, line, '\n')) {
-		std::stringstream ss(line);
+		std::stringstream ss(std::move(line));
 		std::string cur_username, cur_email;
 		ss >> cur_username >> cur_email >> cur_email;
 		if (cur_username == username) {
