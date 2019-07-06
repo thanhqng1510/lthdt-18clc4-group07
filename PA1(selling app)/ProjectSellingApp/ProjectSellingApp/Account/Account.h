@@ -14,10 +14,10 @@ private:
 	ACCOUNT_TYPE m_type;
 
 public:
-	static std::string s_customer_account_path;
-	static std::string s_manager_account_path;
-	static std::string s_seller_account_path;
-	static std::string s_email_sample;
+	static const std::string s_customer_account_path;
+	static const std::string s_manager_account_path;
+	static const std::string s_seller_account_path;
+	static const std::string s_email_sample;
 
 public:
 	// Assume that all parameters are valid
