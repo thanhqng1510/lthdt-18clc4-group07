@@ -102,8 +102,6 @@ void MainMenu::CreateAccount() {
 	promptMessage("Account created successfully");
 }
 
-MainMenu::MainMenu() : m_option(0) {}
-
 void MainMenu::Process() {
 	while (m_option != 4) {
 		system("cls");

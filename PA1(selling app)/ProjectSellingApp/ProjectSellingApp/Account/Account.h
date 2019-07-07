@@ -21,12 +21,14 @@ public:
 
 public:
 	// Assume that all parameters are valid
-	Account(const std::string& username, const std::string& pass, const std::string& email, ACCOUNT_TYPE type);
+	inline Account(const std::string& username, const std::string& pass, const std::string& email, ACCOUNT_TYPE type)
+		: m_username(username), m_pass(pass), m_email(email), m_type(type) {}
 
 public:
-	void UpdatePassword();
-
 	inline ACCOUNT_TYPE GetType() const {
 		return m_type;
 	}
+
+public:
+	void UpdatePassword();
 };

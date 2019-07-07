@@ -15,7 +15,7 @@ private:
 	static void CreateAccount();
 
 public:
-	MainMenu();
+	inline MainMenu() : m_option(0) {}
 
 public:
 	// Show all option available and ask for user's input

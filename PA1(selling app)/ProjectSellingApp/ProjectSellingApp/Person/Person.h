@@ -3,18 +3,23 @@
 #include <string>
 
 #include "../Account/Account.h"
+#include "../Util.h"
 
 class Person {
-private:
+protected:
 	Account m_account;
 	
 public:
 	Person(const Account& person);
-	void UpdateInfo();
-	void LogOut(Account person);
 
+public:
+	inline void UpdateInfo() {
+		m_account.UpdatePassword();
+	}
 
-
+	inline void LogOut() {
+		promptMessage("Goodbye");
+	}
 };
 //cho doi usename voi email trong class account 
 //xem co trung voi file.data 
