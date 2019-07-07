@@ -2,7 +2,7 @@
 
 enum class LOG_IN_KEY {
 	EMAIL = 0,
-	USERNAME
+	USERNAME = 1
 };
 
 class MainMenu {

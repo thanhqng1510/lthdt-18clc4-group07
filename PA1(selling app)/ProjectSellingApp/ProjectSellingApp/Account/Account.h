@@ -25,4 +25,8 @@ public:
 
 public:
 	void UpdatePassword();
+
+	inline ACCOUNT_TYPE GetType() const {
+		return m_type;
+	}
 };
