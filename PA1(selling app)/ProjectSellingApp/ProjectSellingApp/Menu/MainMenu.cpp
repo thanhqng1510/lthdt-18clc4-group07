@@ -7,6 +7,8 @@
 #include "MainMenu.h"
 #include "../Util.h"
 #include "../Account/Account.h"
+#include "../Person/Person.h"
+
 
 void MainMenu::LogIn(LOG_IN_KEY key) {
 	std::string username, pass, email;
@@ -25,8 +27,8 @@ void MainMenu::LogIn(LOG_IN_KEY key) {
 	getStringInput(pass, nullptr);
 
 	std::pair<std::string, ACCOUNT_TYPE> path[3] = {
-		{ Account::s_customer_account_path, ACCOUNT_TYPE::CUSTOMER },
-		{ Account::s_manager_account_path, ACCOUNT_TYPE::MANAGER },
+		{ Account::s_customer_account_path, ACCOUNT_TYPE::CUSTOMER },  //Account p.first
+		{ Account::s_manager_account_path, ACCOUNT_TYPE::MANAGER },    //ACCOUNT_TYPE p.second
 		{ Account::s_seller_account_path, ACCOUNT_TYPE::SELLER }
 	};
 
@@ -40,10 +42,11 @@ void MainMenu::LogIn(LOG_IN_KEY key) {
 		while (getline(fin, line, '\n')) {
 			std::stringstream ss(std::move(line));
 			std::string cur_username, cur_pass, cur_email;
+
 			ss >> cur_username >> cur_pass >> cur_email;
 			if ((key == LOG_IN_KEY::USERNAME && cur_username == username) || (key == LOG_IN_KEY::EMAIL && cur_email == email)) {
 				if (cur_pass == pass) {
-					promptMessage("Hello");
+					// Person person(Account(username, pass, email, p.second));
 				}
 				else {
 					promptMessage("Wrong password");
@@ -102,7 +105,7 @@ void MainMenu::CreateAccount() {
 MainMenu::MainMenu() : m_option(0) {}
 
 void MainMenu::Process() {
-	while (m_option != 3) {
+	while (m_option != 4) {
 		system("cls");
 		std::cout << "Welcome\n";
 		std::cout << "1. Log in with email\n";

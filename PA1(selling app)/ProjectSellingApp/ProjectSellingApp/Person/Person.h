@@ -7,9 +7,15 @@
 class Person {
 private:
 	Account m_account;
-	std::string m_email;
-
+	
 public:
-	static std::string s_email_sample;
-};
+	Person(const Account& person);
+	void UpdateInfo();
+	void LogOut(Account person);
 
+
+
+};
+//cho doi usename voi email trong class account 
+//xem co trung voi file.data 
+//khong trung thi doi 

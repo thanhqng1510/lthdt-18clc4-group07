@@ -17,7 +17,8 @@ void Account::UpdatePassword() {
 	getline(std::cin, new_pass, '\n');
 	std::cout << "Enter current password to confirm: ";
 	getline(std::cin, pass, '\n');
-
+	//them regex cua password  
+	//regex password khoong dcuoc co khoang trang 
 	if (pass != m_pass) {
 		promptMessage("Wrong password");
 		return;
