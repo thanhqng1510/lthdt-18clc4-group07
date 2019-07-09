@@ -17,8 +17,8 @@ public:
 		m_account.UpdatePassword();
 	}
 
-	inline void LogOut() {
-		promptMessage("Goodbye");
+	inline void LogOut() const {
+		prompt_message("Goodbye");
 	}
 };
 //cho doi usename voi email trong class account 

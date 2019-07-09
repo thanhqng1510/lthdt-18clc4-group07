@@ -30,6 +30,9 @@
     <ClCompile Include="Person\Person.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BookStore\BookStore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Util.h">
@@ -44,10 +47,17 @@
     <ClInclude Include="Person\Person.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="BookStore\BookStore.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Account\data\CustomerAccount.data" />
     <None Include="Account\Data\ManagerAccount.data" />
     <None Include="Account\Data\SellerAccount.data" />
+    <None Include="BookStore\Data\BookStore.data" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="BookStore\Data\bookstore.txt" />
   </ItemGroup>
 </Project>

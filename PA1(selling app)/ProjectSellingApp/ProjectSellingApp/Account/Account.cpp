@@ -17,13 +17,13 @@ void Account::UpdatePassword() {
 	//them regex cua password  
 	//regex password khoong dcuoc co khoang trang 
 	if (pass != m_pass) {
-		promptMessage("Wrong password");
+		prompt_message("Wrong password");
 		return;
 	}
 	if (new_pass == m_pass) {
-		promptMessage("This is your current password");
+		prompt_message("This is your current password");
 		return;
 	}
 	m_pass = new_pass;
-	promptMessage("Change password successfully");
+	prompt_message("Change password successfully");
 }

@@ -1,29 +1,60 @@
-
-#include<iostream>
 #include<string>
 #include<vector>
-#include<fstream>
+#include <iostream>
 using namespace std;
 
-struct Book
-{
-	string name;
-	string author;
-	float price;
+struct book {
+	static const string s_author_sample;
+	static const string s_name_sample;
+
+	string author, name;
+	int price;
 	unsigned int stock;
+
+	friend ostream& operator << (ostream& stream, const book& b);
 };
 
-class BookStore
-{
+enum class SEARCH_KEY {
+	AUTHOR = 0,
+	NAME = 1
+};
+
+class BookStore {
 private:
-	vector<Book> m_book_store;
+	vector<book> m_book_store;
+
 public:
+	static const std::string s_book_store_path;
+
+public:
+	// Create a bookstore for further work
 	BookStore();
-	void Search();
+
+	// Sync with file
+	inline ~BookStore() {
+		SyncWithData();
+	}
+
+public:
+	// Assume that index is valid
+	inline book& operator [] (int index) {
+		return m_book_store[index];
+	}
+
+	inline const book& operator [] (int index) const {
+		return m_book_store[index];
+	}
+
+public:
+	inline void PrintAll() const {
+		for (const book& b : m_book_store)
+			cout << b << endl;
+	}
+
+	void Search(SEARCH_KEY key) const;
 	void Add();
 	void Remove();
-	string GetMostSell();
-	string GetRecentSell();
-	void Output();
-	~BookStore() {};
+	void SyncWithData() const;
+	// string GetMostSell();
+	// string GetRecentSell();
 };

@@ -4,8 +4,8 @@
 
 enum class ACCOUNT_TYPE {
 	CUSTOMER = 0,
-	MANAGER,
-	SELLER
+	MANAGER = 1,
+	SELLER = 2
 };
 
 class Account {

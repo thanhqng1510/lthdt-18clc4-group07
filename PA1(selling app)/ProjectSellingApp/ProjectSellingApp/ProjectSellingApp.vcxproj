@@ -124,6 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Account\Account.cpp" />
+    <ClCompile Include="BookStore\BookStore.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Menu\MainMenu.cpp" />
     <ClCompile Include="Person\Person.cpp" />
@@ -131,6 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Account\Account.h" />
+    <ClInclude Include="BookStore\BookStore.h" />
     <ClInclude Include="Menu\MainMenu.h" />
     <ClInclude Include="Person\Person.h" />
     <ClInclude Include="Util.h" />
@@ -139,6 +141,10 @@
     <None Include="Account\data\CustomerAccount.data" />
     <None Include="Account\Data\ManagerAccount.data" />
     <None Include="Account\Data\SellerAccount.data" />
+    <None Include="BookStore\Data\BookStore.data" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="BookStore\Data\bookstore.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
