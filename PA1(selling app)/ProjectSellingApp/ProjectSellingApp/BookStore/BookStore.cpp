@@ -68,6 +68,7 @@ void BookStore::Add() {
 	get_line_input(add.name, [](const string& value) {
 		return regex_match(value, regex(book::s_name_pattern));
 		}, "Wrong name format, please try again: ");
+
 	cout << "Enter book's quantity: ";
 	get_input<unsigned int>(add.stock, [](const unsigned int& value) {
 		return value >= 0;
@@ -89,6 +90,7 @@ void BookStore::Add() {
 	get_line_input(add.author, [](const string& value) {
 		return regex_match(value, regex(book::s_author_pattern));
 		}, "Wrong name format, please try again: ");
+
 	cout << "Enter book's price: ";
 	get_input<unsigned int>(add.price, [](const float& value) {
 		return value >= 10000;
@@ -107,6 +109,7 @@ void BookStore::Remove() {
 	get_line_input(remove.name, [](const string& value) {
 		return regex_match(value, regex(book::s_name_pattern));
 		}, "Wrong name format, please try again: ");
+
 	cout << "Enter book's quantity: ";
 	get_input<unsigned int>(remove.stock, [](const unsigned int& value) {
 		return value > 0;

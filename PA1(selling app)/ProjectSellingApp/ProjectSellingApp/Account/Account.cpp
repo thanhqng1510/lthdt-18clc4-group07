@@ -16,6 +16,7 @@ void Account::UpdatePassword() {
 	get_input<std::string>(new_pass, [](const std::string& value) {
 		return std::regex_match(value, std::regex(s_pass_pattern));
 		}, "Password must have at least 8 characters, please try again: ");	
+
 	std::cout << "Enter current password to confirm: ";
 	get_input<std::string>(pass, [](const std::string& value) {
 		return std::regex_match(value, std::regex(s_pass_pattern));

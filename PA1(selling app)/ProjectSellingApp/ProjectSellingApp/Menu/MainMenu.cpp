@@ -23,6 +23,7 @@ void MainMenu::LogIn(LOG_IN_KEY key) {
 			return std::regex_match(value, std::regex(Account::s_email_pattern));
 			}, "Wrong email format, please try again: ");
 	}
+
 	std::cout << "Enter password: ";
 	get_input<std::string>(pass, [](const std::string& value) {
 		return std::regex_match(value, std::regex(Account::s_pass_pattern));
@@ -68,10 +69,12 @@ void MainMenu::CreateAccount() {
 	std::string username, pass, email;
 	std::cout << "Enter username: ";
 	get_input<std::string>(username, nullptr, "");
+
 	std::cout << "Enter password: ";
 	get_input<std::string>(pass, [](const std::string& value) {
 		return std::regex_match(value, std::regex(Account::s_pass_pattern));
 		}, "Password must have at least 8 characters, please try again: ");
+
 	std::cout << "Enter email: ";
 	get_input<std::string>(email, [](const std::string& value) {
 		return std::regex_match(value, std::regex(Account::s_email_pattern));
@@ -82,11 +85,13 @@ void MainMenu::CreateAccount() {
 		prompt_message("Fail to open CustomerAccount.data");
 		return;
 	}
+
 	std::string line;
 	while (getline(fin, line, '\n')) {
 		std::stringstream ss(std::move(line));
 		std::string cur_username, cur_email;
 		ss >> cur_username >> cur_email >> cur_email;
+
 		if (cur_username == username) {
 			prompt_message("This username has been used");
 			fin.close();

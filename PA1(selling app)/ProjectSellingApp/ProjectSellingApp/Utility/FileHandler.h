@@ -39,8 +39,6 @@ public:
 		file_to_vec(file_path, m_vec, line_to_T);
 	}
 
-
-
 public:
 	inline void SyncWithFile() const {
 		std::ofstream fout(m_file_path, ios::trunc);
