@@ -1,56 +1,30 @@
-#include <string>
-#include <vector>
-#include <iostream>
+#pragma once
+
+#include<iostream>
+#include<string>
+#include<unordered_map>
+#include<fstream>
 using namespace std;
 
-struct book {
-	static const string s_author_pattern;
-	static const string s_name_pattern;
-
-	string author, name;
-	unsigned int price, stock;
-
-	friend ostream& operator << (ostream& stream, const book& b);
+struct Book
+{
+	string name;
+	string author;
+	float price;
+	unsigned int stock;
 };
 
-enum class SEARCH_KEY {
-	AUTHOR = 0,
-	NAME = 1
-};
-
-class BookStore {
-public:
-	static const std::string s_book_store_path;
-
+class BookStore
+{
 private:
-	vector<book> m_book_store;
-
+	unordered_map<string,Book> m_book_store;
 public:
-	// Create a bookstore for further work
 	BookStore();
-
-public:
-	// Assume that index is valid
-	inline book& operator [] (int index) {
-		return m_book_store[index];
-	}
-
-	inline const book& operator [] (int index) const {
-		return m_book_store[index];
-	}
-
-public:
-	inline void PrintAll() const {
-		for (const book& b : m_book_store)
-			cout << b << endl;
-	}
-
-	void Search(SEARCH_KEY key) const;
+	void Search();
 	void Add();
 	void Remove();
-
-	// Update file with vector
-	void SyncWithFile() const;
-	// string GetMostSell();
-	// string GetRecentSell();
+	/*string GetMostSell();
+	string GetRecentSell();*/
+	void Output();
+	~BookStore() {};
 };
