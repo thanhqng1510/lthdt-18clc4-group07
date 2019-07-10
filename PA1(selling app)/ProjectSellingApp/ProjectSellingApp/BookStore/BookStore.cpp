@@ -33,7 +33,7 @@ BookStore::BookStore() {
 
 		string Pe, Sk;
 		getline(fin, Pe, ',');
-		temp.price = (float)atof(Pe.c_str());
+		temp.price = (unsigned int)stoi(Pe);
 		getline(fin, Sk);
 		temp.stock = (unsigned int)stoi(Sk);
 
@@ -46,7 +46,7 @@ BookStore::BookStore() {
 void BookStore::Search(SEARCH_KEY key) const {
 	string search;
 	cout << (key == SEARCH_KEY::AUTHOR ? "Enter author's name: " : "Enter book's name: ");
-	get_string_input(search, [&](const string& value) {
+	get_line_input(search, [=](const string& value) {
 		return regex_match(value, regex((key == SEARCH_KEY::AUTHOR) ? book::s_author_sample : book::s_name_sample));
 		}, "Wrong name format, please try again: ");
 	
@@ -65,7 +65,7 @@ void BookStore::Search(SEARCH_KEY key) const {
 void BookStore::Add() {
 	book add;
 	cout << "Enter book's name: ";
-	get_string_input(add.name, [](const string& value) {
+	get_line_input(add.name, [](const string& value) {
 		return regex_match(value, regex(book::s_name_sample));
 		}, "Wrong name format, please try again: ");
 	cout << "Enter book's quantity: ";
@@ -81,17 +81,16 @@ void BookStore::Add() {
 			message << "Added " << add.stock << " products to existing book (" << b.name << ") successfully";
 			prompt_message(message.str());
 
-			SyncWithData();
 			return;
 		}
 	}
 	
 	cout << "Enter book's author: ";
-	get_string_input(add.author, [](const string& value) {
+	get_line_input(add.author, [](const string& value) {
 		return regex_match(value, regex(book::s_author_sample));
 		}, "Wrong name format, please try again: ");
 	cout << "Enter book's price: ";
-	get_input<int>(add.price, [](const float& value) {
+	get_input<unsigned int>(add.price, [](const float& value) {
 		return value >= 10000;
 		}, "Price must be bigger than 10000, please try again: ");
 
@@ -100,14 +99,12 @@ void BookStore::Add() {
 	stringstream message;
 	message << "Added new book (" << add.name << ") with " << add.stock << " products successfully";
 	prompt_message(message.str());
-
-	SyncWithData();
 }
 
 void BookStore::Remove() {
 	book remove;
 	cout << "Enter book's name: ";
-	get_string_input(remove.name, [](const string& value) {
+	get_line_input(remove.name, [](const string& value) {
 		return regex_match(value, regex(book::s_name_sample));
 		}, "Wrong name format, please try again: ");
 	cout << "Enter book's quantity: ";
@@ -124,7 +121,6 @@ void BookStore::Remove() {
 				message << "Removed " << remove.stock << " products from existing book(" << b.name << ") successfully";
 				prompt_message(message.str());
 
-				SyncWithData();
 				return;
 			}
 			else {
@@ -139,7 +135,7 @@ void BookStore::Remove() {
 	prompt_message("Book not found");
 }
 
-void BookStore::SyncWithData() const {
+void BookStore::SyncWithFile() const {
 	ofstream fout(s_book_store_path, ios::trunc);
 	if (!fout.is_open()) {
 		prompt_message("Fail to open BookStore.data");

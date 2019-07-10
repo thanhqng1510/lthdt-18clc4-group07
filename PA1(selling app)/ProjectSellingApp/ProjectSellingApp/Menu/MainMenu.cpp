@@ -15,16 +15,18 @@ void MainMenu::LogIn(LOG_IN_KEY key) {
 
 	if (key == LOG_IN_KEY::USERNAME) {
 		std::cout << "Enter username: ";
-		get_string_input(username, nullptr, "");
+		get_input<std::string>(username, nullptr, "");
 	}
 	else {
 		std::cout << "Enter email: ";
-		get_string_input(email, [](const std::string& value) {
+		get_input<std::string>(email, [](const std::string& value) {
 			return std::regex_match(value, std::regex(Account::s_email_sample));
 			}, "Wrong email format, please try again: ");
 	}
 	std::cout << "Enter password: ";
-	get_string_input(pass, nullptr, "");
+	get_input<std::string>(pass, [](const std::string& value) {
+		return std::regex_match(value, std::regex(Account::s_pass_sample));
+		}, "Password must have at least 8 characters, please try again: ");
 
 	std::pair<std::string, ACCOUNT_TYPE> path[3] = {
 		{ Account::s_customer_account_path, ACCOUNT_TYPE::CUSTOMER },  //Account p.first
@@ -46,6 +48,7 @@ void MainMenu::LogIn(LOG_IN_KEY key) {
 			ss >> cur_username >> cur_pass >> cur_email;
 			if ((key == LOG_IN_KEY::USERNAME && cur_username == username) || (key == LOG_IN_KEY::EMAIL && cur_email == email)) {
 				if (cur_pass == pass) {
+					prompt_message("Hello");
 					// Person person(Account(username, pass, email, p.second));
 				}
 				else {
@@ -64,11 +67,13 @@ void MainMenu::LogIn(LOG_IN_KEY key) {
 void MainMenu::CreateAccount() {
 	std::string username, pass, email;
 	std::cout << "Enter username: ";
-	get_string_input(username, nullptr, "");
+	get_input<std::string>(username, nullptr, "");
 	std::cout << "Enter password: ";
-	get_string_input(pass, nullptr, "");
+	get_input<std::string>(pass, [](const std::string& value) {
+		return std::regex_match(value, std::regex(Account::s_pass_sample));
+		}, "Password must have at least 8 characters, please try again: ");
 	std::cout << "Enter email: ";
-	get_string_input(email, [](const std::string& value) {
+	get_input<std::string>(email, [](const std::string& value) {
 		return std::regex_match(value, std::regex(Account::s_email_sample));
 		}, "Wrong email format, please try again: ");
 

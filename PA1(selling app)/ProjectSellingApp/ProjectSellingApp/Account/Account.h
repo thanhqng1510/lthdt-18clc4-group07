@@ -9,15 +9,16 @@ enum class ACCOUNT_TYPE {
 };
 
 class Account {
-private:
-	std::string m_username, m_pass, m_email;
-	ACCOUNT_TYPE m_type;
-
 public:
 	static const std::string s_customer_account_path;
 	static const std::string s_manager_account_path;
 	static const std::string s_seller_account_path;
+	static const std::string s_pass_sample;
 	static const std::string s_email_sample;
+
+private:
+	std::string m_username, m_pass, m_email;
+	ACCOUNT_TYPE m_type;
 
 public:
 	// Assume that all parameters are valid
@@ -29,6 +30,5 @@ public:
 		return m_type;
 	}
 
-public:
 	void UpdatePassword();
 };

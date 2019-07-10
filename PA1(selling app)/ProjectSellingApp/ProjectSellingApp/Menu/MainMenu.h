@@ -7,12 +7,12 @@ enum class LOG_IN_KEY {
 
 class MainMenu {
 private:
-	unsigned int m_option;
-
-private:
 	// Log in with username or email
 	static void LogIn(LOG_IN_KEY key);
 	static void CreateAccount();
+
+private:
+	unsigned int m_option;
 
 public:
 	inline MainMenu() : m_option(0) {}

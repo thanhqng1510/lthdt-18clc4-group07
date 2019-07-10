@@ -8,8 +8,7 @@ struct book {
 	static const string s_name_sample;
 
 	string author, name;
-	int price;
-	unsigned int stock;
+	unsigned int price, stock;
 
 	friend ostream& operator << (ostream& stream, const book& b);
 };
@@ -20,20 +19,15 @@ enum class SEARCH_KEY {
 };
 
 class BookStore {
+public:
+	static const std::string s_book_store_path;
+
 private:
 	vector<book> m_book_store;
 
 public:
-	static const std::string s_book_store_path;
-
-public:
 	// Create a bookstore for further work
 	BookStore();
-
-	// Sync with file
-	inline ~BookStore() {
-		SyncWithData();
-	}
 
 public:
 	// Assume that index is valid
@@ -54,7 +48,9 @@ public:
 	void Search(SEARCH_KEY key) const;
 	void Add();
 	void Remove();
-	void SyncWithData() const;
+
+	// Update file with vector
+	void SyncWithFile() const;
 	// string GetMostSell();
 	// string GetRecentSell();
 };

@@ -1,6 +1,6 @@
 #include "Util.h"
 
-void get_string_input(std::string& input, std::function<bool(const std::string& value)> is_valid, const std::string& error_message) {
+void get_line_input(std::string& input, std::function<bool(const std::string& value)> is_valid, const std::string& error_message) {
 	while (!getline(std::cin, input, '\n') || (is_valid != nullptr && !is_valid(input))) {
 		input.clear();
 		if (!std::cin)
