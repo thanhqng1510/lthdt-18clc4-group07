@@ -1145,7 +1145,7 @@
 											"top": 564,
 											"width": 115.26708984375,
 											"height": 13,
-											"text": "+price: int",
+											"text": "+price: unsigned int",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1561,7 +1561,7 @@
 											"top": 421,
 											"width": 177.41064453125,
 											"height": 13,
-											"text": "+SyncWithData()",
+											"text": "+SyncWithFile()",
 											"horizontalAlignment": 0
 										},
 										{
@@ -6806,7 +6806,7 @@
 								"$ref": "AAAAAAFrq9KPiwEQpo0="
 							},
 							"name": "price",
-							"type": "int"
+							"type": "unsigned int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -6910,7 +6910,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFrq9PqjAMFJNA="
 							},
-							"name": "SyncWithData"
+							"name": "SyncWithFile"
 						},
 						{
 							"_type": "UMLOperation",
@@ -7485,6 +7485,7 @@
 								"$ref": "AAAAAAFr1CtxlZD7eGs="
 							},
 							"name": "AUTHOR",
+							"type": "",
 							"defaultValue": "0"
 						},
 						{
@@ -7494,6 +7495,7 @@
 								"$ref": "AAAAAAFr1CtxlZD7eGs="
 							},
 							"name": "NAME",
+							"type": "",
 							"defaultValue": "1"
 						}
 					]

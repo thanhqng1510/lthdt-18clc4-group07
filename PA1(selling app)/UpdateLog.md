@@ -13,3 +13,6 @@
 * Change book::price from float to int in BookStore.h.
 * Add regex, SyncWithData function for class BookStore.
 
+### 10/07/2019, Thanh:
+* Add regex for pass in class Account.
+

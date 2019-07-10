@@ -13,8 +13,8 @@ public:
 	static const std::string s_customer_account_path;
 	static const std::string s_manager_account_path;
 	static const std::string s_seller_account_path;
-	static const std::string s_pass_sample;
-	static const std::string s_email_sample;
+	static const std::string s_pass_pattern;
+	static const std::string s_email_pattern;
 
 private:
 	std::string m_username, m_pass, m_email;

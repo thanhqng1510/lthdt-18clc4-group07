@@ -5,7 +5,7 @@
 #include <regex>
 
 #include "MainMenu.h"
-#include "../Util.h"
+#include "../Utility/Util.h"
 #include "../Account/Account.h"
 #include "../Person/Person.h"
 
@@ -20,12 +20,12 @@ void MainMenu::LogIn(LOG_IN_KEY key) {
 	else {
 		std::cout << "Enter email: ";
 		get_input<std::string>(email, [](const std::string& value) {
-			return std::regex_match(value, std::regex(Account::s_email_sample));
+			return std::regex_match(value, std::regex(Account::s_email_pattern));
 			}, "Wrong email format, please try again: ");
 	}
 	std::cout << "Enter password: ";
 	get_input<std::string>(pass, [](const std::string& value) {
-		return std::regex_match(value, std::regex(Account::s_pass_sample));
+		return std::regex_match(value, std::regex(Account::s_pass_pattern));
 		}, "Password must have at least 8 characters, please try again: ");
 
 	std::pair<std::string, ACCOUNT_TYPE> path[3] = {
@@ -70,11 +70,11 @@ void MainMenu::CreateAccount() {
 	get_input<std::string>(username, nullptr, "");
 	std::cout << "Enter password: ";
 	get_input<std::string>(pass, [](const std::string& value) {
-		return std::regex_match(value, std::regex(Account::s_pass_sample));
+		return std::regex_match(value, std::regex(Account::s_pass_pattern));
 		}, "Password must have at least 8 characters, please try again: ");
 	std::cout << "Enter email: ";
 	get_input<std::string>(email, [](const std::string& value) {
-		return std::regex_match(value, std::regex(Account::s_email_sample));
+		return std::regex_match(value, std::regex(Account::s_email_pattern));
 		}, "Wrong email format, please try again: ");
 
 	std::ifstream fin("Account/Data/CustomerAccount.data");

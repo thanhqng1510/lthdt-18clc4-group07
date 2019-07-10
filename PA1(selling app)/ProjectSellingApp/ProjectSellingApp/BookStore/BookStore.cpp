@@ -3,10 +3,10 @@
 #include <regex>
 
 #include "BookStore.h"
-#include "../Util.h"
+#include "../Utility/Util.h"
 
-const string book::s_author_sample = "([A-Z][a-z]*( [A-Z][a-z]*)*)";
-const string book::s_name_sample = "([A-Z0-9]+[a-z0-9]*( [A-Z0-9]+[a-z0-9]*)*)";
+const string book::s_author_pattern = "([A-Z][a-z]*( [A-Z][a-z]*)*)";
+const string book::s_name_pattern = "([A-Z0-9]+[a-z0-9]*( [A-Z0-9]+[a-z0-9]*)*)";
 
 ostream& operator << (ostream& stream, const book& b) {
 	return stream << "------------------------\n"
@@ -47,7 +47,7 @@ void BookStore::Search(SEARCH_KEY key) const {
 	string search;
 	cout << (key == SEARCH_KEY::AUTHOR ? "Enter author's name: " : "Enter book's name: ");
 	get_line_input(search, [=](const string& value) {
-		return regex_match(value, regex((key == SEARCH_KEY::AUTHOR) ? book::s_author_sample : book::s_name_sample));
+		return regex_match(value, regex((key == SEARCH_KEY::AUTHOR) ? book::s_author_pattern : book::s_name_pattern));
 		}, "Wrong name format, please try again: ");
 	
 	bool is_found = false;
@@ -66,7 +66,7 @@ void BookStore::Add() {
 	book add;
 	cout << "Enter book's name: ";
 	get_line_input(add.name, [](const string& value) {
-		return regex_match(value, regex(book::s_name_sample));
+		return regex_match(value, regex(book::s_name_pattern));
 		}, "Wrong name format, please try again: ");
 	cout << "Enter book's quantity: ";
 	get_input<unsigned int>(add.stock, [](const unsigned int& value) {
@@ -87,7 +87,7 @@ void BookStore::Add() {
 	
 	cout << "Enter book's author: ";
 	get_line_input(add.author, [](const string& value) {
-		return regex_match(value, regex(book::s_author_sample));
+		return regex_match(value, regex(book::s_author_pattern));
 		}, "Wrong name format, please try again: ");
 	cout << "Enter book's price: ";
 	get_input<unsigned int>(add.price, [](const float& value) {
@@ -105,7 +105,7 @@ void BookStore::Remove() {
 	book remove;
 	cout << "Enter book's name: ";
 	get_line_input(remove.name, [](const string& value) {
-		return regex_match(value, regex(book::s_name_sample));
+		return regex_match(value, regex(book::s_name_pattern));
 		}, "Wrong name format, please try again: ");
 	cout << "Enter book's quantity: ";
 	get_input<unsigned int>(remove.stock, [](const unsigned int& value) {

@@ -1,5 +1,5 @@
 #include "Menu/MainMenu.h"
-#include "Util.h"
+#include "Utility/Util.h"
 
 int main() {
 	MainMenu main_menu;

@@ -1,11 +1,11 @@
-#include<string>
-#include<vector>
+#include <string>
+#include <vector>
 #include <iostream>
 using namespace std;
 
 struct book {
-	static const string s_author_sample;
-	static const string s_name_sample;
+	static const string s_author_pattern;
+	static const string s_name_pattern;
 
 	string author, name;
 	unsigned int price, stock;
