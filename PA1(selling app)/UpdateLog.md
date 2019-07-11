@@ -16,3 +16,5 @@
 ### 10/07/2019, Thanh:
 * Add regex for pass in class Account.
 
+### 11/07/2019, Thao:
+* Change class BookStore from vector to unordered_map.

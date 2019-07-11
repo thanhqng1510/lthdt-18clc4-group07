@@ -7,7 +7,7 @@
 const std::string Account::s_customer_account_path = "Account/Data/CustomerAccount.data";
 const std::string Account::s_manager_account_path = "Account/Data/ManagerAccount.data";
 const std::string Account::s_seller_account_path = "Account/Data/SellerAccount.data";
-const std::string Account::s_pass_pattern = "([a-zA-Z0-9!@#$%^&*<>?]{8,})";
+const std::string Account::s_pass_pattern = "([a-zA-Z0-9!@#$%^&*<>?]{4,})";
 const std::string Account::s_email_pattern = "([a-zA-Z0-9_\.]+@[a-zA-Z]+(\.[a-zA-Z]+)+)";
 
 void Account::UpdatePassword() {
@@ -15,13 +15,13 @@ void Account::UpdatePassword() {
 	std::cout << "Enter new password: ";
 	get_input<std::string>(new_pass, [](const std::string& value) {
 		return std::regex_match(value, std::regex(s_pass_pattern));
-		}, "Password must have at least 8 characters, please try again: ");	
+	}, "Password must have at least 4 characters, please try again: ");
 
 	std::cout << "Enter current password to confirm: ";
 	get_input<std::string>(pass, [](const std::string& value) {
 		return std::regex_match(value, std::regex(s_pass_pattern));
-		}, "Password must have at least 8 characters, please try again: ");
-	
+	}, "Password must have at least 4 characters, please try again: ");
+
 	if (pass != m_pass) {
 		prompt_message("Wrong password");
 		return;

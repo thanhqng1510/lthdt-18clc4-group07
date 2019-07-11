@@ -1,134 +1,139 @@
-#include"BookStore.h"
+#include <fstream>
+#include <sstream>
+#include <regex>
 
+#include "BookStore.h"
+#include "../Utility/Util.h"
 
-BookStore::BookStore()
-{
-	ifstream fin;
-	fin.open("bookStore.txt");
-	Book Temp;
-	string Pe;
-	string Sk;
-	while (getline(fin, Temp.name, ','))
-	{
-		getline(fin, Temp.author, ',');
-		getline(fin, Pe, ',');
-		Temp.price = (int)atof(Pe.c_str());
-		getline(fin, Sk);
-		Temp.stock = (unsigned int)atof(Sk.c_str());
-		m_book_store.insert({ Temp.name,Temp });
+const string book::s_author_pattern = "([A-Z][a-z]*( [A-Z][a-z]*)*)";
+const string book::s_name_pattern = "([A-Z0-9]+[a-z0-9]*( [A-Z0-9]+[a-z0-9]*)*)";
+
+ostream& operator << (ostream& stream, const book& b) {
+	return stream << "------------------------\n"
+		          << "Author: " << b.author << "\n"
+		          << "Name: " << b.name << "\n"
+		          << "Price: " << b.price << "\n"
+		          << "Stock: " << b.stock << "\n"
+				  << (b.stock == 0 ? "OUT OF ORDER\n" : "")
+	              << "------------------------";
+}
+
+const std::string BookStore::s_book_store_path = "BookStore/Data/BookStore.data";
+
+void BookStore::Search(SEARCH_KEY key) const {
+	string search;
+	cout << (key == SEARCH_KEY::AUTHOR ? "Enter author's name: " : "Enter book's name: ");
+	get_line_input(search, [=](const string& value) {
+		return regex_match(value, regex((key == SEARCH_KEY::AUTHOR) ? book::s_author_pattern : book::s_name_pattern));
+	}, "Wrong name format, please try again: ");
+
+	bool is_found = false;
+	if (key == SEARCH_KEY::NAME) {
+		if (m_book_store.find(search) != m_book_store.end())
+			is_found = true;
+			cout << m_book_store.at(search) << endl;
 	}
-	unordered_map<string,Book>::iterator V = m_book_store.begin();
-	for (; V != m_book_store.end(); V++)
-	{
-		cout << V->second.name<<" "
-			<< V->second.author<<" "
-			<< V->second.price<<" "
-			<< V->second.stock << endl;
+	else
+		for (const auto& b : m_book_store)
+			if ((key == SEARCH_KEY::AUTHOR && b.second.author == search) || (key == SEARCH_KEY::NAME && b.first == search)) {
+				is_found = true;
+				cout << b.second << endl;
+			}
+
+	if (!is_found)
+		prompt_message("Book not found");
+}
+
+void BookStore::Add() {
+	book add;
+	cout << "Enter book's name: ";
+	get_line_input(add.name, [](const string& value) {
+		return regex_match(value, regex(book::s_name_pattern));
+	}, "Wrong name format, please try again: ");
+
+	cout << "Enter book's quantity: ";
+	get_input<unsigned int>(add.stock, [](const unsigned int& value) {
+		return value >= 0;
+	}, "Quantity must be positive, please try again: ");
+
+	if (m_book_store.find(add.name) != m_book_store.end()) {
+		m_book_store.at(add.name).stock += add.stock;
+
+		stringstream message;
+		message << "Added " << add.stock << " products to existing book (" << add.name << ") successfully";
+		prompt_message(message.str());
+
+		return;
 	}
-	fin.close();
+
+	cout << "Enter book's author: ";
+	get_line_input(add.author, [](const string& value) {
+		return regex_match(value, regex(book::s_author_pattern));
+	}, "Wrong name format, please try again: ");
+
+	cout << "Enter book's price: ";
+	get_input<unsigned int>(add.price, [](const float& value) {
+		return value >= 10000;
+	}, "Price must be bigger than 10000, please try again: ");
+
+	m_book_store.insert({add.name, add});
+
+	stringstream message;
+	message << "Added new book (" << add.name << ") with " << add.stock << " products successfully";
+	prompt_message(message.str());
 }
 
-void BookStore::Search()
-{
-	int x = 0;
-	do {
-		int temp = 0;
-		unordered_map<string,Book>::iterator V = m_book_store.begin();
-		string BookName;
-		cout << "Please enter book's name: ";
-		cin >> BookName;
-		while (V != m_book_store.end())
-		{
-			if ((V)->second.name == BookName)
-			{
-				cout << "Yes" << endl;
-				temp++;
-			}
-			V++;
+void BookStore::Remove() {
+	book remove;
+	cout << "Enter book's name: ";
+	get_line_input(remove.name, [](const string& value) {
+		return regex_match(value, regex(book::s_name_pattern));
+	}, "Wrong name format, please try again: ");
+
+	cout << "Enter book's quantity: ";
+	get_input<unsigned int>(remove.stock, [](const unsigned int& value) {
+		return value > 0;
+	}, "Quantity must be positive, please try again: ");
+
+	if (m_book_store.find(remove.name) != m_book_store.end()) {
+		if (book& b = m_book_store.at(remove.name); b.stock >= remove.stock) {
+			b.stock -= remove.stock;
+
+			stringstream message;
+			message << "Removed " << remove.stock << " products from existing book (" << b.name << ") successfully";
+			prompt_message(message.str());
+
+			return;
 		}
-		if (temp == 0)
-			cout << "No" << endl;
-		cout << "Do you want search book another" << "1:Yes/2:No: ";
-		cin >> x;
-	} while (x == 1);
+		else {
+			stringstream message;
+			message << "Book " << b.name << " has " << b.stock << " products but have to remove " << remove.stock << " products";
+			prompt_message(message.str());
+
+			return;
+		}
+	}
+
+	prompt_message("Book not found");
 }
 
-void BookStore::Add()
-{
-	int x = 0;
-	do {
-		Book B;
-		cout << "Please enter book's name you want add: ";
-		cin >> B.name;
-		cout << "Please enter number book you want add in stock: ";
-		cin >> B.stock;
-		int temp = 0;
-		for (auto i=m_book_store.begin();i!=m_book_store.end();i++)
-		{
-			if (i->second.name == B.name)
-			{
-				i->second.stock += B.stock;
-				temp++;
-				break;
-			}
-		}
-		if (temp == 0)
-		{
-			cout << "Please enter book's author: ";
-			cin >> B.author;
-			cout << "Please enter book's price: ";
-			cin >> B.price;
-			m_book_store.insert({B.name, B });
-		}
-		cout << "Do you want add book another " << "1:Yes/2:No: ";
-		cin >> x;
-	} while (x == 1);
+void BookStore::SyncWithFile() const {
+	ofstream fout(s_book_store_path, ios::trunc);
+	if (!fout.is_open()) {
+		prompt_message("Fail to open BookStore.data");
+		return;
+	}
+
+	for (const auto& b : m_book_store)
+		fout << b.second.name << "," << b.second.author << "," << b.second.price << "," << b.second.stock << "\n";
+
+	fout.close();
 }
 
-void BookStore::Remove()
-{
-	int x = 0;
-	do {
-		int temp = 0;
-		Book B;
-		cout << "Please enter book's name you want remove: ";
-		cin >> B.name;
-		cout << "Please enter number book you want remove in stock: ";
-		cin >> B.stock;
-		for (auto i = m_book_store.begin(); i != m_book_store.end(); i++)
-		{
-			if (i->second.name == B.name && B.stock <= i->second.stock)
-			{
-				i->second.stock -= B.stock;
-				temp++;
-				break;
-			}
-		}
-		if (temp == 0)
-			cout << "This book not remove" << endl;
-		cout << "Do you want remove book another " << "1:Yes/2:No: ";
-		cin >> x;
-	} while (x == 1);
-}
-
-//string BookStore::GetMostSell()
-//{
+//string BookStore::GetMostSell() {
 //	return m_book_store[2].name;
 //}
 //
-//string BookStore::GetRecentSell()
-//{
+//string BookStore::GetRecentSell() {
 //	return m_book_store[0].name;
 //}
-
-void BookStore::Output()
-{
-	unordered_map<string,Book>::iterator V = m_book_store.begin();
-	for (; V != m_book_store.end(); V++)
-	{
-		cout << (V)->second.name << " "
-			<< (V)->second.author << " "
-			<< (V)->second.price << " "
-			<< (V)->second.stock << endl;
-	}
-}

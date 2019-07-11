@@ -21,13 +21,13 @@ void MainMenu::LogIn(LOG_IN_KEY key) {
 		std::cout << "Enter email: ";
 		get_input<std::string>(email, [](const std::string& value) {
 			return std::regex_match(value, std::regex(Account::s_email_pattern));
-			}, "Wrong email format, please try again: ");
+		}, "Wrong email format, please try again: ");
 	}
 
 	std::cout << "Enter password: ";
 	get_input<std::string>(pass, [](const std::string& value) {
 		return std::regex_match(value, std::regex(Account::s_pass_pattern));
-		}, "Password must have at least 8 characters, please try again: ");
+	}, "Password must have at least 4 characters, please try again: ");
 
 	std::pair<std::string, ACCOUNT_TYPE> path[3] = {
 		{ Account::s_customer_account_path, ACCOUNT_TYPE::CUSTOMER },  //Account p.first
@@ -41,6 +41,7 @@ void MainMenu::LogIn(LOG_IN_KEY key) {
 			prompt_message("Fail to open " + p.first);
 			continue;
 		}
+
 		std::string line;
 		while (getline(fin, line, '\n')) {
 			std::stringstream ss(std::move(line));
@@ -73,12 +74,12 @@ void MainMenu::CreateAccount() {
 	std::cout << "Enter password: ";
 	get_input<std::string>(pass, [](const std::string& value) {
 		return std::regex_match(value, std::regex(Account::s_pass_pattern));
-		}, "Password must have at least 8 characters, please try again: ");
+	}, "Password must have at least 4 characters, please try again: ");
 
 	std::cout << "Enter email: ";
 	get_input<std::string>(email, [](const std::string& value) {
 		return std::regex_match(value, std::regex(Account::s_email_pattern));
-		}, "Wrong email format, please try again: ");
+	}, "Wrong email format, please try again: ");
 
 	std::ifstream fin("Account/Data/CustomerAccount.data");
 	if (!fin.is_open()) {
@@ -115,6 +116,7 @@ void MainMenu::CreateAccount() {
 void MainMenu::Process() {
 	while (m_option != 4) {
 		system("cls");
+		system("clear");
 		std::cout << "Welcome\n";
 		std::cout << "1. Log in with email\n";
 		std::cout << "2. Log in with username\n";
@@ -124,7 +126,7 @@ void MainMenu::Process() {
 		std::cout << "Choose: ";
 		get_input<unsigned int>(m_option, [](const unsigned int& value) {
 			return value > 0 && value < 5;
-			}, "Option must be between 1 and 4, please try again: ");
+		}, "Option must be between 1 and 4, please try again: ");
 
 		switch (m_option) {
 		case 1:
