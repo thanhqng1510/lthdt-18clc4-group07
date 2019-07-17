@@ -1,4 +1,4 @@
-build=clang++ -Wall -std=c++17
+build=clang++ -std=c++17
 
 Output: Main.o Util.o Person.o MainMenu.o BookStore.o Account.o
 	$(build) $? -o Output
@@ -25,6 +25,6 @@ clear:
 	rm *.o
 	rm Utility/*.h.gch
 	rm Person/*.h.gch
-	rm Menu/*.h.gch
+	# rm Menu/*.h.gch
 	rm BookStore/*.h.gch
 	rm Account/*.h.gch

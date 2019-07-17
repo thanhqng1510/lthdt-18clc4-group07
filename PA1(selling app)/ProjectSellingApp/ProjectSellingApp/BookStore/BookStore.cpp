@@ -23,7 +23,7 @@ const std::string BookStore::s_book_store_path = "BookStore/Data/BookStore.data"
 void BookStore::Search(SEARCH_KEY key) const {
 	string search;
 	cout << (key == SEARCH_KEY::AUTHOR ? "Enter author's name: " : "Enter book's name: ");
-	get_line_input(search, [=](const string& value) {
+	get_line_input(search, [=](const string& value) -> bool {
 		return regex_match(value, regex((key == SEARCH_KEY::AUTHOR) ? book::s_author_pattern : book::s_name_pattern));
 	}, "Wrong name format, please try again: ");
 
@@ -47,12 +47,12 @@ void BookStore::Search(SEARCH_KEY key) const {
 void BookStore::Add() {
 	book add;
 	cout << "Enter book's name: ";
-	get_line_input(add.name, [](const string& value) {
+	get_line_input(add.name, [](const string& value) -> bool {
 		return regex_match(value, regex(book::s_name_pattern));
 	}, "Wrong name format, please try again: ");
 
 	cout << "Enter book's quantity: ";
-	get_input<unsigned int>(add.stock, [](const unsigned int& value) {
+	get_input<unsigned int>(add.stock, [](const unsigned int& value) -> bool {
 		return value >= 0;
 	}, "Quantity must be positive, please try again: ");
 
@@ -67,12 +67,12 @@ void BookStore::Add() {
 	}
 
 	cout << "Enter book's author: ";
-	get_line_input(add.author, [](const string& value) {
+	get_line_input(add.author, [](const string& value) -> bool {
 		return regex_match(value, regex(book::s_author_pattern));
 	}, "Wrong name format, please try again: ");
 
 	cout << "Enter book's price: ";
-	get_input<unsigned int>(add.price, [](const float& value) {
+	get_input<unsigned int>(add.price, [](const float& value) -> bool {
 		return value >= 10000;
 	}, "Price must be bigger than 10000, please try again: ");
 
@@ -86,12 +86,12 @@ void BookStore::Add() {
 void BookStore::Remove() {
 	book remove;
 	cout << "Enter book's name: ";
-	get_line_input(remove.name, [](const string& value) {
+	get_line_input(remove.name, [](const string& value) -> bool {
 		return regex_match(value, regex(book::s_name_pattern));
 	}, "Wrong name format, please try again: ");
 
 	cout << "Enter book's quantity: ";
-	get_input<unsigned int>(remove.stock, [](const unsigned int& value) {
+	get_input<unsigned int>(remove.stock, [](const unsigned int& value) -> bool {
 		return value > 0;
 	}, "Quantity must be positive, please try again: ");
 

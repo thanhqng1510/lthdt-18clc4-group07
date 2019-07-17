@@ -33,7 +33,7 @@ private:
 public:
 	// Create a bookstore for further work
 	inline BookStore() {
-		file_to_unordered_map<string, book>(s_book_store_path, m_book_store, [](pair<string, book>& value, string& line) {
+		file_to_unordered_map<string, book>(s_book_store_path, m_book_store, [](pair<string, book>& value, string& line) -> void {
 			vector<string> result;
 			parse_string(result, line, ",");
 			value = {result[0], { result[0], result[1], (unsigned int)stoi(result[2]), (unsigned int)stoi(result[3]) }};
@@ -54,7 +54,7 @@ public:
 	void Add();
 	void Remove();
 
-	// Update file with vector
+	// Update file with unordered_map
 	void SyncWithFile() const;
 	// string GetMostSell();
 	// string GetRecentSell();

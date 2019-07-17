@@ -10,8 +10,12 @@ protected:
 	Account m_account;
 	
 public:
-	Person(const Account& person);
-
+	inline Person(const Account& account) : m_account(account) {
+	ACCOUNT_TYPE type = account.GetType();
+	prompt_message((std::string)"Welcome " +
+		((type == ACCOUNT_TYPE::CUSTOMER) ? (std::string)"customer" :
+		(type == ACCOUNT_TYPE::MANAGER) ? (std::string)"manager" : (std::string)"seller"));
+}
 public:
 	inline void UpdateInfo() {
 		m_account.UpdatePassword();

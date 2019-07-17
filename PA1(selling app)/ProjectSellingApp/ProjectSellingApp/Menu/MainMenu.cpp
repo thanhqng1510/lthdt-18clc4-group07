@@ -15,17 +15,17 @@ void MainMenu::LogIn(LOG_IN_KEY key) {
 
 	if (key == LOG_IN_KEY::USERNAME) {
 		std::cout << "Enter username: ";
-		get_input<std::string>(username, nullptr, "");
+		get_input<std::string>(username, nullptr, "Please try again: ");
 	}
 	else {
 		std::cout << "Enter email: ";
-		get_input<std::string>(email, [](const std::string& value) {
+		get_input<std::string>(email, [](const std::string& value) -> bool {
 			return std::regex_match(value, std::regex(Account::s_email_pattern));
 		}, "Wrong email format, please try again: ");
 	}
 
 	std::cout << "Enter password: ";
-	get_input<std::string>(pass, [](const std::string& value) {
+	get_input<std::string>(pass, [](const std::string& value) -> bool {
 		return std::regex_match(value, std::regex(Account::s_pass_pattern));
 	}, "Password must have at least 4 characters, please try again: ");
 
@@ -69,15 +69,15 @@ void MainMenu::LogIn(LOG_IN_KEY key) {
 void MainMenu::CreateAccount() {
 	std::string username, pass, email;
 	std::cout << "Enter username: ";
-	get_input<std::string>(username, nullptr, "");
+	get_input<std::string>(username, nullptr, "Please try again: ");
 
 	std::cout << "Enter password: ";
-	get_input<std::string>(pass, [](const std::string& value) {
+	get_input<std::string>(pass, [](const std::string& value) -> bool {
 		return std::regex_match(value, std::regex(Account::s_pass_pattern));
 	}, "Password must have at least 4 characters, please try again: ");
 
 	std::cout << "Enter email: ";
-	get_input<std::string>(email, [](const std::string& value) {
+	get_input<std::string>(email, [](const std::string& value) -> bool {
 		return std::regex_match(value, std::regex(Account::s_email_pattern));
 	}, "Wrong email format, please try again: ");
 
@@ -124,7 +124,7 @@ void MainMenu::Process() {
 		std::cout << "4. Exit\n";
 
 		std::cout << "Choose: ";
-		get_input<unsigned int>(m_option, [](const unsigned int& value) {
+		get_input<unsigned int>(m_option, [](const unsigned int& value) -> bool {
 			return value > 0 && value < 5;
 		}, "Option must be between 1 and 4, please try again: ");
 

@@ -9,13 +9,16 @@
 #include <vector>
 
 // Print message to console and wait for user to press any key to continue
-void prompt_message(const std::string& message);
+inline void prompt_message(const std::string& message) {
+	std::cout << message << "\nPress any key to continue...";
+	std::cin.get();
+}
 
 // Function to get option input of any type from the user and check for error
 // Pass nullptr to isValid if you don't want to check further
 // Pass a string to error_message to prompt to user when an error occur
 template<typename T>
-void get_input(T& input, std::function<bool(const T& value)> is_valid, const std::string& error_message) {
+inline void get_input(T& input, std::function<bool(const T& value)> is_valid, const std::string& error_message) {
 	while (!(std::cin >> input) || (is_valid != nullptr && !is_valid(input))) {
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -34,7 +37,7 @@ void parse_string(std::vector<std::string>& result, const std::string& string, c
 
 // Convert a text file to an unordered_map of any type
 template<typename T, typename U>
-void file_to_unordered_map(const std::string& file_path, std::unordered_map<T, U>& input, std::function<void(std::pair<T, U>& value, std::string& line)> line_to_pair) {
+inline void file_to_unordered_map(const std::string& file_path, std::unordered_map<T, U>& input, std::function<void(std::pair<T, U>& value, std::string& line)> line_to_pair) {
 	std::ifstream fin(file_path);
 	if (!fin.is_open()) {
 		prompt_message("Fail to open " + file_path);

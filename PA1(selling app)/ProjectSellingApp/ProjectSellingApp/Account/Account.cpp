@@ -13,12 +13,12 @@ const std::string Account::s_email_pattern = "([a-zA-Z0-9_\.]+@[a-zA-Z]+(\.[a-zA
 void Account::UpdatePassword() {
 	std::string new_pass, pass;
 	std::cout << "Enter new password: ";
-	get_input<std::string>(new_pass, [](const std::string& value) {
+	get_input<std::string>(new_pass, [](const std::string& value) -> bool {
 		return std::regex_match(value, std::regex(s_pass_pattern));
 	}, "Password must have at least 4 characters, please try again: ");
 
 	std::cout << "Enter current password to confirm: ";
-	get_input<std::string>(pass, [](const std::string& value) {
+	get_input<std::string>(pass, [](const std::string& value) -> bool {
 		return std::regex_match(value, std::regex(s_pass_pattern));
 	}, "Password must have at least 4 characters, please try again: ");
 
