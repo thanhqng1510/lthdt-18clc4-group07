@@ -10,11 +10,11 @@ enum class ACCOUNT_TYPE {
 
 class Account {
 public:
-	static const std::string s_customer_account_path;
-	static const std::string s_manager_account_path;
-	static const std::string s_seller_account_path;
-	static const std::string s_pass_pattern;
-	static const std::string s_email_pattern;
+	inline static const std::string s_customer_account_path = "Account/Data/CustomerAccount.data";
+	inline static const std::string s_manager_account_path = "Account/Data/ManagerAccount.data";
+	inline static const std::string s_seller_account_path = "Account/Data/SellerAccount.data";
+	inline static const std::string s_pass_pattern = "([a-zA-Z0-9!@#$%^&*<>?]{4,})";
+	inline static const std::string s_email_pattern = "([a-zA-Z0-9_\.]+@[a-zA-Z]+(\.[a-zA-Z]+)+)";
 
 private:
 	std::string m_username, m_pass, m_email;

@@ -9,8 +9,8 @@
 using namespace std;
 
 struct book {
-	static const string s_author_pattern;
-	static const string s_name_pattern;
+	inline static const string book::s_author_pattern = "([A-Z][a-z]*( [A-Z][a-z]*)*)";
+	inline static const string book::s_name_pattern = "([A-Z0-9]+[a-z0-9]*( [A-Z0-9]+[a-z0-9]*)*)";
 
 	string name, author;
 	unsigned int price, stock;
@@ -36,7 +36,7 @@ public:
 		file_to_unordered_map<string, book>(s_book_store_path, m_book_store, [](pair<string, book>& value, string& line) -> void {
 			vector<string> result;
 			parse_string(result, line, ",");
-			value = {result[0], { result[0], result[1], (unsigned int)stoi(result[2]), (unsigned int)stoi(result[3]) }};
+			value = { result[0], { result[0], result[1], (unsigned int)stoi(result[2]), (unsigned int)stoi(result[3]) } };
 		});
 	}
 

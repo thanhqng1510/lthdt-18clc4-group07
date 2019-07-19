@@ -5,9 +5,6 @@
 #include "BookStore.h"
 #include "../Utility/Util.h"
 
-const string book::s_author_pattern = "([A-Z][a-z]*( [A-Z][a-z]*)*)";
-const string book::s_name_pattern = "([A-Z0-9]+[a-z0-9]*( [A-Z0-9]+[a-z0-9]*)*)";
-
 ostream& operator << (ostream& stream, const book& b) {
 	return stream << "------------------------\n"
 		          << "Author: " << b.author << "\n"

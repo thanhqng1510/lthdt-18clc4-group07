@@ -4,12 +4,6 @@
 #include "Account.h"
 #include "../Utility/Util.h"
 
-const std::string Account::s_customer_account_path = "Account/Data/CustomerAccount.data";
-const std::string Account::s_manager_account_path = "Account/Data/ManagerAccount.data";
-const std::string Account::s_seller_account_path = "Account/Data/SellerAccount.data";
-const std::string Account::s_pass_pattern = "([a-zA-Z0-9!@#$%^&*<>?]{4,})";
-const std::string Account::s_email_pattern = "([a-zA-Z0-9_\.]+@[a-zA-Z]+(\.[a-zA-Z]+)+)";
-
 void Account::UpdatePassword() {
 	std::string new_pass, pass;
 	std::cout << "Enter new password: ";

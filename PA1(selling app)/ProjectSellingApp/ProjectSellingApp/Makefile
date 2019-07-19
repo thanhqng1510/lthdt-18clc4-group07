@@ -1,6 +1,6 @@
 build=clang++ -std=c++17
 
-Output: Main.o Util.o Person.o MainMenu.o BookStore.o Account.o
+Output: Main.o Util.o Person.o Customer.o MainMenu.o BookStore.o Account.o
 	$(build) $? -o Output
 
 Main.o: Main.cpp Menu/MainMenu.cpp
@@ -10,6 +10,9 @@ Util.o: Utility/Util.h Utility/Util.cpp
 	$(build) -c $?
 
 Person.o: Person/Person.h Person/Person.cpp
+	$(build) -c $?
+
+Customer.o: Person/Customer.h Person/Customer.cpp
 	$(build) -c $?
 
 MainMenu.o: Menu/MainMenu.h Menu/MainMenu.cpp
