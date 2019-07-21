@@ -13,11 +13,11 @@ private:
     std::unordered_map <std::string, Account> m_list_customer;
 
 public:
+    Customer() = default;
     Customer(const Account& account);
-    ~Customer();
+    //~Customer();
 
 public:
-    void DeleteAccount();
-    void SyncWithFile();
-
+    //void DeleteAccount();
+    //void SyncWithFile();
 };

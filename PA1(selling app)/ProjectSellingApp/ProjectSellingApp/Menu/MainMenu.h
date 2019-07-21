@@ -15,7 +15,7 @@ private:
 	unsigned int m_option;
 
 public:
-	inline MainMenu() : m_option(0) {}
+	MainMenu();
 
 public:
 	// Show all option available and ask for user's input

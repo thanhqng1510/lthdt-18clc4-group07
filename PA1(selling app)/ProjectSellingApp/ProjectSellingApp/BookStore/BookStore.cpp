@@ -5,17 +5,37 @@
 #include "BookStore.h"
 #include "../Utility/Util.h"
 
-ostream& operator << (ostream& stream, const book& b) {
-	return stream << "------------------------\n"
-		          << "Author: " << b.author << "\n"
-		          << "Name: " << b.name << "\n"
-		          << "Price: " << b.price << "\n"
-		          << "Stock: " << b.stock << "\n"
-				  << (b.stock == 0 ? "OUT OF ORDER\n" : "")
-	              << "------------------------";
+const string book::s_author_pattern = "([A-Z][a-z]*( [A-Z][a-z]*)*)";
+const string book::s_name_pattern = "([A-Z0-9]+[a-z0-9]*( [A-Z0-9]+[a-z0-9]*)*)";
+
+void book::Output() const {
+	cout << "------------------------\n"
+		 << "Author: " << author << "\n"
+		 << "Name: " << name << "\n"
+		 << "Price: " << price << "\n"
+		 << "Stock: " << stock << "\n"
+		 << (stock == 0 ? "OUT OF ORDER\n" : "")
+	     << "------------------------";
 }
 
 const std::string BookStore::s_book_store_path = "BookStore/Data/BookStore.data";
+
+BookStore::BookStore() {
+	file_to_unordered_map<string, book>(s_book_store_path, m_book_store, [](pair<string, book>& value, string& line) -> void {
+		vector<string> result;
+		parse_string(result, line, ",");
+		value = { result[0], { result[0], result[1], (unsigned int)stoi(result[2]), (unsigned int)stoi(result[3]) } };
+	});
+}
+
+BookStore::~BookStore() {
+	SyncWithFile();
+}
+
+void BookStore::PrintAll() const {
+	for (const auto& b : m_book_store)
+		b.second.Output();
+}
 
 void BookStore::Search(SEARCH_KEY key) const {
 	string search;
@@ -28,13 +48,13 @@ void BookStore::Search(SEARCH_KEY key) const {
 	if (key == SEARCH_KEY::NAME) {
 		if (m_book_store.find(search) != m_book_store.end())
 			is_found = true;
-			cout << m_book_store.at(search) << endl;
+			m_book_store.at(search).Output();
 	}
 	else
 		for (const auto& b : m_book_store)
 			if ((key == SEARCH_KEY::AUTHOR && b.second.author == search) || (key == SEARCH_KEY::NAME && b.first == search)) {
 				is_found = true;
-				cout << b.second << endl;
+				b.second.Output();
 			}
 
 	if (!is_found)

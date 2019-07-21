@@ -2,20 +2,17 @@
 
 #include <string>
 #include <unordered_map>
-#include <iostream>
-#include <sstream>
 
-#include "../Utility/Util.h"
 using namespace std;
 
 struct book {
-	inline static const string book::s_author_pattern = "([A-Z][a-z]*( [A-Z][a-z]*)*)";
-	inline static const string book::s_name_pattern = "([A-Z0-9]+[a-z0-9]*( [A-Z0-9]+[a-z0-9]*)*)";
+	static const string s_author_pattern;
+	static const string s_name_pattern;
 
 	string name, author;
 	unsigned int price, stock;
 
-	friend ostream& operator << (ostream& stream, const book& b);
+	void Output() const;
 };
 
 enum class SEARCH_KEY {
@@ -32,24 +29,11 @@ private:
 
 public:
 	// Create a bookstore for further work
-	inline BookStore() {
-		file_to_unordered_map<string, book>(s_book_store_path, m_book_store, [](pair<string, book>& value, string& line) -> void {
-			vector<string> result;
-			parse_string(result, line, ",");
-			value = { result[0], { result[0], result[1], (unsigned int)stoi(result[2]), (unsigned int)stoi(result[3]) } };
-		});
-	}
-
-	inline ~BookStore() {
-		SyncWithFile();
-	}
+	BookStore();
+	~BookStore();
 
 public:
-	inline void PrintAll() const {
-		for (const auto& b : m_book_store)
-			cout << b.second << endl;
-	}
-
+	void PrintAll() const;
 	void Search(SEARCH_KEY key) const;
 	void Add();
 	void Remove();

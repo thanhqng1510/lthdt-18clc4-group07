@@ -1,18 +1,15 @@
 #pragma once
 
-#include <iostream>
 #include <string>
-#include <numeric>
 #include <functional>
+#include <limits>
+#include <iostream>
 #include <fstream>
 #include <unordered_map>
 #include <vector>
 
 // Print message to console and wait for user to press any key to continue
-inline void prompt_message(const std::string& message) {
-	std::cout << message << "\nPress any key to continue...";
-	std::cin.get();
-}
+void prompt_message(const std::string& message);
 
 // Function to get option input of any type from the user and check for error
 // Pass nullptr to isValid if you don't want to check further
@@ -48,7 +45,7 @@ inline void file_to_unordered_map(const std::string& file_path, std::unordered_m
 	while (getline(fin, line, '\n')) {
 		std::pair<T, U> p;
 		line_to_pair(p, line);
-		input.insert(p);
+		input.insert(std::move(p));
 	}
 
 	fin.close();
