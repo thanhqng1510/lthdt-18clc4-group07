@@ -56,12 +56,18 @@ void Manager::CreateSeller() {
     }
 
     m_seller_list.insert({ username, { username, pass, email, ACCOUNT_TYPE::SELLER } });
+
+    prompt_message("Seller " + username + " created successfully");
 }
 
 void Manager::DeleteSeller(const std::string& name) {
     m_seller_list.erase(std::move(name));
+
+    prompt_message("Seller " + name + " deleted successfully");
 }
 
 void Manager::DeleteCustomer(const std::string& name) {
     m_customer_list.erase(std::move(name));
+
+    prompt_message("Customer " + name + " deleted successfully");
 }

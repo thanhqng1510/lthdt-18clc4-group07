@@ -3,9 +3,9 @@
 #include "PersonInterface.h"
 #include "../Utility/Util.h"
 
-const std::string PersonInterface::s_customer_account_path = "Account/Data/CustomerAccount.data";
-const std::string PersonInterface::s_seller_account_path = "Account/Data/SellerAccount.data";
-const std::string PersonInterface::s_manager_account_path = "Account/Data/ManagerAccount.data";
+const std::string PersonInterface::s_customer_account_path = "ProjectSellingApp/Account/Data/CustomerAccount.data";
+const std::string PersonInterface::s_seller_account_path = "ProjectSellingApp/Account/Data/SellerAccount.data";
+const std::string PersonInterface::s_manager_account_path = "ProjectSellingApp/Account/Data/ManagerAccount.data";
 
 PersonInterface::PersonInterface(const Account& account) 
 : m_account(nullptr), m_self_account_path(account.m_type == ACCOUNT_TYPE::CUSTOMER ? &s_customer_account_path : account.m_type == ACCOUNT_TYPE::MANAGER ? &s_manager_account_path : &s_seller_account_path) { 
@@ -27,6 +27,7 @@ PersonInterface::~PersonInterface() {
 
 void PersonInterface::ChangeUsername() {
     std::string new_username;
+    std::cout << "Enter new username: ";
     get_input<std::string>(new_username, nullptr, "Please try again");
 
     std::string cur_pass;
@@ -67,6 +68,7 @@ void PersonInterface::ChangePassword() {
 
 void PersonInterface::ChangeEmail() {
     std::string new_email;
+    std::cout << "Enter new email: ";
     Account::GetEmailInput(new_email);
 
     std::string cur_pass;

@@ -7,9 +7,7 @@
 #include "MainMenu.h"
 #include "../Utility/Util.h"
 #include "../Account/Account.h"
-#include "../Person/Customer.h"
-#include "../Person/Manager.h"
-#include "../Person/Seller.h"
+#include "../Person/PersonInterface.h"
 
 
 void MainMenu::LogIn(LOG_IN_KEY key) {
@@ -28,9 +26,9 @@ void MainMenu::LogIn(LOG_IN_KEY key) {
 	Account::GetPasswordInput(pass);
 
 	std::pair<std::string, ACCOUNT_TYPE> path[3] = {
-		{ Customer::s_customer_account_path, ACCOUNT_TYPE::CUSTOMER },  //Account p.first
-		{ Manager::s_manager_account_path, ACCOUNT_TYPE::MANAGER },    //ACCOUNT_TYPE p.second
-		{ Seller::s_seller_account_path, ACCOUNT_TYPE::SELLER }
+		{ PersonInterface::s_customer_account_path, ACCOUNT_TYPE::CUSTOMER },  //Account p.first
+		{ PersonInterface::s_manager_account_path, ACCOUNT_TYPE::MANAGER },    //ACCOUNT_TYPE p.second
+		{ PersonInterface::s_seller_account_path, ACCOUNT_TYPE::SELLER }
 	};
 
 	for (const std::pair<std::string, ACCOUNT_TYPE>& p : path) {
@@ -75,9 +73,9 @@ void MainMenu::CreateAccount() {
 	std::cout << "Enter email: ";
 	Account::GetEmailInput(email);
 
-	std::ifstream fin("Account/Data/CustomerAccount.data");
+	std::ifstream fin(PersonInterface::s_customer_account_path);
 	if (!fin.is_open()) {
-		prompt_message("Fail to open CustomerAccount.data");
+		prompt_message("Fail to open " + PersonInterface::s_customer_account_path);
 		return;
 	}
 
@@ -100,7 +98,7 @@ void MainMenu::CreateAccount() {
 	}
 	fin.close();
 
-	std::ofstream fout("Account/Data/CustomerAccount.data", std::ios::app);
+	std::ofstream fout(PersonInterface::s_customer_account_path, std::ios::app);
 	fout << "\n" << username << " " << pass << " " << email;
 	fout.close();
 

@@ -46,7 +46,7 @@ std::string book::ToString() const {
 	return std::move(name + "," + author + "," + std::to_string(price) + "," + std::to_string(stock));
 }
 
-const std::string BookStore::s_book_store_path = "BookStore/Data/BookStore.data";
+const std::string BookStore::s_book_store_path = "ProjectSellingApp/BookStore/Data/BookStore.data";
 
 BookStore::BookStore() {
 	file_to_unordered_map<std::string, book>(s_book_store_path, m_book_store, [](std::pair<std::string, book>& value, const std::string& line) -> void {
