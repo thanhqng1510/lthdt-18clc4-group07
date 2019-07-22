@@ -19,11 +19,11 @@ void parse_string(std::vector<std::string>& result, const std::string& string, c
     size_t found_pos = string.find(sep, start_pos);
     while (found_pos != std::string::npos) {
         if (found_pos != 0)
-            result.emplace_back(string.substr(start_pos, found_pos - start_pos));
+            result.emplace_back(std::move(string.substr(start_pos, found_pos - start_pos)));
 
         start_pos = found_pos + sep.length();
         found_pos = string.find(sep, start_pos);
     }
     if (start_pos < string.size())
-        result.emplace_back(string.substr(start_pos, found_pos - start_pos));
+        result.emplace_back(std::move(string.substr(start_pos, found_pos - start_pos)));
 }

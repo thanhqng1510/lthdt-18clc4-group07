@@ -16,18 +16,35 @@ CMakeFiles/Output.dir/ProjectSellingApp/Menu/MainMenu.cpp.o
  /home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Account/Account.h
  /home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Menu/MainMenu.cpp
  /home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Menu/MainMenu.h
- /home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/Person.h
+ /home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/Customer.h
+ /home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/Manager.h
+ /home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/PersonInterface.h
+ /home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/Seller.h
  /home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Utility/Util.h
 CMakeFiles/Output.dir/ProjectSellingApp/Person/Customer.cpp.o
  /home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Account/Account.h
  /home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/Customer.cpp
  /home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/Customer.h
- /home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/Person.h
+ /home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/PersonInterface.h
  /home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Utility/Util.h
-CMakeFiles/Output.dir/ProjectSellingApp/Person/Person.cpp.o
+CMakeFiles/Output.dir/ProjectSellingApp/Person/Manager.cpp.o
  /home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Account/Account.h
- /home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/Person.cpp
- /home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/Person.h
+ /home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/Customer.h
+ /home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/Manager.cpp
+ /home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/Manager.h
+ /home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/PersonInterface.h
+ /home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/Seller.h
+ /home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Utility/Util.h
+CMakeFiles/Output.dir/ProjectSellingApp/Person/PersonInterface.cpp.o
+ /home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Account/Account.h
+ /home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/PersonInterface.cpp
+ /home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/PersonInterface.h
+ /home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Utility/Util.h
+CMakeFiles/Output.dir/ProjectSellingApp/Person/Seller.cpp.o
+ /home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Account/Account.h
+ /home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/PersonInterface.h
+ /home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/Seller.cpp
+ /home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/Seller.h
  /home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Utility/Util.h
 CMakeFiles/Output.dir/ProjectSellingApp/Utility/Util.cpp.o
  /home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Utility/Util.cpp

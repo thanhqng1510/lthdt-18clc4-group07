@@ -59,8 +59,12 @@ MainMenu.h
 /home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Utility/Util.h
 ../Account/Account.h
 /home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Account/Account.h
-../Person/Person.h
-/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/Person.h
+../Person/Customer.h
+/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/Customer.h
+../Person/Manager.h
+/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/Manager.h
+../Person/Seller.h
+/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/Seller.h
 
 /home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Menu/MainMenu.h
 
@@ -77,18 +81,68 @@ unordered_map
 -
 string
 -
-Person.h
-/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/Person.h
+PersonInterface.h
+/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/PersonInterface.h
 ../Account/Account.h
 /home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Account/Account.h
 
-/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/Person.cpp
-Person.h
-/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/Person.h
+/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/Manager.cpp
+fstream
+-
+regex
+-
+Manager.h
+/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/Manager.h
+Customer.h
+/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/Customer.h
+Seller.h
+/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/Seller.h
 ../Utility/Util.h
 /home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Utility/Util.h
 
-/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/Person.h
+/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/Manager.h
+unordered_map
+-
+string
+-
+PersonInterface.h
+/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/PersonInterface.h
+../Account/Account.h
+/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Account/Account.h
+
+/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/PersonInterface.cpp
+fstream
+-
+PersonInterface.h
+/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/PersonInterface.h
+../Utility/Util.h
+/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Utility/Util.h
+
+/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/PersonInterface.h
+unordered_map
+-
+string
+-
+functional
+-
+../Account/Account.h
+/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Account/Account.h
+
+/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/Seller.cpp
+fstream
+-
+Seller.h
+/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/Seller.h
+../Utility/Util.h
+/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Utility/Util.h
+
+/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/Seller.h
+string
+-
+unordered_map
+-
+PersonInterface.h
+/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/PersonInterface.h
 ../Account/Account.h
 /home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Account/Account.h
 

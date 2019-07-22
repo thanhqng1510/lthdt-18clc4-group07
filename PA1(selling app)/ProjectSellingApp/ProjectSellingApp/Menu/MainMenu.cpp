@@ -7,7 +7,9 @@
 #include "MainMenu.h"
 #include "../Utility/Util.h"
 #include "../Account/Account.h"
-#include "../Person/Person.h"
+#include "../Person/Customer.h"
+#include "../Person/Manager.h"
+#include "../Person/Seller.h"
 
 
 void MainMenu::LogIn(LOG_IN_KEY key) {
@@ -15,24 +17,20 @@ void MainMenu::LogIn(LOG_IN_KEY key) {
 
 	if (key == LOG_IN_KEY::USERNAME) {
 		std::cout << "Enter username: ";
-		get_input<std::string>(username, nullptr, "Please try again: ");
+		Account::GetUsernameInput(username);
 	}
 	else {
 		std::cout << "Enter email: ";
-		get_input<std::string>(email, [](const std::string& value) -> bool {
-			return std::regex_match(value, std::regex(Account::s_email_pattern));
-		}, "Wrong email format, please try again: ");
+		Account::GetEmailInput(email);
 	}
 
 	std::cout << "Enter password: ";
-	get_input<std::string>(pass, [](const std::string& value) -> bool {
-		return std::regex_match(value, std::regex(Account::s_pass_pattern));
-	}, "Password must have at least 4 characters, please try again: ");
+	Account::GetPasswordInput(pass);
 
 	std::pair<std::string, ACCOUNT_TYPE> path[3] = {
-		{ Account::s_customer_account_path, ACCOUNT_TYPE::CUSTOMER },  //Account p.first
-		{ Account::s_manager_account_path, ACCOUNT_TYPE::MANAGER },    //ACCOUNT_TYPE p.second
-		{ Account::s_seller_account_path, ACCOUNT_TYPE::SELLER }
+		{ Customer::s_customer_account_path, ACCOUNT_TYPE::CUSTOMER },  //Account p.first
+		{ Manager::s_manager_account_path, ACCOUNT_TYPE::MANAGER },    //ACCOUNT_TYPE p.second
+		{ Seller::s_seller_account_path, ACCOUNT_TYPE::SELLER }
 	};
 
 	for (const std::pair<std::string, ACCOUNT_TYPE>& p : path) {
@@ -69,17 +67,13 @@ void MainMenu::LogIn(LOG_IN_KEY key) {
 void MainMenu::CreateAccount() {
 	std::string username, pass, email;
 	std::cout << "Enter username: ";
-	get_input<std::string>(username, nullptr, "Please try again: ");
-
+	Account::GetUsernameInput(username);
+	
 	std::cout << "Enter password: ";
-	get_input<std::string>(pass, [](const std::string& value) -> bool {
-		return std::regex_match(value, std::regex(Account::s_pass_pattern));
-	}, "Password must have at least 4 characters, please try again: ");
+	Account::GetPasswordInput(pass);
 
 	std::cout << "Enter email: ";
-	get_input<std::string>(email, [](const std::string& value) -> bool {
-		return std::regex_match(value, std::regex(Account::s_email_pattern));
-	}, "Wrong email format, please try again: ");
+	Account::GetEmailInput(email);
 
 	std::ifstream fin("Account/Data/CustomerAccount.data");
 	if (!fin.is_open()) {
@@ -113,6 +107,12 @@ void MainMenu::CreateAccount() {
 	prompt_message("Account created successfully");
 }
 
+void MainMenu::GetOptionInput(unsigned int& option) {
+	get_input<unsigned int>(option, [](const unsigned int& value) -> bool {
+		return value > 0 && value < 5;
+	}, "Option must be between 1 and 4, please try again: ");
+}
+
 MainMenu::MainMenu()
 : m_option(0) {}
 
@@ -127,9 +127,7 @@ void MainMenu::Process() {
 		std::cout << "4. Exit\n";
 
 		std::cout << "Choose: ";
-		get_input<unsigned int>(m_option, [](const unsigned int& value) -> bool {
-			return value > 0 && value < 5;
-		}, "Option must be between 1 and 4, please try again: ");
+		GetOptionInput(m_option);
 
 		switch (m_option) {
 		case 1:

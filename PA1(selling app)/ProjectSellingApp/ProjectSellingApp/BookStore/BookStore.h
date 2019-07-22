@@ -3,29 +3,28 @@
 #include <string>
 #include <unordered_map>
 
-using namespace std;
-
 struct book {
-	static const string s_author_pattern;
-	static const string s_name_pattern;
+	static const std::string s_author_pattern;
+	static const std::string s_name_pattern;
 
-	string name, author;
+	static void GetAuthorInput(std::string& author);
+	static void GetNameInput(std::string& name);
+	static void GetPriceInput(unsigned int& price);
+	static void GetStockInput(unsigned int& stock);
+
+	std::string name, author;
 	unsigned int price, stock;
 
 	void Output() const;
-};
-
-enum class SEARCH_KEY {
-	AUTHOR = 0,
-	NAME = 1
+	std::string ToString() const;
 };
 
 class BookStore {
 public:
-	static const string s_book_store_path;
+	static const std::string s_book_store_path;
 
 private:
-	unordered_map<string, book> m_book_store;
+	std::unordered_map<std::string, book> m_book_store;
 
 public:
 	// Create a bookstore for further work
@@ -34,12 +33,11 @@ public:
 
 public:
 	void PrintAll() const;
-	void Search(SEARCH_KEY key) const;
+	void SearchByName() const;
+	void SearchByAuthor() const;
 	void Add();
 	void Remove();
 
-	// Update file with unordered_map
-	void SyncWithFile() const;
 	// string GetMostSell();
 	// string GetRecentSell();
 };

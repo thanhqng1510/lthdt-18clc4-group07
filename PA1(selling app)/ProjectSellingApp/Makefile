@@ -258,32 +258,86 @@ ProjectSellingApp/Person/Customer.cpp.s:
 	$(MAKE) -f CMakeFiles/Output.dir/build.make CMakeFiles/Output.dir/ProjectSellingApp/Person/Customer.cpp.s
 .PHONY : ProjectSellingApp/Person/Customer.cpp.s
 
-ProjectSellingApp/Person/Person.o: ProjectSellingApp/Person/Person.cpp.o
+ProjectSellingApp/Person/Manager.o: ProjectSellingApp/Person/Manager.cpp.o
 
-.PHONY : ProjectSellingApp/Person/Person.o
+.PHONY : ProjectSellingApp/Person/Manager.o
 
 # target to build an object file
-ProjectSellingApp/Person/Person.cpp.o:
-	$(MAKE) -f CMakeFiles/Output.dir/build.make CMakeFiles/Output.dir/ProjectSellingApp/Person/Person.cpp.o
-.PHONY : ProjectSellingApp/Person/Person.cpp.o
+ProjectSellingApp/Person/Manager.cpp.o:
+	$(MAKE) -f CMakeFiles/Output.dir/build.make CMakeFiles/Output.dir/ProjectSellingApp/Person/Manager.cpp.o
+.PHONY : ProjectSellingApp/Person/Manager.cpp.o
 
-ProjectSellingApp/Person/Person.i: ProjectSellingApp/Person/Person.cpp.i
+ProjectSellingApp/Person/Manager.i: ProjectSellingApp/Person/Manager.cpp.i
 
-.PHONY : ProjectSellingApp/Person/Person.i
+.PHONY : ProjectSellingApp/Person/Manager.i
 
 # target to preprocess a source file
-ProjectSellingApp/Person/Person.cpp.i:
-	$(MAKE) -f CMakeFiles/Output.dir/build.make CMakeFiles/Output.dir/ProjectSellingApp/Person/Person.cpp.i
-.PHONY : ProjectSellingApp/Person/Person.cpp.i
+ProjectSellingApp/Person/Manager.cpp.i:
+	$(MAKE) -f CMakeFiles/Output.dir/build.make CMakeFiles/Output.dir/ProjectSellingApp/Person/Manager.cpp.i
+.PHONY : ProjectSellingApp/Person/Manager.cpp.i
 
-ProjectSellingApp/Person/Person.s: ProjectSellingApp/Person/Person.cpp.s
+ProjectSellingApp/Person/Manager.s: ProjectSellingApp/Person/Manager.cpp.s
 
-.PHONY : ProjectSellingApp/Person/Person.s
+.PHONY : ProjectSellingApp/Person/Manager.s
 
 # target to generate assembly for a file
-ProjectSellingApp/Person/Person.cpp.s:
-	$(MAKE) -f CMakeFiles/Output.dir/build.make CMakeFiles/Output.dir/ProjectSellingApp/Person/Person.cpp.s
-.PHONY : ProjectSellingApp/Person/Person.cpp.s
+ProjectSellingApp/Person/Manager.cpp.s:
+	$(MAKE) -f CMakeFiles/Output.dir/build.make CMakeFiles/Output.dir/ProjectSellingApp/Person/Manager.cpp.s
+.PHONY : ProjectSellingApp/Person/Manager.cpp.s
+
+ProjectSellingApp/Person/PersonInterface.o: ProjectSellingApp/Person/PersonInterface.cpp.o
+
+.PHONY : ProjectSellingApp/Person/PersonInterface.o
+
+# target to build an object file
+ProjectSellingApp/Person/PersonInterface.cpp.o:
+	$(MAKE) -f CMakeFiles/Output.dir/build.make CMakeFiles/Output.dir/ProjectSellingApp/Person/PersonInterface.cpp.o
+.PHONY : ProjectSellingApp/Person/PersonInterface.cpp.o
+
+ProjectSellingApp/Person/PersonInterface.i: ProjectSellingApp/Person/PersonInterface.cpp.i
+
+.PHONY : ProjectSellingApp/Person/PersonInterface.i
+
+# target to preprocess a source file
+ProjectSellingApp/Person/PersonInterface.cpp.i:
+	$(MAKE) -f CMakeFiles/Output.dir/build.make CMakeFiles/Output.dir/ProjectSellingApp/Person/PersonInterface.cpp.i
+.PHONY : ProjectSellingApp/Person/PersonInterface.cpp.i
+
+ProjectSellingApp/Person/PersonInterface.s: ProjectSellingApp/Person/PersonInterface.cpp.s
+
+.PHONY : ProjectSellingApp/Person/PersonInterface.s
+
+# target to generate assembly for a file
+ProjectSellingApp/Person/PersonInterface.cpp.s:
+	$(MAKE) -f CMakeFiles/Output.dir/build.make CMakeFiles/Output.dir/ProjectSellingApp/Person/PersonInterface.cpp.s
+.PHONY : ProjectSellingApp/Person/PersonInterface.cpp.s
+
+ProjectSellingApp/Person/Seller.o: ProjectSellingApp/Person/Seller.cpp.o
+
+.PHONY : ProjectSellingApp/Person/Seller.o
+
+# target to build an object file
+ProjectSellingApp/Person/Seller.cpp.o:
+	$(MAKE) -f CMakeFiles/Output.dir/build.make CMakeFiles/Output.dir/ProjectSellingApp/Person/Seller.cpp.o
+.PHONY : ProjectSellingApp/Person/Seller.cpp.o
+
+ProjectSellingApp/Person/Seller.i: ProjectSellingApp/Person/Seller.cpp.i
+
+.PHONY : ProjectSellingApp/Person/Seller.i
+
+# target to preprocess a source file
+ProjectSellingApp/Person/Seller.cpp.i:
+	$(MAKE) -f CMakeFiles/Output.dir/build.make CMakeFiles/Output.dir/ProjectSellingApp/Person/Seller.cpp.i
+.PHONY : ProjectSellingApp/Person/Seller.cpp.i
+
+ProjectSellingApp/Person/Seller.s: ProjectSellingApp/Person/Seller.cpp.s
+
+.PHONY : ProjectSellingApp/Person/Seller.s
+
+# target to generate assembly for a file
+ProjectSellingApp/Person/Seller.cpp.s:
+	$(MAKE) -f CMakeFiles/Output.dir/build.make CMakeFiles/Output.dir/ProjectSellingApp/Person/Seller.cpp.s
+.PHONY : ProjectSellingApp/Person/Seller.cpp.s
 
 ProjectSellingApp/Utility/Util.o: ProjectSellingApp/Utility/Util.cpp.o
 
@@ -336,9 +390,15 @@ help:
 	@echo "... ProjectSellingApp/Person/Customer.o"
 	@echo "... ProjectSellingApp/Person/Customer.i"
 	@echo "... ProjectSellingApp/Person/Customer.s"
-	@echo "... ProjectSellingApp/Person/Person.o"
-	@echo "... ProjectSellingApp/Person/Person.i"
-	@echo "... ProjectSellingApp/Person/Person.s"
+	@echo "... ProjectSellingApp/Person/Manager.o"
+	@echo "... ProjectSellingApp/Person/Manager.i"
+	@echo "... ProjectSellingApp/Person/Manager.s"
+	@echo "... ProjectSellingApp/Person/PersonInterface.o"
+	@echo "... ProjectSellingApp/Person/PersonInterface.i"
+	@echo "... ProjectSellingApp/Person/PersonInterface.s"
+	@echo "... ProjectSellingApp/Person/Seller.o"
+	@echo "... ProjectSellingApp/Person/Seller.i"
+	@echo "... ProjectSellingApp/Person/Seller.s"
 	@echo "... ProjectSellingApp/Utility/Util.o"
 	@echo "... ProjectSellingApp/Utility/Util.i"
 	@echo "... ProjectSellingApp/Utility/Util.s"

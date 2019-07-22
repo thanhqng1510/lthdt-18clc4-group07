@@ -10,12 +10,16 @@ enum class ACCOUNT_TYPE {
 
 class Account {
 public:
-	static const std::string s_customer_account_path;
-	static const std::string s_manager_account_path;
-	static const std::string s_seller_account_path;
+	friend class PersonInterface;
+	friend class Manager;
 
 	static const std::string s_pass_pattern;
 	static const std::string s_email_pattern;
+
+public:
+	static void GetUsernameInput(std::string& username);
+	static void GetPasswordInput(std::string& pass);
+	static void GetEmailInput(std::string& email);
 
 private:
 	std::string m_username, m_pass, m_email;
@@ -27,7 +31,5 @@ public:
 	Account(const std::string& username, const std::string& pass, const std::string& email, ACCOUNT_TYPE type);
 
 public:
-	ACCOUNT_TYPE GetType() const;
-
-	void UpdatePassword();
+	std::string ToString() const;
 };

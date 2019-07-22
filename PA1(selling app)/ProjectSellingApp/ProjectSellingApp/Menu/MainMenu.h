@@ -11,6 +11,9 @@ private:
 	static void LogIn(LOG_IN_KEY key);
 	static void CreateAccount();
 
+public:
+	static void GetOptionInput(unsigned int& option);
+
 private:
 	unsigned int m_option;
 

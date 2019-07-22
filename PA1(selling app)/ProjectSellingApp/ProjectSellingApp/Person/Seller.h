@@ -1,8 +1,12 @@
 #pragma once
 
-#include "Person.h"
+#include <string>
+#include <unordered_map>
 
-class Seller : public Person {
+#include "PersonInterface.h"
+#include "../Account/Account.h"
+
+class Seller : public PersonInterface {
 public:
-    Seller() = default;
+    Seller(const Account& account);
 };

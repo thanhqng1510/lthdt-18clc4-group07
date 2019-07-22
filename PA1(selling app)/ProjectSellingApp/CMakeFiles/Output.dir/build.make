@@ -105,28 +105,28 @@ CMakeFiles/Output.dir/ProjectSellingApp/Utility/Util.cpp.o.provides: CMakeFiles/
 CMakeFiles/Output.dir/ProjectSellingApp/Utility/Util.cpp.o.provides.build: CMakeFiles/Output.dir/ProjectSellingApp/Utility/Util.cpp.o
 
 
-CMakeFiles/Output.dir/ProjectSellingApp/Person/Person.cpp.o: CMakeFiles/Output.dir/flags.make
-CMakeFiles/Output.dir/ProjectSellingApp/Person/Person.cpp.o: ProjectSellingApp/Person/Person.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Output.dir/ProjectSellingApp/Person/Person.cpp.o"
-	clang++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Output.dir/ProjectSellingApp/Person/Person.cpp.o -c "/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/Person.cpp"
+CMakeFiles/Output.dir/ProjectSellingApp/Person/PersonInterface.cpp.o: CMakeFiles/Output.dir/flags.make
+CMakeFiles/Output.dir/ProjectSellingApp/Person/PersonInterface.cpp.o: ProjectSellingApp/Person/PersonInterface.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Output.dir/ProjectSellingApp/Person/PersonInterface.cpp.o"
+	clang++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Output.dir/ProjectSellingApp/Person/PersonInterface.cpp.o -c "/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/PersonInterface.cpp"
 
-CMakeFiles/Output.dir/ProjectSellingApp/Person/Person.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Output.dir/ProjectSellingApp/Person/Person.cpp.i"
-	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/Person.cpp" > CMakeFiles/Output.dir/ProjectSellingApp/Person/Person.cpp.i
+CMakeFiles/Output.dir/ProjectSellingApp/Person/PersonInterface.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Output.dir/ProjectSellingApp/Person/PersonInterface.cpp.i"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/PersonInterface.cpp" > CMakeFiles/Output.dir/ProjectSellingApp/Person/PersonInterface.cpp.i
 
-CMakeFiles/Output.dir/ProjectSellingApp/Person/Person.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Output.dir/ProjectSellingApp/Person/Person.cpp.s"
-	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/Person.cpp" -o CMakeFiles/Output.dir/ProjectSellingApp/Person/Person.cpp.s
+CMakeFiles/Output.dir/ProjectSellingApp/Person/PersonInterface.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Output.dir/ProjectSellingApp/Person/PersonInterface.cpp.s"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/PersonInterface.cpp" -o CMakeFiles/Output.dir/ProjectSellingApp/Person/PersonInterface.cpp.s
 
-CMakeFiles/Output.dir/ProjectSellingApp/Person/Person.cpp.o.requires:
+CMakeFiles/Output.dir/ProjectSellingApp/Person/PersonInterface.cpp.o.requires:
 
-.PHONY : CMakeFiles/Output.dir/ProjectSellingApp/Person/Person.cpp.o.requires
+.PHONY : CMakeFiles/Output.dir/ProjectSellingApp/Person/PersonInterface.cpp.o.requires
 
-CMakeFiles/Output.dir/ProjectSellingApp/Person/Person.cpp.o.provides: CMakeFiles/Output.dir/ProjectSellingApp/Person/Person.cpp.o.requires
-	$(MAKE) -f CMakeFiles/Output.dir/build.make CMakeFiles/Output.dir/ProjectSellingApp/Person/Person.cpp.o.provides.build
-.PHONY : CMakeFiles/Output.dir/ProjectSellingApp/Person/Person.cpp.o.provides
+CMakeFiles/Output.dir/ProjectSellingApp/Person/PersonInterface.cpp.o.provides: CMakeFiles/Output.dir/ProjectSellingApp/Person/PersonInterface.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Output.dir/build.make CMakeFiles/Output.dir/ProjectSellingApp/Person/PersonInterface.cpp.o.provides.build
+.PHONY : CMakeFiles/Output.dir/ProjectSellingApp/Person/PersonInterface.cpp.o.provides
 
-CMakeFiles/Output.dir/ProjectSellingApp/Person/Person.cpp.o.provides.build: CMakeFiles/Output.dir/ProjectSellingApp/Person/Person.cpp.o
+CMakeFiles/Output.dir/ProjectSellingApp/Person/PersonInterface.cpp.o.provides.build: CMakeFiles/Output.dir/ProjectSellingApp/Person/PersonInterface.cpp.o
 
 
 CMakeFiles/Output.dir/ProjectSellingApp/Person/Customer.cpp.o: CMakeFiles/Output.dir/flags.make
@@ -153,9 +153,57 @@ CMakeFiles/Output.dir/ProjectSellingApp/Person/Customer.cpp.o.provides: CMakeFil
 CMakeFiles/Output.dir/ProjectSellingApp/Person/Customer.cpp.o.provides.build: CMakeFiles/Output.dir/ProjectSellingApp/Person/Customer.cpp.o
 
 
+CMakeFiles/Output.dir/ProjectSellingApp/Person/Seller.cpp.o: CMakeFiles/Output.dir/flags.make
+CMakeFiles/Output.dir/ProjectSellingApp/Person/Seller.cpp.o: ProjectSellingApp/Person/Seller.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Output.dir/ProjectSellingApp/Person/Seller.cpp.o"
+	clang++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Output.dir/ProjectSellingApp/Person/Seller.cpp.o -c "/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/Seller.cpp"
+
+CMakeFiles/Output.dir/ProjectSellingApp/Person/Seller.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Output.dir/ProjectSellingApp/Person/Seller.cpp.i"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/Seller.cpp" > CMakeFiles/Output.dir/ProjectSellingApp/Person/Seller.cpp.i
+
+CMakeFiles/Output.dir/ProjectSellingApp/Person/Seller.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Output.dir/ProjectSellingApp/Person/Seller.cpp.s"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/Seller.cpp" -o CMakeFiles/Output.dir/ProjectSellingApp/Person/Seller.cpp.s
+
+CMakeFiles/Output.dir/ProjectSellingApp/Person/Seller.cpp.o.requires:
+
+.PHONY : CMakeFiles/Output.dir/ProjectSellingApp/Person/Seller.cpp.o.requires
+
+CMakeFiles/Output.dir/ProjectSellingApp/Person/Seller.cpp.o.provides: CMakeFiles/Output.dir/ProjectSellingApp/Person/Seller.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Output.dir/build.make CMakeFiles/Output.dir/ProjectSellingApp/Person/Seller.cpp.o.provides.build
+.PHONY : CMakeFiles/Output.dir/ProjectSellingApp/Person/Seller.cpp.o.provides
+
+CMakeFiles/Output.dir/ProjectSellingApp/Person/Seller.cpp.o.provides.build: CMakeFiles/Output.dir/ProjectSellingApp/Person/Seller.cpp.o
+
+
+CMakeFiles/Output.dir/ProjectSellingApp/Person/Manager.cpp.o: CMakeFiles/Output.dir/flags.make
+CMakeFiles/Output.dir/ProjectSellingApp/Person/Manager.cpp.o: ProjectSellingApp/Person/Manager.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Output.dir/ProjectSellingApp/Person/Manager.cpp.o"
+	clang++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Output.dir/ProjectSellingApp/Person/Manager.cpp.o -c "/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/Manager.cpp"
+
+CMakeFiles/Output.dir/ProjectSellingApp/Person/Manager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Output.dir/ProjectSellingApp/Person/Manager.cpp.i"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/Manager.cpp" > CMakeFiles/Output.dir/ProjectSellingApp/Person/Manager.cpp.i
+
+CMakeFiles/Output.dir/ProjectSellingApp/Person/Manager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Output.dir/ProjectSellingApp/Person/Manager.cpp.s"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/Manager.cpp" -o CMakeFiles/Output.dir/ProjectSellingApp/Person/Manager.cpp.s
+
+CMakeFiles/Output.dir/ProjectSellingApp/Person/Manager.cpp.o.requires:
+
+.PHONY : CMakeFiles/Output.dir/ProjectSellingApp/Person/Manager.cpp.o.requires
+
+CMakeFiles/Output.dir/ProjectSellingApp/Person/Manager.cpp.o.provides: CMakeFiles/Output.dir/ProjectSellingApp/Person/Manager.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Output.dir/build.make CMakeFiles/Output.dir/ProjectSellingApp/Person/Manager.cpp.o.provides.build
+.PHONY : CMakeFiles/Output.dir/ProjectSellingApp/Person/Manager.cpp.o.provides
+
+CMakeFiles/Output.dir/ProjectSellingApp/Person/Manager.cpp.o.provides.build: CMakeFiles/Output.dir/ProjectSellingApp/Person/Manager.cpp.o
+
+
 CMakeFiles/Output.dir/ProjectSellingApp/Menu/MainMenu.cpp.o: CMakeFiles/Output.dir/flags.make
 CMakeFiles/Output.dir/ProjectSellingApp/Menu/MainMenu.cpp.o: ProjectSellingApp/Menu/MainMenu.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Output.dir/ProjectSellingApp/Menu/MainMenu.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Output.dir/ProjectSellingApp/Menu/MainMenu.cpp.o"
 	clang++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Output.dir/ProjectSellingApp/Menu/MainMenu.cpp.o -c "/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Menu/MainMenu.cpp"
 
 CMakeFiles/Output.dir/ProjectSellingApp/Menu/MainMenu.cpp.i: cmake_force
@@ -179,7 +227,7 @@ CMakeFiles/Output.dir/ProjectSellingApp/Menu/MainMenu.cpp.o.provides.build: CMak
 
 CMakeFiles/Output.dir/ProjectSellingApp/BookStore/BookStore.cpp.o: CMakeFiles/Output.dir/flags.make
 CMakeFiles/Output.dir/ProjectSellingApp/BookStore/BookStore.cpp.o: ProjectSellingApp/BookStore/BookStore.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Output.dir/ProjectSellingApp/BookStore/BookStore.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Output.dir/ProjectSellingApp/BookStore/BookStore.cpp.o"
 	clang++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Output.dir/ProjectSellingApp/BookStore/BookStore.cpp.o -c "/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/BookStore/BookStore.cpp"
 
 CMakeFiles/Output.dir/ProjectSellingApp/BookStore/BookStore.cpp.i: cmake_force
@@ -203,7 +251,7 @@ CMakeFiles/Output.dir/ProjectSellingApp/BookStore/BookStore.cpp.o.provides.build
 
 CMakeFiles/Output.dir/ProjectSellingApp/Account/Account.cpp.o: CMakeFiles/Output.dir/flags.make
 CMakeFiles/Output.dir/ProjectSellingApp/Account/Account.cpp.o: ProjectSellingApp/Account/Account.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Output.dir/ProjectSellingApp/Account/Account.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Output.dir/ProjectSellingApp/Account/Account.cpp.o"
 	clang++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Output.dir/ProjectSellingApp/Account/Account.cpp.o -c "/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Account/Account.cpp"
 
 CMakeFiles/Output.dir/ProjectSellingApp/Account/Account.cpp.i: cmake_force
@@ -229,8 +277,10 @@ CMakeFiles/Output.dir/ProjectSellingApp/Account/Account.cpp.o.provides.build: CM
 Output_OBJECTS = \
 "CMakeFiles/Output.dir/ProjectSellingApp/Main.cpp.o" \
 "CMakeFiles/Output.dir/ProjectSellingApp/Utility/Util.cpp.o" \
-"CMakeFiles/Output.dir/ProjectSellingApp/Person/Person.cpp.o" \
+"CMakeFiles/Output.dir/ProjectSellingApp/Person/PersonInterface.cpp.o" \
 "CMakeFiles/Output.dir/ProjectSellingApp/Person/Customer.cpp.o" \
+"CMakeFiles/Output.dir/ProjectSellingApp/Person/Seller.cpp.o" \
+"CMakeFiles/Output.dir/ProjectSellingApp/Person/Manager.cpp.o" \
 "CMakeFiles/Output.dir/ProjectSellingApp/Menu/MainMenu.cpp.o" \
 "CMakeFiles/Output.dir/ProjectSellingApp/BookStore/BookStore.cpp.o" \
 "CMakeFiles/Output.dir/ProjectSellingApp/Account/Account.cpp.o"
@@ -240,14 +290,16 @@ Output_EXTERNAL_OBJECTS =
 
 Output: CMakeFiles/Output.dir/ProjectSellingApp/Main.cpp.o
 Output: CMakeFiles/Output.dir/ProjectSellingApp/Utility/Util.cpp.o
-Output: CMakeFiles/Output.dir/ProjectSellingApp/Person/Person.cpp.o
+Output: CMakeFiles/Output.dir/ProjectSellingApp/Person/PersonInterface.cpp.o
 Output: CMakeFiles/Output.dir/ProjectSellingApp/Person/Customer.cpp.o
+Output: CMakeFiles/Output.dir/ProjectSellingApp/Person/Seller.cpp.o
+Output: CMakeFiles/Output.dir/ProjectSellingApp/Person/Manager.cpp.o
 Output: CMakeFiles/Output.dir/ProjectSellingApp/Menu/MainMenu.cpp.o
 Output: CMakeFiles/Output.dir/ProjectSellingApp/BookStore/BookStore.cpp.o
 Output: CMakeFiles/Output.dir/ProjectSellingApp/Account/Account.cpp.o
 Output: CMakeFiles/Output.dir/build.make
 Output: CMakeFiles/Output.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable Output"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable Output"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Output.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -257,8 +309,10 @@ CMakeFiles/Output.dir/build: Output
 
 CMakeFiles/Output.dir/requires: CMakeFiles/Output.dir/ProjectSellingApp/Main.cpp.o.requires
 CMakeFiles/Output.dir/requires: CMakeFiles/Output.dir/ProjectSellingApp/Utility/Util.cpp.o.requires
-CMakeFiles/Output.dir/requires: CMakeFiles/Output.dir/ProjectSellingApp/Person/Person.cpp.o.requires
+CMakeFiles/Output.dir/requires: CMakeFiles/Output.dir/ProjectSellingApp/Person/PersonInterface.cpp.o.requires
 CMakeFiles/Output.dir/requires: CMakeFiles/Output.dir/ProjectSellingApp/Person/Customer.cpp.o.requires
+CMakeFiles/Output.dir/requires: CMakeFiles/Output.dir/ProjectSellingApp/Person/Seller.cpp.o.requires
+CMakeFiles/Output.dir/requires: CMakeFiles/Output.dir/ProjectSellingApp/Person/Manager.cpp.o.requires
 CMakeFiles/Output.dir/requires: CMakeFiles/Output.dir/ProjectSellingApp/Menu/MainMenu.cpp.o.requires
 CMakeFiles/Output.dir/requires: CMakeFiles/Output.dir/ProjectSellingApp/BookStore/BookStore.cpp.o.requires
 CMakeFiles/Output.dir/requires: CMakeFiles/Output.dir/ProjectSellingApp/Account/Account.cpp.o.requires

@@ -5,11 +5,35 @@
 #include "BookStore.h"
 #include "../Utility/Util.h"
 
-const string book::s_author_pattern = "([A-Z][a-z]*( [A-Z][a-z]*)*)";
-const string book::s_name_pattern = "([A-Z0-9]+[a-z0-9]*( [A-Z0-9]+[a-z0-9]*)*)";
+const std::string book::s_author_pattern = "([A-Z][a-z]*( [A-Z][a-z]*)*)";
+const std::string book::s_name_pattern = "([A-Z0-9]+[a-z0-9]*( [A-Z0-9]+[a-z0-9]*)*)";
+
+void book::GetAuthorInput(std::string& author) {
+	get_line_input(author, [](const std::string& value) -> bool {
+		return std::regex_match(value, std::regex(book::s_author_pattern));
+	}, "Wrong name format, please try again: ");
+}
+	
+void book::GetNameInput(std::string& name) {
+	get_line_input(name, [](const std::string& value) -> bool {
+		return std::regex_match(value, std::regex(book::s_name_pattern));
+	}, "Wrong name format, please try again: ");
+}
+
+void book::GetPriceInput(unsigned int& price) {
+	get_input<unsigned int>(price, [](const float& value) -> bool {
+		return value >= 10000;
+	}, "Price must be bigger than 10000, please try again: ");
+}
+
+void book::GetStockInput(unsigned int& stock) {
+	get_input<unsigned int>(stock, [](const unsigned int& value) -> bool {
+		return value >= 0;
+	}, "Quantity must be positive, please try again: ");
+}
 
 void book::Output() const {
-	cout << "------------------------\n"
+	std::cout << "------------------------\n"
 		 << "Author: " << author << "\n"
 		 << "Name: " << name << "\n"
 		 << "Price: " << price << "\n"
@@ -18,18 +42,25 @@ void book::Output() const {
 	     << "------------------------";
 }
 
+std::string book::ToString() const {
+	return std::move(name + "," + author + "," + std::to_string(price) + "," + std::to_string(stock));
+}
+
 const std::string BookStore::s_book_store_path = "BookStore/Data/BookStore.data";
 
 BookStore::BookStore() {
-	file_to_unordered_map<string, book>(s_book_store_path, m_book_store, [](pair<string, book>& value, string& line) -> void {
-		vector<string> result;
+	file_to_unordered_map<std::string, book>(s_book_store_path, m_book_store, [](std::pair<std::string, book>& value, const std::string& line) -> void {
+		std::vector<std::string> result;
 		parse_string(result, line, ",");
-		value = { result[0], { result[0], result[1], (unsigned int)stoi(result[2]), (unsigned int)stoi(result[3]) } };
+		value = { std::move(result[0]), 
+				{ std::move(result[0]), std::move(result[1]), (unsigned int)stoi(result[2]), (unsigned int)stoi(result[3]) } };
 	});
 }
 
 BookStore::~BookStore() {
-	SyncWithFile();
+	unordered_map_to_file<std::string, book>(s_book_store_path, m_book_store, [](const std::pair<std::string, book>& value, std::string& line) {
+		line = std::move(value.second.ToString());
+	});
 }
 
 void BookStore::PrintAll() const {
@@ -37,25 +68,28 @@ void BookStore::PrintAll() const {
 		b.second.Output();
 }
 
-void BookStore::Search(SEARCH_KEY key) const {
-	string search;
-	cout << (key == SEARCH_KEY::AUTHOR ? "Enter author's name: " : "Enter book's name: ");
-	get_line_input(search, [=](const string& value) -> bool {
-		return regex_match(value, regex((key == SEARCH_KEY::AUTHOR) ? book::s_author_pattern : book::s_name_pattern));
-	}, "Wrong name format, please try again: ");
+void BookStore::SearchByName() const {
+	std::string search;
+	std::cout << "Enter book's name: ";
+	book::GetNameInput(search);
 
-	bool is_found = false;
-	if (key == SEARCH_KEY::NAME) {
-		if (m_book_store.find(search) != m_book_store.end())
-			is_found = true;
-			m_book_store.at(search).Output();
-	}
+	if (m_book_store.find(search) != m_book_store.end())
+		m_book_store.at(search).Output();
 	else
-		for (const auto& b : m_book_store)
-			if ((key == SEARCH_KEY::AUTHOR && b.second.author == search) || (key == SEARCH_KEY::NAME && b.first == search)) {
-				is_found = true;
-				b.second.Output();
-			}
+		prompt_message("Book not found");
+}
+
+void BookStore::SearchByAuthor() const {
+	std::string search;
+	std::cout << "Enter author's name: ";
+	book::GetAuthorInput(search);
+	
+	bool is_found = false;
+	for (const auto& b : m_book_store)
+		if (b.second.author == search) {
+			is_found = true;
+			b.second.Output();
+		}
 
 	if (!is_found)
 		prompt_message("Book not found");
@@ -63,88 +97,59 @@ void BookStore::Search(SEARCH_KEY key) const {
 
 void BookStore::Add() {
 	book add;
-	cout << "Enter book's name: ";
-	get_line_input(add.name, [](const string& value) -> bool {
-		return regex_match(value, regex(book::s_name_pattern));
-	}, "Wrong name format, please try again: ");
+	std::cout << "Enter book's name: ";
+	book::GetNameInput(add.name);
 
-	cout << "Enter book's quantity: ";
-	get_input<unsigned int>(add.stock, [](const unsigned int& value) -> bool {
-		return value >= 0;
-	}, "Quantity must be positive, please try again: ");
+	std::cout << "Enter book's quantity: ";
+	book::GetStockInput(add.stock);
 
 	if (m_book_store.find(add.name) != m_book_store.end()) {
 		m_book_store.at(add.name).stock += add.stock;
 
-		stringstream message;
-		message << "Added " << add.stock << " products to existing book (" << add.name << ") successfully";
-		prompt_message(message.str());
+		std::string message = "Added " + std::to_string(add.stock) + " products to existing book (" + add.name + ") successfully";
+		prompt_message(message);
 
 		return;
 	}
 
-	cout << "Enter book's author: ";
-	get_line_input(add.author, [](const string& value) -> bool {
-		return regex_match(value, regex(book::s_author_pattern));
-	}, "Wrong name format, please try again: ");
+	std::cout << "Enter book's author: ";
+	book::GetAuthorInput(add.author);
 
-	cout << "Enter book's price: ";
-	get_input<unsigned int>(add.price, [](const float& value) -> bool {
-		return value >= 10000;
-	}, "Price must be bigger than 10000, please try again: ");
+	std::cout << "Enter book's price: ";
+	book::GetPriceInput(add.price);
 
-	m_book_store.insert({add.name, add});
+	m_book_store.insert({ add.name, add });
 
-	stringstream message;
-	message << "Added new book (" << add.name << ") with " << add.stock << " products successfully";
-	prompt_message(message.str());
+	std::string message = "Added new book (" + add.name + ") with " + std::to_string(add.stock) + " products successfully";
+	prompt_message(message);
 }
 
 void BookStore::Remove() {
 	book remove;
-	cout << "Enter book's name: ";
-	get_line_input(remove.name, [](const string& value) -> bool {
-		return regex_match(value, regex(book::s_name_pattern));
-	}, "Wrong name format, please try again: ");
+	std::cout << "Enter book's name: ";
+	book::GetNameInput(remove.name);
 
-	cout << "Enter book's quantity: ";
-	get_input<unsigned int>(remove.stock, [](const unsigned int& value) -> bool {
-		return value > 0;
-	}, "Quantity must be positive, please try again: ");
+	std::cout << "Enter book's quantity: ";
+	book::GetStockInput(remove.stock);
 
 	if (m_book_store.find(remove.name) != m_book_store.end()) {
 		if (book& b = m_book_store.at(remove.name); b.stock >= remove.stock) {
 			b.stock -= remove.stock;
 
-			stringstream message;
-			message << "Removed " << remove.stock << " products from existing book (" << b.name << ") successfully";
-			prompt_message(message.str());
+			std::string message = "Removed " + std::to_string(remove.stock) + " products from existing book (" + b.name + ") successfully";
+			prompt_message(message);
 
 			return;
 		}
 		else {
-			stringstream message;
-			message << "Book " << b.name << " has " << b.stock << " products but have to remove " << remove.stock << " products";
-			prompt_message(message.str());
+			std::string message = "Book " + b.name + " has " + std::to_string(b.stock) + " products but have to remove " + std::to_string(remove.stock) + " products";
+			prompt_message(message);
 
 			return;
 		}
 	}
 
 	prompt_message("Book not found");
-}
-
-void BookStore::SyncWithFile() const {
-	ofstream fout(s_book_store_path, ios::trunc);
-	if (!fout.is_open()) {
-		prompt_message("Fail to open BookStore.data");
-		return;
-	}
-
-	for (const auto& b : m_book_store)
-		fout << b.second.name << "," << b.second.author << "," << b.second.price << "," << b.second.stock << "\n";
-
-	fout.close();
 }
 
 //string BookStore::GetMostSell() {

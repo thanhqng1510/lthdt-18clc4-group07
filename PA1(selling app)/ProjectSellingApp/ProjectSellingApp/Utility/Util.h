@@ -15,7 +15,7 @@ void prompt_message(const std::string& message);
 // Pass nullptr to isValid if you don't want to check further
 // Pass a string to error_message to prompt to user when an error occur
 template<typename T>
-inline void get_input(T& input, std::function<bool(const T& value)> is_valid, const std::string& error_message) {
+void get_input(T& input, std::function<bool(const T& value)> is_valid, const std::string& error_message) {
 	while (!(std::cin >> input) || (is_valid != nullptr && !is_valid(input))) {
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -34,7 +34,7 @@ void parse_string(std::vector<std::string>& result, const std::string& string, c
 
 // Convert a text file to an unordered_map of any type
 template<typename T, typename U>
-inline void file_to_unordered_map(const std::string& file_path, std::unordered_map<T, U>& input, std::function<void(std::pair<T, U>& value, std::string& line)> line_to_pair) {
+void file_to_unordered_map(const std::string& file_path, std::unordered_map<T, U>& map, std::function<void(std::pair<T, U>& value, const std::string& line)> line_to_pair) {
 	std::ifstream fin(file_path);
 	if (!fin.is_open()) {
 		prompt_message("Fail to open " + file_path);
@@ -45,8 +45,26 @@ inline void file_to_unordered_map(const std::string& file_path, std::unordered_m
 	while (getline(fin, line, '\n')) {
 		std::pair<T, U> p;
 		line_to_pair(p, line);
-		input.insert(std::move(p));
+		map.insert(std::move(p));
 	}
 
 	fin.close();
+}
+
+// Replace file with new data
+template<typename T, typename U>
+void unordered_map_to_file(const std::string& file_path, const std::unordered_map<T, U>& map, std::function<void(const std::pair<T, U>& value, std::string& line)> pair_to_line) {
+	std::ofstream fout(file_path, std::ios::trunc);
+	if (!fout.is_open()) {
+		prompt_message("Fail to open " + file_path);
+		return;
+	}
+
+	for (const auto& p : map) {
+		std::string line;
+		pair_to_line(p, line);
+		fout << line << "\n";
+	}
+
+	fout.close();
 }
