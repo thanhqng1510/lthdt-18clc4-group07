@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Install script for directory: /mnt/c/Users/Phuc/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp
+=======
+# Install script for directory: /home/thanhqng1510/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp
+>>>>>>> 30b51a6ed6a91f4325f6dcb8ba8d264f717cb6b9
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +49,9 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
+<<<<<<< HEAD
 file(WRITE "/mnt/c/Users/Phuc/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/${CMAKE_INSTALL_MANIFEST}"
+=======
+file(WRITE "/home/thanhqng1510/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/${CMAKE_INSTALL_MANIFEST}"
+>>>>>>> 30b51a6ed6a91f4325f6dcb8ba8d264f717cb6b9
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
