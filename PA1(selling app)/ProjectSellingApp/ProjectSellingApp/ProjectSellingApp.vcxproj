@@ -127,7 +127,11 @@
     <ClCompile Include="BookStore\BookStore.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Menu\MainMenu.cpp" />
+    <ClCompile Include="Person\Customer.cpp" />
+    <ClCompile Include="Person\Manager.cpp" />
     <ClCompile Include="Person\Person.cpp" />
+    <ClCompile Include="Person\PersonInterface.cpp" />
+    <ClCompile Include="Person\Seller.cpp" />
     <ClCompile Include="Utility\FileHandler.cpp" />
     <ClCompile Include="Utility\Util.cpp" />
   </ItemGroup>
@@ -135,7 +139,11 @@
     <ClInclude Include="Account\Account.h" />
     <ClInclude Include="BookStore\BookStore.h" />
     <ClInclude Include="Menu\MainMenu.h" />
+    <ClInclude Include="Person\Customer.h" />
+    <ClInclude Include="Person\Manager.h" />
     <ClInclude Include="Person\Person.h" />
+    <ClInclude Include="Person\PersonInterface.h" />
+    <ClInclude Include="Person\Seller.h" />
     <ClInclude Include="Utility\FileHandler.h" />
     <ClInclude Include="Utility\Util.h" />
   </ItemGroup>
