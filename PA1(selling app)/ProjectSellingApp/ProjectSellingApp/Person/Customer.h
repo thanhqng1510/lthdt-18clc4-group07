@@ -16,8 +16,8 @@ private:
 	//personInterface
 public:
     Customer(const Account& account);
-    ~Customer() override;
+    //~Customer() override;
 	//deleteAccount -> personInterface
-	void SyncWithFile();
+	//void SyncWithFile();
 	void BucketCustomer();
 };

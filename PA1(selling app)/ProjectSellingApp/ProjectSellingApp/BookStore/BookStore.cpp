@@ -34,32 +34,32 @@ void book::GetStockInput(unsigned int& stock) {
 
 void book::Output() const {
 	std::cout << "------------------------\n"
-		 << "Author: " << author << "\n"
-		 << "Name: " << name << "\n"
-		 << "Price: " << price << "\n"
-		 << "Stock: " << stock << "\n"
-		 << (stock == 0 ? "OUT OF ORDER\n" : "")
-	     << "------------------------";
+		 << "Author: " << author << ".\n"
+		 << "Name: " << name << ".\n"
+		 << "Price: " << price << ".\n"
+		 << "Stock: " << stock << ".\n"
+		 << (stock == 0 ? "OUT OF ORDER.\n" : "")
+	     << "------------------------\n";
 }
 
 std::string book::ToString() const {
-	return std::move(name + "," + author + "," + std::to_string(price) + "," + std::to_string(stock));
+	return (name + "," + author + "," + std::to_string(price) + "," + std::to_string(stock));
 }
 
-const std::string BookStore::s_book_store_path = "ProjectSellingApp/BookStore/Data/BookStore.data";
+const std::string BookStore::s_book_store_path = "ProjectSellingApp/BookStore/Data/BookStore.txt";
 
 BookStore::BookStore() {
 	file_to_unordered_map<std::string, book>(s_book_store_path, m_book_store, [](std::pair<std::string, book>& value, const std::string& line) -> void {
 		std::vector<std::string> result;
 		parse_string(result, line, ",");
-		value = { std::move(result[0]), 
-				{ std::move(result[0]), std::move(result[1]), (unsigned int)stoi(result[2]), (unsigned int)stoi(result[3]) } };
+		value = {result[0], 
+				{result[0],result[1], (unsigned int)stoi(result[2]), (unsigned int)stoi(result[3]) } };
 	});
 }
 
 BookStore::~BookStore() {
 	unordered_map_to_file<std::string, book>(s_book_store_path, m_book_store, [](const std::pair<std::string, book>& value, std::string& line) {
-		line = std::move(value.second.ToString());
+		line = value.second.ToString();
 	});
 }
 
@@ -76,7 +76,7 @@ void BookStore::SearchByName() const {
 	if (m_book_store.find(search) != m_book_store.end())
 		m_book_store.at(search).Output();
 	else
-		prompt_message("Book not found");
+		prompt_message("Book not found.");
 }
 
 void BookStore::SearchByAuthor() const {
@@ -92,7 +92,7 @@ void BookStore::SearchByAuthor() const {
 		}
 
 	if (!is_found)
-		prompt_message("Book not found");
+		prompt_message("Book not found.");
 }
 
 void BookStore::Add() {
@@ -106,7 +106,7 @@ void BookStore::Add() {
 	if (m_book_store.find(add.name) != m_book_store.end()) {
 		m_book_store.at(add.name).stock += add.stock;
 
-		std::string message = "Added " + std::to_string(add.stock) + " products to existing book (" + add.name + ") successfully";
+		std::string message = "Added " + std::to_string(add.stock) + " products to existing book (" + add.name + ") successfully.";
 		prompt_message(message);
 
 		return;
@@ -120,7 +120,7 @@ void BookStore::Add() {
 
 	m_book_store.insert({ add.name, add });
 
-	std::string message = "Added new book (" + add.name + ") with " + std::to_string(add.stock) + " products successfully";
+	std::string message = "Added new book (" + add.name + ") with " + std::to_string(add.stock) + " products successfully.";
 	prompt_message(message);
 }
 
@@ -136,20 +136,20 @@ void BookStore::Remove() {
 		if (m_book_store.at(remove.name).stock >= remove.stock) {
 			m_book_store.at(remove.name).stock -= remove.stock;
 
-			std::string message = "Removed " + std::to_string(remove.stock) + " products from existing book (" + m_book_store.at(remove.name).name + ") successfully";
+			std::string message = "Removed " + std::to_string(remove.stock) + " products from existing book (" + m_book_store.at(remove.name).name + ") successfully.";
 			prompt_message(message);
 
 			return;
 		}
 		else {
-			std::string message = "Book " + m_book_store.at(remove.name).name + " has " + std::to_string(m_book_store.at(remove.name).stock) + " products but have to remove " + std::to_string(remove.stock) + " products";
+			std::string message = "Book " + m_book_store.at(remove.name).name + " has " + std::to_string(m_book_store.at(remove.name).stock) + " products but have to remove " + std::to_string(remove.stock) + " products.";
 			prompt_message(message);
 
 			return;
 		}
 	}
 
-	prompt_message("Book not found");
+	prompt_message("Book not found.");
 }
 
 //string BookStore::GetMostSell() {

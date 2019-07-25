@@ -27,7 +27,6 @@ protected:
 	std::unordered_map<std::string, book> m_book_store;
 
 public:
-	// Create a bookstore for further work
 	BookStore();
 	~BookStore();
 

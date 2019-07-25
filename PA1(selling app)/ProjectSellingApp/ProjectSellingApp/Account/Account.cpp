@@ -27,5 +27,5 @@ Account::Account(const std::string& username, const std::string& pass, const std
 : m_username(username), m_pass(pass), m_email(email), m_type(type) {}
 
 std::string Account::ToString() const {
-	return std::move(m_username + " " + m_pass + " " + m_email);
+	return (m_username + " " + m_pass + " " + m_email);
 }

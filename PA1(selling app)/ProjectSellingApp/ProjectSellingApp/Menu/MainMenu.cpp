@@ -34,7 +34,7 @@ void MainMenu::LogIn(LOG_IN_KEY key) {
 	for (const std::pair<std::string, ACCOUNT_TYPE>& p : path) {
 		std::ifstream fin(p.first);
 		if (!fin.is_open()) {
-			prompt_message("Fail to open " + p.first);
+			prompt_message("Fail to open " + p.first + ".");
 			continue;
 		}
 
@@ -46,11 +46,11 @@ void MainMenu::LogIn(LOG_IN_KEY key) {
 			ss >> cur_username >> cur_pass >> cur_email;
 			if ((key == LOG_IN_KEY::USERNAME && cur_username == username) || (key == LOG_IN_KEY::EMAIL && cur_email == email)) {
 				if (cur_pass == pass) {
-					prompt_message("Hello");
+					prompt_message("Hello !!!");
 					// Person person(Account(username, pass, email, p.second));
 				}
 				else {
-					prompt_message("Wrong password");
+					prompt_message("Wrong password.");
 					fin.close();
 					return;
 				}
@@ -59,7 +59,7 @@ void MainMenu::LogIn(LOG_IN_KEY key) {
 		fin.close();
 	}
 
-	prompt_message("Wrong username or email");
+	prompt_message("Wrong username or email.");
 }
 
 void MainMenu::CreateAccount() {
@@ -75,7 +75,7 @@ void MainMenu::CreateAccount() {
 
 	std::ifstream fin(PersonInterface::s_customer_account_path);
 	if (!fin.is_open()) {
-		prompt_message("Fail to open " + PersonInterface::s_customer_account_path);
+		prompt_message("Fail to open " + PersonInterface::s_customer_account_path + ".");
 		return;
 	}
 
@@ -86,12 +86,12 @@ void MainMenu::CreateAccount() {
 		ss >> cur_username >> cur_email >> cur_email;
 
 		if (cur_username == username) {
-			prompt_message("This username has been used");
+			prompt_message("This username has been used.");
 			fin.close();
 			return;
 		}
 		else if (cur_email == email) {
-			prompt_message("This email has been used");
+			prompt_message("This email has been used.");
 			fin.close();
 			return;
 		}
@@ -102,7 +102,7 @@ void MainMenu::CreateAccount() {
 	fout << "\n" << username << " " << pass << " " << email;
 	fout.close();
 
-	prompt_message("Account created successfully");
+	prompt_message("Account created successfully.");
 }
 
 void MainMenu::GetOptionInput(unsigned int& option) {
@@ -118,11 +118,11 @@ void MainMenu::Process() {
 	while (m_option != 4) {
 		system("cls");
 		system("clear");
-		std::cout << "Welcome\n";
-		std::cout << "1. Log in with email\n";
-		std::cout << "2. Log in with username\n";
-		std::cout << "3. Create account (for customer only)\n";
-		std::cout << "4. Exit\n";
+		std::cout << "Welcome.\n";
+		std::cout << "1. Log in with email.\n";
+		std::cout << "2. Log in with username.\n";
+		std::cout << "3. Create account (for customer only).\n";
+		std::cout << "4. Exit.\n";
 
 		std::cout << "Choose: ";
 		GetOptionInput(m_option);

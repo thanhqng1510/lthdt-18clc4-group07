@@ -1,29 +1,21 @@
-<<<<<<< HEAD
-Tat Den,Ngo Tat To,70000,6
-khi hoi tho hoa thinh khong, Paul Kalanithi, 11
-Co hai con meo ngoi ben cua so, Nguyen Nhat Anh, 40000, 9
-Mat biec, Nguyen Nhat Anh, 60000, 5
-Mo dom dom, Nosaka Akiyuki, 55000, 8
-=======
-Tat Den,Ngo Tat To,70000,0
->>>>>>> f10b060d54eb1ca292c00d251dad05c92d8636f5
-Viec Lang,Ngo Tat To,120000,12
-Vo Nhat,Kim Lan,30000,4
-So Do,Vu Trong Phung,100000,5
-Chi Pheo,Nam Cao,40000,3
-Bi Vo,Nguyen Hong,120000,2
 Canh Dong Bat Tan,Nguyen Ngoc Tu,25000,4
-Noi Buon Chien Tranh,Bao Ninh,130000,1
-Giong To,Vu Trong Phung,70000,3
-Nhung Ngay Tho Au,Nguyen Hong,110000,0
-Vo De,Vu Trong Phung,40000,7
-Ben Khong Chong,Duong Huong,40000,3
-Ha Noi 36 Pho Phuong,Thach Lam,70000,7
-Song Mon,Nam Cao,80000,5
-Tuoi Tho Du Doi,Phung Quan,50000,1
-Quang Tri 1972,Nguyen Quang Vinh,75000,5
-Buoc Duong Cung,Nguyen Cong Hoan,55000,2
-Ha Noi Lam Than,Trong Lang,90000,2
-Con Hoang,Le Hong Nguyen,35000,0
-Chuyen Nha Que,Nguyen Quang Lap,60000,5
+Viec Lang,Ngo Tat To,120000,12
 Vang Va Mau,The Lu,100000,5
+Vo De,Vu Trong Phung,40000,7
+Bi Vo,Nguyen Hong,120000,2
+Ha Noi 36 Pho Phuong,Thach Lam,70000,7
+Vo Nhat,Kim Lan,30000,4
+Tat Den,Ngo Tat To,70000,3
+Quang Tri 1972,Nguyen Quang Vinh,75000,5
+Ha Noi Lam Than,Trong Lang,90000,2
+Chi Pheo,Nam Cao,40000,0
+Song Mon,Nam Cao,80000,5
+Nhung Ngay Tho Au,Nguyen Hong,110000,0
+Tuoi Tho Du Doi,Phung Quan,50000,1
+Buoc Duong Cung,Nguyen Cong Hoan,55000,2
+Ben Khong Chong,Duong Huong,40000,3
+Con Hoang,Le Hong Nguyen,35000,0
+Giong To,Vu Trong Phung,70000,3
+So Do,Vu Trong Phung,100000,5
+Chuyen Nha Que,Nguyen Quang Lap,60000,5
+Noi Buon Chien Tranh,Bao Ninh,130000,1
