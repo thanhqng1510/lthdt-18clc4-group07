@@ -98,7 +98,7 @@ void BookStore::Add() {
 	std::cout << "Enter book's name: ";
 	book::GetNameInput(add.name);
 
-	std::cout << "Enter book's quantity: ";
+	std::cout << "Enter number of copies: ";
 	book::GetStockInput(add.stock);
 
 	if (m_book_store.find(add.name) != m_book_store.end()) {
@@ -127,7 +127,7 @@ void BookStore::Remove() {
 	std::cout << "Enter book's name: ";
 	book::GetNameInput(remove.name);
 
-	std::cout << "Enter book's quantity: ";
+	std::cout << "Enter number of copies: ";
 	book::GetStockInput(remove.stock);
 
 	if (m_book_store.find(remove.name) != m_book_store.end()) {

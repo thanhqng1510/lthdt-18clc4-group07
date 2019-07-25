@@ -6,19 +6,17 @@
 #include "../../BookStore/BookStore.h"
 
 class Bucket : public BookStore {
-public:
-	static const unsigned int m_day_discount[5];
-
 private:
-	std::unordered_map<std::string, unsigned int> m_bucket;
+	std::unordered_map<std::string, std::pair<book, unsigned int>> m_bucket;
+	unsigned int m_day_discount[4];
 
 public:
-	Bucket();
-	~Bucket();
+	//Bucket();
+	//~Bucket();
 
 public:
 	bool CheckDiscountToday() const;
-	void Show() const;
+	void WatchBucket() const;
 	void Add();
 	void Remove();
 	void BuyAll();
