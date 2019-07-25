@@ -7,7 +7,6 @@ enum class LOG_IN_KEY {
 
 class MainMenu {
 private:
-	// Log in with username or email
 	static void LogIn(LOG_IN_KEY key);
 	static void CreateAccount();
 
@@ -21,6 +20,5 @@ public:
 	MainMenu();
 
 public:
-	// Show all option available and ask for user's input
-	void Process();
+	void Show();
 };

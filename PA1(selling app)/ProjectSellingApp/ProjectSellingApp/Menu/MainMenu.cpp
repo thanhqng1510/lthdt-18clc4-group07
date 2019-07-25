@@ -40,7 +40,7 @@ void MainMenu::LogIn(LOG_IN_KEY key) {
 
 		std::string line;
 		while (getline(fin, line, '\n')) {
-			std::stringstream ss(std::move(line));
+			std::stringstream ss(line);
 			std::string cur_username, cur_pass, cur_email;
 
 			ss >> cur_username >> cur_pass >> cur_email;
@@ -114,7 +114,7 @@ void MainMenu::GetOptionInput(unsigned int& option) {
 MainMenu::MainMenu()
 : m_option(0) {}
 
-void MainMenu::Process() {
+void MainMenu::Show() {
 	while (m_option != 4) {
 		system("cls");
 		system("clear");

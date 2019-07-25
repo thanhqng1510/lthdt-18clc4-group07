@@ -3,6 +3,8 @@
 #include <string>
 #include <unordered_map>
 
+#include "../Utility/Util.h"
+
 struct book {
 	static const std::string s_author_pattern;
 	static const std::string s_name_pattern;
@@ -32,11 +34,11 @@ public:
 
 public:
 	void PrintAll() const;
-	void SearchByName() const;
-	void SearchByAuthor() const;
+	void ViewByName() const;
+	void ViewByAuthor() const;
 	void Add();
 	void Remove();
-
+	void SyncWithFile() const;
 	// string GetMostSell();
 	// string GetRecentSell();
 };

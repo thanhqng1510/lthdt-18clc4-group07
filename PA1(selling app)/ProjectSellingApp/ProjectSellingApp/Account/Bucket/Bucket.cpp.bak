@@ -4,8 +4,6 @@
 
 #include "Bucket.h"
 
-const unsigned int Bucket::m_day_discount[5] = { 1, 10, 15, 25, 30 };
-
 bool Bucket::CheckDiscountToday() const {
 	time_t now = time(nullptr);
 	tm* local = localtime(&now);
@@ -16,12 +14,11 @@ bool Bucket::CheckDiscountToday() const {
 	for (int i = 0; i < 5; i++)
 		if (day == m_day_discount[i])
 			return true;
-
 	return false;
 }
 
 // 20% discount
-void Bucket::Show() const {
+void Bucket::WatchBucket() const {
 	float factor;
 
 	if (Bucket::CheckDiscountToday())
@@ -31,22 +28,26 @@ void Bucket::Show() const {
 
 
 	float total = 0;
-	for (const auto& i : m_bucket) {
-		m_book_store.at(i.first).Output();
-		total += m_book_store.at(i.first).price * i.second * factor;
+	for (auto i = m_bucket.begin(); i != m_bucket.end(); i++) {
+		std::cout << "Author: " << i->second.first.author << "\n"
+				  << "Name: " << i->second.first.name << "\n"
+			      << "Price: " << i->second.first.price * factor << "\n"
+			      << "Amount: " << i->second.second << "\n";
+		total += i->second.first.price * i->second.second * factor;
 	}
 
 	std::cout << "Total: " << total << "\n";
 }
 
-void Bucket::Add() {
+void Bucket::AddToBucket() {
 	std::string name;
-	std::cout << "Enter book's name: ";
+	int amount;
+	std::cout << "Enter name's book you want add: ";
 	book::GetNameInput(name);
 
 	for (const auto& i : m_book_store) {
 		if (i.second.name == name) {
-			std::cout << "Enter number of copies you want: "
+			std::cout << "Enter "
 			std::cin >> amount;
 			if (i->second.stock >= amount)
 			{
@@ -65,14 +66,6 @@ void Bucket::Add() {
 			}
 		}
 	}
-
-	if (m_book_store.find(name) != m_book_store.end()) {
-		unsigned int amount;
-		std::cout << "Enter number of copies you want: ";
-		book::GetStockInput(amount);
-	}
-
-	prompt_message("Book not found.");
 }
 
 void Bucket::RemoveFromBucket()

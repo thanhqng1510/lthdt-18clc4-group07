@@ -24,13 +24,7 @@ Manager::Manager(const Account& account)
 }
 
 Manager::~Manager() {
-	unordered_map_to_file<std::string, Account>(PersonInterface::s_customer_account_path, m_customer_list, [](const std::pair<std::string, Account>& value, std::string& line) {
-        line = value.second.ToString();
-    });
-
-	unordered_map_to_file<std::string, Account>(PersonInterface::s_seller_account_path, m_seller_list, [](const std::pair<std::string, Account>& value, std::string& line) {
-        line = value.second.ToString();
-    });
+	SyncWithFile();
 }
 
 void Manager::CreateSeller() {
@@ -49,7 +43,8 @@ void Manager::CreateSeller() {
 			prompt_message("This username has been used.");
 			return;
 		}
-		else if (i.second.m_email == email) {
+
+		if (i.second.m_email == email) {
 			prompt_message("This email has been used.");
 			return;
 		}
@@ -70,4 +65,14 @@ void Manager::DeleteCustomer(const std::string& name) {
     m_customer_list.erase(name);
 
     prompt_message("Customer " + name + " deleted successfully.");
+}
+
+void Manager::SyncWithFile() const {
+    unordered_map_to_file<std::string, Account>(PersonInterface::s_customer_account_path, m_customer_list, [](const std::pair<std::string, Account>& value, std::string& line) {
+        line = value.second.ToString();
+    });
+
+	unordered_map_to_file<std::string, Account>(PersonInterface::s_seller_account_path, m_seller_list, [](const std::pair<std::string, Account>& value, std::string& line) {
+        line = value.second.ToString();
+    });
 }

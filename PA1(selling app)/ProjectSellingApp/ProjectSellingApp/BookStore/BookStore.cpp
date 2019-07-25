@@ -58,9 +58,7 @@ BookStore::BookStore() {
 }
 
 BookStore::~BookStore() {
-	unordered_map_to_file<std::string, book>(s_book_store_path, m_book_store, [](const std::pair<std::string, book>& value, std::string& line) {
-		line = value.second.ToString();
-	});
+	SyncWithFile();
 }
 
 void BookStore::PrintAll() const {
@@ -68,7 +66,7 @@ void BookStore::PrintAll() const {
 		b.second.Output();
 }
 
-void BookStore::SearchByName() const {
+void BookStore::ViewByName() const {
 	std::string search;
 	std::cout << "Enter book's name: ";
 	book::GetNameInput(search);
@@ -79,7 +77,7 @@ void BookStore::SearchByName() const {
 		prompt_message("Book not found.");
 }
 
-void BookStore::SearchByAuthor() const {
+void BookStore::ViewByAuthor() const {
 	std::string search;
 	std::cout << "Enter author's name: ";
 	book::GetAuthorInput(search);
@@ -150,6 +148,12 @@ void BookStore::Remove() {
 	}
 
 	prompt_message("Book not found.");
+}
+
+void BookStore::SyncWithFile() const {
+	unordered_map_to_file<std::string, book>(s_book_store_path, m_book_store, [](const std::pair<std::string, book>& value, std::string& line) {
+		line = value.second.ToString();
+	});
 }
 
 //string BookStore::GetMostSell() {

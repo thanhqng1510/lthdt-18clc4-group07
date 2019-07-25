@@ -19,9 +19,7 @@ PersonInterface::PersonInterface(const Account& account) : m_self_account(nullpt
 }
 
 PersonInterface::~PersonInterface() {
-    unordered_map_to_file<std::string, Account>(*m_self_account_path, m_self_list, [](const std::pair<std::string, Account>& value, std::string& line) {
-        line = value.second.ToString();
-    });
+    SyncWithFile();
 }
 
 void PersonInterface::ChangeUsername() {
@@ -32,8 +30,14 @@ void PersonInterface::ChangeUsername() {
     std::string cur_pass;
     std::cout << "Enter current password to confirm: ";
     Account::GetPasswordInput(cur_pass);
+
     if (cur_pass != m_self_account->m_pass) {
         prompt_message("Wrong password.");
+        return;
+    }
+
+    if (new_username == m_self_account->m_username) {
+        prompt_message("This is your current username.");
         return;
     }
 
@@ -60,10 +64,12 @@ void PersonInterface::ChangePassword() {
         prompt_message("Wrong password.");
         return;
     }
+
     if (cur_pass == new_pass){
-        prompt_message("This password is the same as your current password.");
+        prompt_message("This is your current password.");
         return;
     }
+
     m_self_account->m_pass = new_pass;
 
     prompt_message("Change password successfully.");
@@ -77,8 +83,14 @@ void PersonInterface::ChangeEmail() {
     std::string cur_pass;
     std::cout << "Enter current password to confirm: ";
     Account::GetPasswordInput(cur_pass);
+
     if (cur_pass != m_self_account->m_pass) {
         prompt_message("Wrong password.");
+        return;
+    }
+
+    if (new_email == m_self_account->m_email) {
+        prompt_message("This is your current email.");
         return;
     }
 
@@ -103,4 +115,10 @@ void PersonInterface::DeleteAccount() {
 
     prompt_message("Account deleted.");
     LogOut();
+}
+
+void PersonInterface::SyncWithFile() const {
+    unordered_map_to_file<std::string, Account>(*m_self_account_path, m_self_list, [](const std::pair<std::string, Account>& value, std::string& line) {
+        line = value.second.ToString();
+    });
 }

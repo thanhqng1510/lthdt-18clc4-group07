@@ -19,4 +19,5 @@ public:
     void CreateSeller();
     void DeleteSeller(const std::string& name);
     void DeleteCustomer(const std::string& name);
+    void SyncWithFile() const override;
 };

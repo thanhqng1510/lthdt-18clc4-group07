@@ -31,4 +31,5 @@ public:
 	void ChangeEmail();
 	void LogOut() const;
 	void DeleteAccount();
+	virtual void SyncWithFile() const;
 };
