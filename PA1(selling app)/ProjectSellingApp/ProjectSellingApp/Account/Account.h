@@ -14,7 +14,7 @@ public:
 	friend class Manager;
 
 	static const std::string s_pass_pattern;
-	static const std::string s_email_pattern;
+	static const std::string s_email_pattern; 
 
 public:
 	static void GetUsernameInput(std::string& username);

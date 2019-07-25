@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/Output.dir/ProjectSellingApp/Bucket/Bucket.cpp.o"
   "CMakeFiles/Output.dir/ProjectSellingApp/Main.cpp.o"
   "CMakeFiles/Output.dir/ProjectSellingApp/Utility/Util.cpp.o"
   "CMakeFiles/Output.dir/ProjectSellingApp/Person/PersonInterface.cpp.o"

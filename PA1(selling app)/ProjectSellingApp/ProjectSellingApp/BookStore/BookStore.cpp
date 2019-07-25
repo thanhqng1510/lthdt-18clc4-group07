@@ -133,16 +133,16 @@ void BookStore::Remove() {
 	book::GetStockInput(remove.stock);
 
 	if (m_book_store.find(remove.name) != m_book_store.end()) {
-		if (book& b = m_book_store.at(remove.name); b.stock >= remove.stock) {
-			b.stock -= remove.stock;
+		if (m_book_store.at(remove.name).stock >= remove.stock) {
+			m_book_store.at(remove.name).stock -= remove.stock;
 
-			std::string message = "Removed " + std::to_string(remove.stock) + " products from existing book (" + b.name + ") successfully";
+			std::string message = "Removed " + std::to_string(remove.stock) + " products from existing book (" + m_book_store.at(remove.name).name + ") successfully";
 			prompt_message(message);
 
 			return;
 		}
 		else {
-			std::string message = "Book " + b.name + " has " + std::to_string(b.stock) + " products but have to remove " + std::to_string(remove.stock) + " products";
+			std::string message = "Book " + m_book_store.at(remove.name).name + " has " + std::to_string(m_book_store.at(remove.name).stock) + " products but have to remove " + std::to_string(remove.stock) + " products";
 			prompt_message(message);
 
 			return;

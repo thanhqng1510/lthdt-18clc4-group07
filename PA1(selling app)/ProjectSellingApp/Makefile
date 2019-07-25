@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/thanhqng1510/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp"
+CMAKE_SOURCE_DIR = "/mnt/c/Users/Phuc/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/thanhqng1510/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp"
+CMAKE_BINARY_DIR = "/mnt/c/Users/Phuc/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/thanhqng1510/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/CMakeFiles" "/home/thanhqng1510/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Phuc/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/CMakeFiles" "/mnt/c/Users/Phuc/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/CMakeFiles/progress.marks"
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/thanhqng1510/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Phuc/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -176,6 +176,33 @@ ProjectSellingApp/BookStore/BookStore.s: ProjectSellingApp/BookStore/BookStore.c
 ProjectSellingApp/BookStore/BookStore.cpp.s:
 	$(MAKE) -f CMakeFiles/Output.dir/build.make CMakeFiles/Output.dir/ProjectSellingApp/BookStore/BookStore.cpp.s
 .PHONY : ProjectSellingApp/BookStore/BookStore.cpp.s
+
+ProjectSellingApp/Bucket/Bucket.o: ProjectSellingApp/Bucket/Bucket.cpp.o
+
+.PHONY : ProjectSellingApp/Bucket/Bucket.o
+
+# target to build an object file
+ProjectSellingApp/Bucket/Bucket.cpp.o:
+	$(MAKE) -f CMakeFiles/Output.dir/build.make CMakeFiles/Output.dir/ProjectSellingApp/Bucket/Bucket.cpp.o
+.PHONY : ProjectSellingApp/Bucket/Bucket.cpp.o
+
+ProjectSellingApp/Bucket/Bucket.i: ProjectSellingApp/Bucket/Bucket.cpp.i
+
+.PHONY : ProjectSellingApp/Bucket/Bucket.i
+
+# target to preprocess a source file
+ProjectSellingApp/Bucket/Bucket.cpp.i:
+	$(MAKE) -f CMakeFiles/Output.dir/build.make CMakeFiles/Output.dir/ProjectSellingApp/Bucket/Bucket.cpp.i
+.PHONY : ProjectSellingApp/Bucket/Bucket.cpp.i
+
+ProjectSellingApp/Bucket/Bucket.s: ProjectSellingApp/Bucket/Bucket.cpp.s
+
+.PHONY : ProjectSellingApp/Bucket/Bucket.s
+
+# target to generate assembly for a file
+ProjectSellingApp/Bucket/Bucket.cpp.s:
+	$(MAKE) -f CMakeFiles/Output.dir/build.make CMakeFiles/Output.dir/ProjectSellingApp/Bucket/Bucket.cpp.s
+.PHONY : ProjectSellingApp/Bucket/Bucket.cpp.s
 
 ProjectSellingApp/Main.o: ProjectSellingApp/Main.cpp.o
 
@@ -381,6 +408,9 @@ help:
 	@echo "... ProjectSellingApp/BookStore/BookStore.o"
 	@echo "... ProjectSellingApp/BookStore/BookStore.i"
 	@echo "... ProjectSellingApp/BookStore/BookStore.s"
+	@echo "... ProjectSellingApp/Bucket/Bucket.o"
+	@echo "... ProjectSellingApp/Bucket/Bucket.i"
+	@echo "... ProjectSellingApp/Bucket/Bucket.s"
 	@echo "... ProjectSellingApp/Main.o"
 	@echo "... ProjectSellingApp/Main.i"
 	@echo "... ProjectSellingApp/Main.s"

@@ -13,7 +13,7 @@ public:
 	static const std::string s_manager_account_path;
 
 protected:
-	Account* m_account;
+	Account* m_self_account;
 	const std::string* const m_self_account_path;
 	std::unordered_map<std::string, Account> m_self_list;
 	

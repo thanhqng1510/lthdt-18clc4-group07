@@ -9,6 +9,10 @@ CMakeFiles/Output.dir/ProjectSellingApp/BookStore/BookStore.cpp.o: ProjectSellin
 CMakeFiles/Output.dir/ProjectSellingApp/BookStore/BookStore.cpp.o: ProjectSellingApp/BookStore/BookStore.h
 CMakeFiles/Output.dir/ProjectSellingApp/BookStore/BookStore.cpp.o: ProjectSellingApp/Utility/Util.h
 
+CMakeFiles/Output.dir/ProjectSellingApp/Bucket/Bucket.cpp.o: ProjectSellingApp/BookStore/BookStore.h
+CMakeFiles/Output.dir/ProjectSellingApp/Bucket/Bucket.cpp.o: ProjectSellingApp/Bucket/Bucket.cpp
+CMakeFiles/Output.dir/ProjectSellingApp/Bucket/Bucket.cpp.o: ProjectSellingApp/Bucket/Bucket.h
+
 CMakeFiles/Output.dir/ProjectSellingApp/Main.cpp.o: ProjectSellingApp/BookStore/BookStore.h
 CMakeFiles/Output.dir/ProjectSellingApp/Main.cpp.o: ProjectSellingApp/Main.cpp
 CMakeFiles/Output.dir/ProjectSellingApp/Main.cpp.o: ProjectSellingApp/Menu/MainMenu.h
