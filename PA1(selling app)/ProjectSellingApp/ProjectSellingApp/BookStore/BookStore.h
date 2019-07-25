@@ -23,7 +23,7 @@ class BookStore {
 public:
 	static const std::string s_book_store_path;
 
-private:
+protected:
 	std::unordered_map<std::string, book> m_book_store;
 
 public:

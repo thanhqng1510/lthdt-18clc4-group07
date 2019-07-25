@@ -1,9 +1,3 @@
-<<<<<<< HEAD
 /mnt/c/Users/Phuc/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/CMakeFiles/rebuild_cache.dir
 /mnt/c/Users/Phuc/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/CMakeFiles/Output.dir
 /mnt/c/Users/Phuc/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/CMakeFiles/edit_cache.dir
-=======
-/home/thanhqng1510/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/CMakeFiles/rebuild_cache.dir
-/home/thanhqng1510/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/CMakeFiles/Output.dir
-/home/thanhqng1510/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/CMakeFiles/edit_cache.dir
->>>>>>> 30b51a6ed6a91f4325f6dcb8ba8d264f717cb6b9

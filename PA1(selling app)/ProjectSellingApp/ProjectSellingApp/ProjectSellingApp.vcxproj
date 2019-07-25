@@ -124,7 +124,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Account\Account.cpp" />
+    <ClCompile Include="Account\Bucket\Bucket.cpp" />
     <ClCompile Include="BookStore\BookStore.cpp" />
+    <ClCompile Include="Bucket\Bucket.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Menu\MainMenu.cpp" />
     <ClCompile Include="Person\Customer.cpp" />
@@ -137,7 +139,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Account\Account.h" />
+    <ClInclude Include="Account\Bucket\Bucket.h" />
     <ClInclude Include="BookStore\BookStore.h" />
+    <ClInclude Include="Bucket\Bucket.h" />
     <ClInclude Include="Menu\MainMenu.h" />
     <ClInclude Include="Person\Customer.h" />
     <ClInclude Include="Person\Manager.h" />
