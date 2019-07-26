@@ -8,17 +8,16 @@ CMakeFiles/Output.dir/ProjectSellingApp/Account/Account.cpp.o: ProjectSellingApp
 CMakeFiles/Output.dir/ProjectSellingApp/Account/Bucket/Bucket.cpp.o: ProjectSellingApp/Account/Bucket/Bucket.cpp
 CMakeFiles/Output.dir/ProjectSellingApp/Account/Bucket/Bucket.cpp.o: ProjectSellingApp/Account/Bucket/Bucket.h
 CMakeFiles/Output.dir/ProjectSellingApp/Account/Bucket/Bucket.cpp.o: ProjectSellingApp/BookStore/BookStore.h
+CMakeFiles/Output.dir/ProjectSellingApp/Account/Bucket/Bucket.cpp.o: ProjectSellingApp/Utility/Util.h
 
 CMakeFiles/Output.dir/ProjectSellingApp/BookStore/BookStore.cpp.o: ProjectSellingApp/BookStore/BookStore.cpp
 CMakeFiles/Output.dir/ProjectSellingApp/BookStore/BookStore.cpp.o: ProjectSellingApp/BookStore/BookStore.h
 CMakeFiles/Output.dir/ProjectSellingApp/BookStore/BookStore.cpp.o: ProjectSellingApp/Utility/Util.h
 
-CMakeFiles/Output.dir/ProjectSellingApp/Main.cpp.o: ProjectSellingApp/Account/Account.h
 CMakeFiles/Output.dir/ProjectSellingApp/Main.cpp.o: ProjectSellingApp/Account/Bucket/Bucket.h
 CMakeFiles/Output.dir/ProjectSellingApp/Main.cpp.o: ProjectSellingApp/BookStore/BookStore.h
 CMakeFiles/Output.dir/ProjectSellingApp/Main.cpp.o: ProjectSellingApp/Main.cpp
-CMakeFiles/Output.dir/ProjectSellingApp/Main.cpp.o: ProjectSellingApp/Person/PersonInterface.h
-CMakeFiles/Output.dir/ProjectSellingApp/Main.cpp.o: ProjectSellingApp/Person/Seller.h
+CMakeFiles/Output.dir/ProjectSellingApp/Main.cpp.o: ProjectSellingApp/Utility/Util.h
 
 CMakeFiles/Output.dir/ProjectSellingApp/Menu/MainMenu.cpp.o: ProjectSellingApp/Account/Account.h
 CMakeFiles/Output.dir/ProjectSellingApp/Menu/MainMenu.cpp.o: ProjectSellingApp/BookStore/BookStore.h

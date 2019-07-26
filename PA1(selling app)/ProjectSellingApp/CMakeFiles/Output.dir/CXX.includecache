@@ -35,8 +35,6 @@ unordered_map
 -
 string
 -
-vector
--
 ../../BookStore/BookStore.h
 /home/thanhqng1510/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/BookStore/BookStore.h
 
@@ -57,12 +55,12 @@ string
 -
 unordered_map
 -
+../Utility/Util.h
+/home/thanhqng1510/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Utility/Util.h
 
 /home/thanhqng1510/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Main.cpp
 Account/Bucket/Bucket.h
 /home/thanhqng1510/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Account/Bucket/Bucket.h
-Person/Seller.h
-/home/thanhqng1510/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Person/Seller.h
 
 /home/thanhqng1510/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/ProjectSellingApp/Menu/MainMenu.cpp
 iostream
