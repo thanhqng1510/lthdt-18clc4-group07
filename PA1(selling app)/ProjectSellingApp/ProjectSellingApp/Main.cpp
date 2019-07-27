@@ -1,7 +1,6 @@
-#include "Account/Bucket/Bucket.h"
+#include "MainMenu/MainMenu.h"
 
 int main() {
-	Bucket bucket;
-	bucket.PrintAll();
-	bucket.Add();
+    MainMenu menu;
+    menu.ShowMenu();
 }

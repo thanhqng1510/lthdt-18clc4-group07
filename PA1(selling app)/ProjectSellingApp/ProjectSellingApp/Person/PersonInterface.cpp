@@ -7,7 +7,7 @@ const std::string PersonInterface::s_customer_account_path = "ProjectSellingApp/
 const std::string PersonInterface::s_seller_account_path = "ProjectSellingApp/Account/Data/SellerAccount.txt";
 const std::string PersonInterface::s_manager_account_path = "ProjectSellingApp/Account/Data/ManagerAccount.txt";
 
-PersonInterface::PersonInterface(const Account& account) : m_self_account(nullptr), m_self_account_path(account.m_type == ACCOUNT_TYPE::CUSTOMER ? &s_customer_account_path : account.m_type == ACCOUNT_TYPE::MANAGER ? &s_manager_account_path : &s_seller_account_path) { 
+PersonInterface::PersonInterface(const Account& account) : m_self_account(nullptr), m_self_account_path(account.m_type == ACCOUNT_TYPE::CUSTOMER ? &s_customer_account_path : (account.m_type == ACCOUNT_TYPE::MANAGER) ? &s_manager_account_path : &s_seller_account_path) { 
     file_to_unordered_map<std::string, Account>(*m_self_account_path, m_self_list, [&](std::pair<std::string, Account>& value, const std::string& line) -> void {
 	    std::vector<std::string> result;
         parse_string (result, line, " ");
@@ -21,6 +21,14 @@ PersonInterface::PersonInterface(const Account& account) : m_self_account(nullpt
 PersonInterface::~PersonInterface() {
     SyncWithFile();
 }
+
+void PersonInterface::ShowInfo() const {
+    std::cout << "---------------------\n"
+              << "Username: " << m_self_account->m_username << "\n"
+              << "Email: " << m_self_account->m_email << "\n"
+              << "---------------------\n";
+    prompt_message(""); 
+}   
 
 void PersonInterface::ChangeUsername() {
     std::string new_username;

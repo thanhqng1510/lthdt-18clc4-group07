@@ -7,7 +7,7 @@
 #include "../BookStore/BookStore.h"
 #include "../Account/Account.h"
 
-class PersonInterface {
+class PersonInterface : public BookStore {
 public:
     static const std::string s_customer_account_path;
 	static const std::string s_seller_account_path;
@@ -26,10 +26,12 @@ public:
 	virtual ~PersonInterface();
 
 public:
+	void ShowInfo() const;
 	void ChangeUsername();
 	void ChangePassword();
 	void ChangeEmail();
 	void LogOut() const;
 	void DeleteAccount();
 	virtual void SyncWithFile() const;
+	virtual void ShowMenu() = 0;
 };

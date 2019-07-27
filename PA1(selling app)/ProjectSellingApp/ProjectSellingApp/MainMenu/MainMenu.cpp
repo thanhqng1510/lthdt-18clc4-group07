@@ -8,7 +8,9 @@
 #include "../Utility/Util.h"
 #include "../Account/Account.h"
 #include "../Person/PersonInterface.h"
-
+#include "../Person/Customer.h"
+#include "../Person/Manager.h"
+#include "../Person/Seller.h"
 
 void MainMenu::LogIn(LOG_IN_KEY key) {
 	std::string username, pass, email;
@@ -25,16 +27,16 @@ void MainMenu::LogIn(LOG_IN_KEY key) {
 	std::cout << "Enter password: ";
 	Account::GetPasswordInput(pass);
 
-	std::pair<std::string, ACCOUNT_TYPE> path[3] = {
-		{ PersonInterface::s_customer_account_path, ACCOUNT_TYPE::CUSTOMER },  //Account p.first
-		{ PersonInterface::s_manager_account_path, ACCOUNT_TYPE::MANAGER },    //ACCOUNT_TYPE p.second
-		{ PersonInterface::s_seller_account_path, ACCOUNT_TYPE::SELLER }
+	const std::string* const path[3] = {
+		&PersonInterface::s_customer_account_path,
+		&PersonInterface::s_manager_account_path,
+		&PersonInterface::s_seller_account_path
 	};
 
-	for (const std::pair<std::string, ACCOUNT_TYPE>& p : path) {
-		std::ifstream fin(p.first);
+	for (const auto& p : path) {
+		std::ifstream fin(*p);
 		if (!fin.is_open()) {
-			prompt_message("Fail to open " + p.first + ".");
+			prompt_message("Fail to open " + *p + ".");
 			continue;
 		}
 
@@ -46,8 +48,24 @@ void MainMenu::LogIn(LOG_IN_KEY key) {
 			ss >> cur_username >> cur_pass >> cur_email;
 			if ((key == LOG_IN_KEY::USERNAME && cur_username == username) || (key == LOG_IN_KEY::EMAIL && cur_email == email)) {
 				if (cur_pass == pass) {
-					prompt_message("Hello !!!");
-					// Person person(Account(username, pass, email, p.second));
+					PersonInterface* person;
+					if (p == &PersonInterface::s_customer_account_path) {
+						prompt_message("Welcome customer !!!");
+						person = new Customer({ cur_username, cur_pass, cur_email, ACCOUNT_TYPE::CUSTOMER });
+					}
+					else if (p == &PersonInterface::s_seller_account_path) {
+						prompt_message("Welcome seller !!!");
+						person = new Seller({ cur_username, cur_pass, cur_email, ACCOUNT_TYPE::SELLER });
+					}
+					else {
+						prompt_message("Welcome manager !!!");
+						person = new Manager({ cur_username, cur_pass, cur_email, ACCOUNT_TYPE::MANAGER });
+					}
+					person->ShowMenu();
+
+					delete person;
+					fin.close();
+					return;
 				}
 				else {
 					prompt_message("Wrong password.");
@@ -114,15 +132,15 @@ void MainMenu::GetOptionInput(unsigned int& option) {
 MainMenu::MainMenu()
 : m_option(0) {}
 
-void MainMenu::Show() {
+void MainMenu::ShowMenu() {
 	while (m_option != 4) {
 		system("cls");
 		system("clear");
-		std::cout << "Welcome.\n";
-		std::cout << "1. Log in with email.\n";
-		std::cout << "2. Log in with username.\n";
-		std::cout << "3. Create account (for customer only).\n";
-		std::cout << "4. Exit.\n";
+		std::cout << "Welcome.\n"
+				  << "1. Log in with email.\n"
+				  << "2. Log in with username.\n"
+				  << "3. Create account (for customer only).\n"
+				  << "4. Exit.\n";
 
 		std::cout << "Choose: ";
 		GetOptionInput(m_option);

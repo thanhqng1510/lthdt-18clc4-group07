@@ -5,7 +5,7 @@
 #include "../Utility/Util.h"
 
 const std::string Account::s_pass_pattern = "([a-zA-Z0-9!@#$%^&*<>?]{4,})";
-const std::string Account::s_email_pattern = "([a-zA-Z0-9_\.]+@[a-zA-Z]+(\.[a-zA-Z]+)+)";
+const std::string Account::s_email_pattern = "([a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+)";
 
 void Account::GetUsernameInput(std::string& username) {
 	get_input<std::string>(username, nullptr, "Please try again: ");

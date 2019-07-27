@@ -10,6 +10,10 @@ class Manager : public PersonInterface {
 private:
     std::unordered_map<std::string, Account> m_customer_list;
     std::unordered_map<std::string, Account> m_seller_list;
+    unsigned int m_menu_option;
+
+public:
+    static void GetOptionInput(unsigned int& option);
 
 public:
     Manager(const Account& account);
@@ -17,7 +21,8 @@ public:
 
 public:
     void CreateSeller();
-    void DeleteSeller(const std::string& name);
-    void DeleteCustomer(const std::string& name);
+    void DeleteSeller();
+    void DeleteCustomer();
     void SyncWithFile() const override;
+    void ShowMenu() override;
 };

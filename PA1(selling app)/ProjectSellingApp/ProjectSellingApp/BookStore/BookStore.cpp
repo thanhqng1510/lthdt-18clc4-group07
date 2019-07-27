@@ -64,6 +64,7 @@ BookStore::~BookStore() {
 void BookStore::PrintAll() const {
 	for (const auto& b : m_book_store)
 		b.second.Output();
+	prompt_message("");
 }
 
 void BookStore::ViewByName() const {
@@ -71,8 +72,10 @@ void BookStore::ViewByName() const {
 	std::cout << "Enter book's name: ";
 	book::GetNameInput(search);
 
-	if (m_book_store.find(search) != m_book_store.end())
+	if (m_book_store.find(search) != m_book_store.end()) {
 		m_book_store.at(search).Output();
+		prompt_message("");
+	}
 	else
 		prompt_message("Book not found.");
 }
@@ -89,7 +92,9 @@ void BookStore::ViewByAuthor() const {
 			b.second.Output();
 		}
 
-	if (!is_found)
+	if (is_found)
+		prompt_message("");
+	else
 		prompt_message("Book not found.");
 }
 

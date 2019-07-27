@@ -14,10 +14,16 @@ private:
 	//unordered_map<string, Account> m_list_customer;
 	//static string s_customer_account_path;
 	//personInterface
+	unsigned int m_menu_option;
+
+public:
+    static void GetOptionInput(unsigned int& option);
+
 public:
     Customer(const Account& account);
     //~Customer() override;
 	//deleteAccount -> personInterface
 	//void SyncWithFile();
 	void BucketCustomer();
+	void ShowMenu() override;
 };

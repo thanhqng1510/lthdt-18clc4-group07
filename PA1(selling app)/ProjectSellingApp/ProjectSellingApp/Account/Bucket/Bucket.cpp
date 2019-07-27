@@ -39,62 +39,62 @@ void Bucket::WatchBucket() const {
 	std::cout << "Total: " << total << "\n";
 }
 
-void Bucket::AddToBucket() {
-	std::string name;
-	int amount;
-	std::cout << "Enter name's book you want add: ";
-	book::GetNameInput(name);
+void Bucket::Add() {
+	// std::string name;
+	// int amount;
+	// std::cout << "Enter name's book you want add: ";
+	// book::GetNameInput(name);
 
-	for (const auto& i : m_book_store) {
-		if (i.second.name == name) {
-			std::cout << "Enter "
-			std::cin >> amount;
-			if (i->second.stock >= amount)
-			{
-				int temp = 0;
-				//i->second.stock -= amount;
-				for (auto j = m_bucket.begin(); j != m_bucket.end(); j++)
-				{
-					if (j->first == name)
-					{
-						j->second.second += amount;
-						temp++;
-					}
-				}
-				if (temp == 0)
-					m_bucket.insert({ name,{i->second,amount} });
-			}
-		}
-	}
+	// for (const auto& i : m_book_store) {
+	// 	if (i.second.name == name) {
+	// 		std::cout << "Enter "
+	// 		std::cin >> amount;
+	// 		if (i->second.stock >= amount)
+	// 		{
+	// 			int temp = 0;
+	// 			//i->second.stock -= amount;
+	// 			for (auto j = m_bucket.begin(); j != m_bucket.end(); j++)
+	// 			{
+	// 				if (j->first == name)
+	// 				{
+	// 					j->second.second += amount;
+	// 					temp++;
+	// 				}
+	// 			}
+	// 			if (temp == 0)
+	// 				m_bucket.insert({ name,{i->second,amount} });
+	// 		}
+	// 	}
+	// }
 }
 
-void Bucket::RemoveFromBucket()
+void Bucket::Remove()
 {
-	std::string Name;
-	int count = 0;
-	int amount;
-	std::cout << "Enter book's name you want remove from your bucket: ";
-	std::cin.ignore();
-	getline(std::cin, Name);
-	for (auto i = m_bucket.begin(); i != m_bucket.end(); i++)
-	{
-		if (i->second.first.name == Name)
-		{
-			std::cout << "Enter amount this book you want remove: ";
-			std::cin >> amount;
-			if (i->second.second >= amount)
-			{
-				i->second.second -= amount;
-				/*for (auto j = m_book_store.begin(); j != m_book_store.end(); i++)
-				{
-					j->second.stock += amount;
-				}*/
-			}
-			count++;
-		}
-	}
-	if (count == 0)
-		std::cout << "Not exist this book in your bucket";
+	// std::string Name;
+	// int count = 0;
+	// int amount;
+	// std::cout << "Enter book's name you want remove from your bucket: ";
+	// std::cin.ignore();
+	// getline(std::cin, Name);
+	// for (auto i = m_bucket.begin(); i != m_bucket.end(); i++)
+	// {
+	// 	if (i->second.first.name == Name)
+	// 	{
+	// 		std::cout << "Enter amount this book you want remove: ";
+	// 		std::cin >> amount;
+	// 		if (i->second.second >= amount)
+	// 		{
+	// 			i->second.second -= amount;
+	// 			/*for (auto j = m_book_store.begin(); j != m_book_store.end(); i++)
+	// 			{
+	// 				j->second.stock += amount;
+	// 			}*/
+	// 		}
+	// 		count++;
+	// 	}
+	// }
+	// if (count == 0)
+	// 	std::cout << "Not exist this book in your bucket";
 }
 
 void Bucket::BuyAll()

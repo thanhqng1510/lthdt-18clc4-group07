@@ -20,5 +20,5 @@ public:
 	MainMenu();
 
 public:
-	void Show();
+	void ShowMenu();
 };
