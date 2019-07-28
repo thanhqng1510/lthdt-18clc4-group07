@@ -1,6 +1,7 @@
 #include "MainMenu/MainMenu.h"
-
+#include "Account/Bucket/Bucket.h"
 int main() {
-    MainMenu menu;
-    menu.ShowMenu();
+    Bucket b("quythanh");
+    Bucket b2("customer");
+    Bucket b3("abc");
 }

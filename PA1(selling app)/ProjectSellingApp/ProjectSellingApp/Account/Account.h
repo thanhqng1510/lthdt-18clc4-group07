@@ -12,6 +12,7 @@ class Account {
 public:
 	friend class PersonInterface;
 	friend class Manager;
+	friend class Customer;
 
 	static const std::string s_pass_pattern;
 	static const std::string s_email_pattern; 

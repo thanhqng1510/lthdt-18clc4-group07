@@ -52,8 +52,8 @@ BookStore::BookStore() {
 	file_to_unordered_map<std::string, book>(s_book_store_path, m_book_store, [](std::pair<std::string, book>& value, const std::string& line) -> void {
 		std::vector<std::string> result;
 		parse_string(result, line, ",");
-		value = {result[0], 
-				{result[0],result[1], (unsigned int)stoi(result[2]), (unsigned int)stoi(result[3]) } };
+		value = { result[0], 
+				{ result[0],result[1], (unsigned int)stoi(result[2]), (unsigned int)stoi(result[3]) } };
 	});
 }
 
