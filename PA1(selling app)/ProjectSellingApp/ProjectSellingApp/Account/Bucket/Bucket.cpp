@@ -7,9 +7,10 @@
 #include "Bucket.h"
 
 const std::string Bucket::s_bucket_folder_path = "ProjectSellingApp/Account/Bucket/Data/";
-const unsigned int Bucket::s_day_discount[4] = { 5, 10 ,17 ,25 };
+const unsigned int Bucket::s_day_discount[4] = { 5, 10, 17, 25 };
 
-Bucket::Bucket(const std::string& username) : m_username(username) {
+Bucket::Bucket(const std::string& username) 
+: m_username(username) {
 	std::string file_path = s_bucket_folder_path + m_username + ".txt";
 
 	std::ifstream fin(file_path);
@@ -27,7 +28,7 @@ Bucket::Bucket(const std::string& username) : m_username(username) {
 }
 
 Bucket::~Bucket(){
-
+	SyncWithFile();
 }
 
 bool Bucket::CheckDiscountToday() const {
