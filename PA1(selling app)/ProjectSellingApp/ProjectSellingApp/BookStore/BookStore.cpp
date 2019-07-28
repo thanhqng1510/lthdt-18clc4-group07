@@ -11,34 +11,34 @@ const std::string book::s_name_pattern = "([A-Z0-9]+[a-z0-9]*( [A-Z0-9]+[a-z0-9]
 void book::GetAuthorInput(std::string& author) {
 	get_line_input(author, [](const std::string& value) -> bool {
 		return std::regex_match(value, std::regex(book::s_author_pattern));
-	}, "Wrong name format, please try again: ");
+	}, "Wrong name format, please try again : ");
 }
 	
 void book::GetNameInput(std::string& name) {
 	get_line_input(name, [](const std::string& value) -> bool {
 		return std::regex_match(value, std::regex(book::s_name_pattern));
-	}, "Wrong name format, please try again: ");
+	}, "Wrong name format, please try again : ");
 }
 
 void book::GetPriceInput(unsigned int& price) {
 	get_input<unsigned int>(price, [](const float& value) -> bool {
 		return value >= 10000;
-	}, "Price must be bigger than 10000, please try again: ");
+	}, "Price must be bigger than 10000, please try again : ");
 }
 
 void book::GetStockInput(unsigned int& stock) {
 	get_input<unsigned int>(stock, [](const unsigned int& value) -> bool {
 		return value >= 0;
-	}, "Quantity must be positive, please try again: ");
+	}, "Quantity must be positive, please try again : ");
 }
 
 void book::Output() const {
-	std::cout << "------------------------\n"
-		      << "Author: " << author << ".\n"
-		 	  << "Name: " << name << ".\n"
-		 	  << "Price: " << price << ".\n"
-		 	  << "Stock: " << stock << ".\n"
-		 	  << (stock == 0 ? "OUT OF ORDER.\n" : "");
+	std::cout << "--------------------------\n"
+		      << "Author : " << author << "\n"
+		 	  << "Name : " << name << "\n"
+		 	  << "Price : " << price << "\n"
+		 	  << "Stock : " << stock << "\n"
+		 	  << (stock == 0 ? "OUT OF ORDER\n" : "");
 }
 
 std::string book::ToString() const {
@@ -79,7 +79,7 @@ void BookStore::ViewByName() const {
 		prompt_message("");
 	}
 	else
-		prompt_message("Book not found.");
+		prompt_message("Book not found !!!");
 }
 
 void BookStore::ViewByAuthor() const {
@@ -97,7 +97,7 @@ void BookStore::ViewByAuthor() const {
 	if (is_found)
 		prompt_message("");
 	else
-		prompt_message("Book not found.");
+		prompt_message("Book not found !!!");
 }
 
 void BookStore::Add() {
@@ -111,7 +111,7 @@ void BookStore::Add() {
 	if (m_book_store.find(add.name) != m_book_store.end()) {
 		m_book_store.at(add.name).stock += add.stock;
 
-		std::string message = "Added " + std::to_string(add.stock) + " products to existing book (" + add.name + ") successfully.";
+		std::string message = "Added " + std::to_string(add.stock) + " products to existing book (" + add.name + ") successfully !!!";
 		prompt_message(message);
 
 		return;
@@ -125,7 +125,7 @@ void BookStore::Add() {
 
 	m_book_store.insert({ add.name, add });
 
-	std::string message = "Added new book (" + add.name + ") with " + std::to_string(add.stock) + " products successfully.";
+	std::string message = "Added new book (" + add.name + ") with " + std::to_string(add.stock) + " products successfully !!!";
 	prompt_message(message);
 }
 
@@ -141,20 +141,20 @@ void BookStore::Remove() {
 		if (m_book_store.at(remove.name).stock >= remove.stock) {
 			m_book_store.at(remove.name).stock -= remove.stock;
 
-			std::string message = "Removed " + std::to_string(remove.stock) + " products from existing book (" + m_book_store.at(remove.name).name + ") successfully.";
+			std::string message = "Removed " + std::to_string(remove.stock) + " products from existing book (" + m_book_store.at(remove.name).name + ") successfully !!!";
 			prompt_message(message);
 
 			return;
 		}
 		else {
-			std::string message = "Book " + m_book_store.at(remove.name).name + " has " + std::to_string(m_book_store.at(remove.name).stock) + " products but have to remove " + std::to_string(remove.stock) + " products.";
+			std::string message = "Book " + m_book_store.at(remove.name).name + " has " + std::to_string(m_book_store.at(remove.name).stock) + " products but have to remove " + std::to_string(remove.stock) + " products !!!";
 			prompt_message(message);
 
 			return;
 		}
 	}
 
-	prompt_message("Book not found.");
+	prompt_message("Book not found !!!");
 }
 
 void BookStore::SyncWithFile() const {

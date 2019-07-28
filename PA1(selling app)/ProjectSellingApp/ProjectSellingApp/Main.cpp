@@ -3,5 +3,8 @@
 int main() {
     Bucket b("quythanh");
     // Bucket b2("customer");
-    // Bucket b3("abc");
+    b.PrintAll();
+    b.Add();
+    b.Remove();
+    b.PrintAll();
 }

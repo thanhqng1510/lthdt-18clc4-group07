@@ -16,15 +16,15 @@ void MainMenu::LogIn(LOG_IN_KEY key) {
 	std::string username, pass, email;
 
 	if (key == LOG_IN_KEY::USERNAME) {
-		std::cout << "Enter username: ";
+		std::cout << "Enter username : ";
 		Account::GetUsernameInput(username);
 	}
 	else {
-		std::cout << "Enter email: ";
+		std::cout << "Enter email : ";
 		Account::GetEmailInput(email);
 	}
 
-	std::cout << "Enter password: ";
+	std::cout << "Enter password : ";
 	Account::GetPasswordInput(pass);
 
 	const std::string* const path[3] = {
@@ -36,7 +36,7 @@ void MainMenu::LogIn(LOG_IN_KEY key) {
 	for (const auto& p : path) {
 		std::ifstream fin(*p);
 		if (!fin.is_open()) {
-			prompt_message("Fail to open " + *p + ".");
+			prompt_message("Fail to open " + *p + " !!!");
 			continue;
 		}
 
@@ -68,7 +68,7 @@ void MainMenu::LogIn(LOG_IN_KEY key) {
 					return;
 				}
 				else {
-					prompt_message("Wrong password.");
+					prompt_message("Wrong password !!!");
 					fin.close();
 					return;
 				}
@@ -77,23 +77,23 @@ void MainMenu::LogIn(LOG_IN_KEY key) {
 		fin.close();
 	}
 
-	prompt_message("Wrong username or email.");
+	prompt_message("Wrong username or email !!!");
 }
 
 void MainMenu::CreateAccount() {
 	std::string username, pass, email;
-	std::cout << "Enter username: ";
+	std::cout << "Enter username : ";
 	Account::GetUsernameInput(username);
 	
-	std::cout << "Enter password: ";
+	std::cout << "Enter password : ";
 	Account::GetPasswordInput(pass);
 
-	std::cout << "Enter email: ";
+	std::cout << "Enter email : ";
 	Account::GetEmailInput(email);
 
 	std::ifstream fin(PersonInterface::s_customer_account_path);
 	if (!fin.is_open()) {
-		prompt_message("Fail to open " + PersonInterface::s_customer_account_path + ".");
+		prompt_message("Fail to open " + PersonInterface::s_customer_account_path + " !!!");
 		return;
 	}
 
@@ -104,12 +104,12 @@ void MainMenu::CreateAccount() {
 		ss >> cur_username >> cur_email >> cur_email;
 
 		if (cur_username == username) {
-			prompt_message("This username has been used.");
+			prompt_message("This username has been used !!!");
 			fin.close();
 			return;
 		}
 		else if (cur_email == email) {
-			prompt_message("This email has been used.");
+			prompt_message("This email has been used !!!");
 			fin.close();
 			return;
 		}
@@ -120,13 +120,13 @@ void MainMenu::CreateAccount() {
 	fout << "\n" << username << " " << pass << " " << email;
 	fout.close();
 
-	prompt_message("Account created successfully.");
+	prompt_message("Account created successfully !!!");
 }
 
 void MainMenu::GetOptionInput(unsigned int& option) {
 	get_input<unsigned int>(option, [](const unsigned int& value) -> bool {
 		return value > 0 && value < 5;
-	}, "Option must be between 1 and 4, please try again: ");
+	}, "Option must be between 1 and 4, please try again : ");
 }
 
 MainMenu::MainMenu()
@@ -142,7 +142,7 @@ void MainMenu::Show() {
 				  << "3. Create account (for customer only).\n"
 				  << "4. Exit.\n";
 
-		std::cout << "Choose: ";
+		std::cout << "Choose : ";
 		GetOptionInput(m_option);
 
 		switch (m_option) {

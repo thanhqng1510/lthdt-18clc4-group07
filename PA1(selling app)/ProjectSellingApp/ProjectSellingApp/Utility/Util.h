@@ -37,7 +37,7 @@ template<typename T, typename U>
 void file_to_unordered_map(const std::string& file_path, std::unordered_map<T, U>& map, std::function<void(std::pair<T, U>& value, const std::string& line)> line_to_pair) {
 	std::ifstream fin(file_path);
 	if (!fin.is_open()) {
-		prompt_message("Fail to open " + file_path + ".");
+		prompt_message("Fail to open " + file_path + " !!!");
 		return;
 	}
 
@@ -56,7 +56,7 @@ template<typename T, typename U>
 void unordered_map_to_file(const std::string& file_path, const std::unordered_map<T, U>& map, std::function<void(const std::pair<T, U>& value, std::string& line)> pair_to_line) {
 	std::ofstream fout(file_path, std::ios::trunc);
 	if (!fout.is_open()) {
-		prompt_message("Fail to open " + file_path + ".");
+		prompt_message("Fail to open " + file_path + " !!!");
 		return;
 	}
 

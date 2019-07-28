@@ -9,7 +9,7 @@
 void Manager::GetOptionInput(unsigned int& option) {
     get_input<unsigned int>(option, [](const unsigned int& value) -> bool {
 		return value > 0 && value < 15;
-	}, "Option must be between 1 and 14, please try again: ");
+	}, "Option must be between 1 and 14, please try again : ");
 }
 
 Manager::Manager(const Account& account)
@@ -35,56 +35,56 @@ Manager::~Manager() {
 
 void Manager::CreateSeller() {
     std::string username, pass, email;
-	std::cout << "Enter username: ";
+	std::cout << "Enter username : ";
     Account::GetUsernameInput(username);
 
-	std::cout << "Enter password: ";
+	std::cout << "Enter password : ";
 	Account::GetPasswordInput(pass);
 
-	std::cout << "Enter email: ";
+	std::cout << "Enter email : ";
 	Account::GetEmailInput(email);
 
     for (const auto& i : m_seller_list) {
         if (i.first == username) {
-			prompt_message("This username has been used.");
+			prompt_message("This username has been used !!!");
 			return;
 		}
 
 		if (i.second.m_email == email) {
-			prompt_message("This email has been used.");
+			prompt_message("This email has been used !!!");
 			return;
 		}
     }
 
     m_seller_list.insert({ username, { username, pass, email, ACCOUNT_TYPE::SELLER } });
 
-    prompt_message("Seller " + username + " created successfully.");
+    prompt_message("Seller " + username + " created successfully !!!");
 }
 
 void Manager::DeleteSeller() {
     std::string name;
-    std::cout << "Enter username: ";
+    std::cout << "Enter username : ";
     Account::GetUsernameInput(name);
 
     if (m_seller_list.find(name) != m_seller_list.end()) {
         m_seller_list.erase(name);
-        prompt_message("Seller " + name + " deleted successfully.");
+        prompt_message("Seller " + name + " deleted successfully !!!");
     }
     else
-        prompt_message("Seller not found");
+        prompt_message("Seller not found !!!");
 }
 
 void Manager::DeleteCustomer() {
     std::string name;
-    std::cout << "Enter username: ";
+    std::cout << "Enter username : ";
     Account::GetUsernameInput(name);
 
     if (m_customer_list.find(name) != m_customer_list.end()) {
         m_customer_list.erase(name);
-        prompt_message("Customer " + name + " deleted successfully.");
+        prompt_message("Customer " + name + " deleted successfully !!!");
     }
     else
-        prompt_message("Customer not found");
+        prompt_message("Customer not found !!!");
 }
 
 void Manager::SyncWithFile() const {
@@ -110,18 +110,18 @@ void Manager::ShowMenu() {
                   << "5. Delete account.\n"
                   << "-----------------------\n"
                   << "6. Create seller\n"
-                  << "7. Delete seller\n"
-                  << "8. Delete customer\n"
+                  << "7. Delete seller.\n"
+                  << "8. Delete customer.\n"
                   << "-----------------------\n"
                   << "9. View book store.\n"
-				  << "10. View book by name\n"
-				  << "11. View book by author\n"
-				  << "12. Add book\n"
-				  << "13. Remove book\n"
+				  << "10. View book by name.\n"
+				  << "11. View book by author.\n"
+				  << "12. Add book.\n"
+				  << "13. Remove book.\n"
 				  << "-----------------------\n"
                   << "14. Log out.\n";
 
-		std::cout << "Choose: ";
+		std::cout << "Choose : ";
 		GetOptionInput(m_menu_option);
 
 		switch (m_menu_option) {

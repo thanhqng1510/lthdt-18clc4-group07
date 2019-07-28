@@ -8,19 +8,19 @@ const std::string Account::s_pass_pattern = "([a-zA-Z0-9!@#$%^&*<>?]{4,})";
 const std::string Account::s_email_pattern = "([a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+)";
 
 void Account::GetUsernameInput(std::string& username) {
-	get_input<std::string>(username, nullptr, "Please try again: ");
+	get_input<std::string>(username, nullptr, "Please try again : ");
 }
 
 void Account::GetPasswordInput(std::string& pass) {
 	get_input<std::string>(pass, [](const std::string& value) -> bool {
 		return std::regex_match(value, std::regex(s_pass_pattern));
-	}, "Password must have at least 4 characters, please try again: ");
+	}, "Password must have at least 4 characters, please try again : ");
 }
 	
 void Account::GetEmailInput(std::string& email) {
 	get_input<std::string>(email, [](const std::string& value) -> bool {
 		return std::regex_match(value, std::regex(s_email_pattern));
-	}, "Wrong email format, please try again: ");
+	}, "Wrong email format, please try again : ");
 }
 
 Account::Account(const std::string& username, const std::string& pass, const std::string& email, ACCOUNT_TYPE type)

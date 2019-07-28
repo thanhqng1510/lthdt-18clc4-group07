@@ -24,93 +24,93 @@ PersonInterface::~PersonInterface() {
 
 void PersonInterface::ShowInfo() const {
     std::cout << "---------------------\n"
-              << "Username: " << m_self_account->m_username << "\n"
-              << "Email: " << m_self_account->m_email << "\n"
+              << "Username : " << m_self_account->m_username << "\n"
+              << "Email : " << m_self_account->m_email << "\n"
               << "---------------------\n";
     prompt_message(""); 
 }   
 
 void PersonInterface::ChangeUsername() {
     std::string new_username;
-    std::cout << "Enter new username: ";
+    std::cout << "Enter new username : ";
 	Account::GetUsernameInput(new_username);
 
     std::string cur_pass;
-    std::cout << "Enter current password to confirm: ";
+    std::cout << "Enter current password to confirm : ";
     Account::GetPasswordInput(cur_pass);
 
     if (cur_pass != m_self_account->m_pass) {
-        prompt_message("Wrong password.");
+        prompt_message("Wrong password !!!");
         return;
     }
 
     if (new_username == m_self_account->m_username) {
-        prompt_message("This is your current username.");
+        prompt_message("This is your current username !!!");
         return;
     }
 
     for (const auto& a : m_self_list)
         if (a.first == new_username) {
-            prompt_message("This username has been used.");
+            prompt_message("This username has been used !!!");
             return;
         }
 
     m_self_account->m_username = new_username;
     
-    prompt_message("Change username successfully.");
+    prompt_message("Change username successfully !!!");
 }
 
 void PersonInterface::ChangePassword() {
     std::string new_pass, cur_pass;
-    std::cout << "Enter new password: ";
+    std::cout << "Enter new password : ";
     Account::GetPasswordInput(new_pass);
 
-    std::cout << "Enter current password to confirm: ";
+    std::cout << "Enter current password to confirm : ";
     Account::GetPasswordInput(cur_pass);
 
     if (cur_pass != m_self_account->m_pass) {
-        prompt_message("Wrong password.");
+        prompt_message("Wrong password !!!");
         return;
     }
 
     if (cur_pass == new_pass){
-        prompt_message("This is your current password.");
+        prompt_message("This is your current password !!!");
         return;
     }
 
     m_self_account->m_pass = new_pass;
 
-    prompt_message("Change password successfully.");
+    prompt_message("Change password successfully !!!");
 }
 
 void PersonInterface::ChangeEmail() {
     std::string new_email;
-    std::cout << "Enter new email: ";
+    std::cout << "Enter new email : ";
     Account::GetEmailInput(new_email);
 
     std::string cur_pass;
-    std::cout << "Enter current password to confirm: ";
+    std::cout << "Enter current password to confirm : ";
     Account::GetPasswordInput(cur_pass);
 
     if (cur_pass != m_self_account->m_pass) {
-        prompt_message("Wrong password.");
+        prompt_message("Wrong password !!!");
         return;
     }
 
     if (new_email == m_self_account->m_email) {
-        prompt_message("This is your current email.");
+        prompt_message("This is your current email !!!");
         return;
     }
 
     for (const auto& a : m_self_list)
         if (a.second.m_email == new_email) {
-            prompt_message("This email has been used.");
+            prompt_message("This email has been used !!!");
             return;
         }
 
     m_self_account->m_email = new_email;
 
-    prompt_message("Change email successfully.");
+    prompt_message("Change email successfully !!!");
 }
 
 void PersonInterface::LogOut() const {
@@ -121,7 +121,7 @@ void PersonInterface::DeleteAccount() {
     m_self_list.erase(m_self_account->m_username);
     m_self_account = nullptr;
 
-    prompt_message("Account deleted.");
+    prompt_message("Account deleted successfully !!!");
     LogOut();
 }
 
