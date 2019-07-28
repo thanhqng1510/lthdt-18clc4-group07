@@ -34,12 +34,11 @@ void book::GetStockInput(unsigned int& stock) {
 
 void book::Output() const {
 	std::cout << "------------------------\n"
-		 << "Author: " << author << ".\n"
-		 << "Name: " << name << ".\n"
-		 << "Price: " << price << ".\n"
-		 << "Stock: " << stock << ".\n"
-		 << (stock == 0 ? "OUT OF ORDER.\n" : "")
-	     << "------------------------\n";
+		      << "Author: " << author << ".\n"
+		 	  << "Name: " << name << ".\n"
+		 	  << "Price: " << price << ".\n"
+		 	  << "Stock: " << stock << ".\n"
+		 	  << (stock == 0 ? "OUT OF ORDER.\n" : "");
 }
 
 std::string book::ToString() const {
@@ -62,8 +61,11 @@ BookStore::~BookStore() {
 }
 
 void BookStore::PrintAll() const {
-	for (const auto& b : m_book_store)
+	for (const auto& b : m_book_store) {
 		b.second.Output();
+		std::cout << "------------------------\n";
+	}
+
 	prompt_message("");
 }
 

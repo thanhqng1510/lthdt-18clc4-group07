@@ -33,12 +33,10 @@ public:
 	~BookStore();
 
 public:
-	void PrintAll() const;
+	virtual void PrintAll() const;
 	void ViewByName() const;
 	void ViewByAuthor() const;
 	void Add();
 	void Remove();
 	void SyncWithFile() const;
-	// string GetMostSell();
-	// string GetRecentSell();
 };

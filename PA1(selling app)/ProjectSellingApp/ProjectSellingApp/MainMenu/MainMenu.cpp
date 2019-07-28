@@ -132,7 +132,7 @@ void MainMenu::GetOptionInput(unsigned int& option) {
 MainMenu::MainMenu()
 : m_option(0) {}
 
-void MainMenu::ShowMenu() {
+void MainMenu::Show() {
 	while (m_option != 4) {
 		system("cls");
 		system("clear");
