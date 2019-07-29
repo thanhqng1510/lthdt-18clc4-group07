@@ -42,6 +42,9 @@ void MainMenu::LogIn(LOG_IN_KEY key) {
 
 		std::string line;
 		while (getline(fin, line, '\n')) {
+			if (line == "")
+				continue;
+
 			std::stringstream ss(line);
 			std::string cur_username, cur_pass, cur_email;
 
@@ -99,6 +102,9 @@ void MainMenu::CreateAccount() {
 
 	std::string line;
 	while (getline(fin, line, '\n')) {
+		if (line == "")
+			continue;
+
 		std::stringstream ss(std::move(line));
 		std::string cur_username, cur_email;
 		ss >> cur_username >> cur_email >> cur_email;

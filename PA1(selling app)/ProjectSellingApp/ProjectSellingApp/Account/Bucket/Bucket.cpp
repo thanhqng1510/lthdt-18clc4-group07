@@ -32,18 +32,18 @@ bool Bucket::IsSaleToday() const {
 	time_t now = time(nullptr);
 	tm* local = localtime(&now);
 
-	for (unsigned int i : s_day_discount)
-		if (local->tm_mday == i)
+	for (int i = 0; i < 5; i++)
+		if (local->tm_mday == s_day_discount[i])
 			return true;
 	return false;
 }
 
 // 20% discount
 void Bucket::PrintAll() const {
-	float factor = IsSaleToday() ? 0.8f : 1.f;
+	float factor = Bucket::IsSaleToday() ? 0.8f : 1.f;
 
 	float total = 0;
-	for (const auto& i : m_bucket){
+	for (const std::pair<std::string,unsigned int>& i : m_bucket){
 		const book& b = m_book_store.at(i.first);
 		b.Output();
 		std::cout << "Price after sale : " << b.price * factor << "\n"
@@ -66,8 +66,8 @@ void Bucket::Add() {
 
 		unsigned int amount;
 		std::cout << "Enter number of book you want to buy : ";
-		get_input<unsigned int>(amount, [&](const unsigned int& value) -> bool {
-			return value > 0 && value <= b.stock;
+		get_input<unsigned int>(amount, [&b](const unsigned int& value) -> bool {
+			return (value > 0 && value <= b.stock) ;
 		}, "Amount must be positive and less than or equal to " + std::to_string(b.stock) + ", please try again : ");
 
 		if (m_bucket.find(name) != m_bucket.end()) {
@@ -85,7 +85,7 @@ void Bucket::Add() {
 
 void Bucket::Remove() {
 	std::string name;
-	std::cout << "Enter book's name: ";
+	std::cout << "Enter book's name you want remove from your bucket : ";
 	book::GetNameInput(name);
 
 	if (m_bucket.find(name) != m_bucket.end()){
@@ -110,36 +110,25 @@ void Bucket::Remove() {
 		prompt_message ("Book not found !!!");
 }
 
-void Bucket::BuyAll()
-{
-	// Bucket::WatchBucket();
-	// for (auto i = m_bucket.begin(); i != m_bucket.end(); i++)
-	// {
-	// 	for (auto j = m_book_store.begin(); j != m_book_store.end(); j++)
-	// 	{
-	// 		if (i->first == j->second.name)
-	// 			j->second.stock -= i->second.second;
-	// 	}
-	// }
-	// int choose;
-	// int total=0;
-	// std::cout << "Do you want buy all (1: Yes, 2:No ): ";
-	// std::cin >> choose;
-	// if (choose == 1)
-	// {
-	// 	std::ofstream fout("Bucket.txt");
-	// 	for (auto i = m_bucket.begin(); i != m_bucket.end(); i++)
-	// 	{
-	// 		fout << i->first << " "
-	// 			<< i->second.first.price << " "
-	// 			<< i->second.second << "\n";
-	// 		total += i->second.first.price*i->second.second;
-	// 	}
-	// 	fout << "Total: " << total << "\n";
-	// 	if (Bucket::CheckDiscountToday())
-	// 		fout << "Discounted " << "\n";
-	// 	fout.close();
-	// }
+void Bucket::BuyAll() {
+	unsigned int choose;
+	std::cout << "Do you want show bucket (1.Yes/2.No ) : ";
+	get_input <unsigned int> (choose, [](const unsigned int& value)->bool{
+		return (value ==1 || value == 2);
+	},"You must enter number 1 or 2 : " ); 
+	if (choose == 1)
+		Bucket::PrintAll();
+
+	std::cout << "Do you want buy all (1.Yes/2.No ) : ";
+	get_input <unsigned int> (choose, [](const unsigned int& value)->bool{
+		return (value ==1 || value == 2);
+	},"You must enter number 1 or 2 : " ); 
+
+	if (choose == 1) {
+		for (const std::pair<std::string,unsigned int>& i : m_bucket)
+			m_book_store.at(i.first).stock -= i.second;
+		prompt_message ("You have successfully purchased !!!");
+	}
 }
 
 void Bucket::SyncWithFile() const {

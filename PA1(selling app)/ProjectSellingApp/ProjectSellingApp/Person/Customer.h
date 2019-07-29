@@ -9,11 +9,7 @@
 
 class Customer : public PersonInterface {
 private:
-    unsigned int m_point;
     Bucket m_bucket;
-	//unordered_map<string, Account> m_list_customer;
-	//static string s_customer_account_path;
-	//personInterface
 	unsigned int m_menu_option;
 
 public:
@@ -21,10 +17,8 @@ public:
 
 public:
     Customer(const Account& account);
-    //~Customer() override;
-	//deleteAccount -> personInterface
-	//void SyncWithFile();
-	void BucketCustomer();
+    ~Customer() override = default;
+
+public:
 	void ShowMenu() override;
-	
 };

@@ -1,2 +1,2 @@
-seller2 1234 s2@s2.com
-seller1 1234 s1@s1.com
+seller1 1234 seller1@gmail.com
+seller2 1234 seller2@gmail.com

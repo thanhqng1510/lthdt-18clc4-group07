@@ -16,7 +16,8 @@ public:
 
 	static const std::string s_pass_pattern;
 	static const std::string s_email_pattern; 
-
+	static const std::string s_username_pattern;
+	
 public:
 	static void GetUsernameInput(std::string& username);
 	static void GetPasswordInput(std::string& pass);

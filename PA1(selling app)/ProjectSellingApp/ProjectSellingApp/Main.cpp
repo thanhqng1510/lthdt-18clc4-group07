@@ -1,10 +1,6 @@
-#include "Account/Bucket/Bucket.h"
+#include "MainMenu/MainMenu.h"
 
 int main() {
-    Bucket b("quythanh");
-    // Bucket b2("customer");
-    b.PrintAll();
-    b.Add();
-    b.Remove();
-    b.PrintAll();
+    MainMenu menu;
+    menu.Show();
 }

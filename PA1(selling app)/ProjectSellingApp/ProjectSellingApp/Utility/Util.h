@@ -43,6 +43,9 @@ void file_to_unordered_map(const std::string& file_path, std::unordered_map<T, U
 
 	std::string line;
 	while (getline(fin, line, '\n')) {
+		if (line == "")
+			continue;
+			
 		std::pair<T, U> p;
 		line_to_pair(p, line);
 		map.insert(p);
@@ -60,11 +63,11 @@ void unordered_map_to_file(const std::string& file_path, const std::unordered_ma
 		return;
 	}
 
-	for (const auto& p : map) {
+	for (const auto& i : map) {
 		std::string line;
-		pair_to_line(p, line);
+		pair_to_line(i, line);
 		fout << line << "\n";
 	}
-
+	
 	fout.close();
 }

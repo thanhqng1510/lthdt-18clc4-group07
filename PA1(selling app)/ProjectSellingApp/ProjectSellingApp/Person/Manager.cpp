@@ -139,6 +139,7 @@ void Manager::ShowMenu() {
 			break;
         case 5:
             PersonInterface::DeleteAccount();
+            m_menu_option = 14;
             break;
         case 6:
             CreateSeller();

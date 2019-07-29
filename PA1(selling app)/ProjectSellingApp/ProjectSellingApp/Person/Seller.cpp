@@ -50,6 +50,7 @@ void Seller::ShowMenu() {
 			break;
         case 5:
             PersonInterface::DeleteAccount();
+			m_menu_option = 11;
             break;
         case 6:
             BookStore::PrintAll();

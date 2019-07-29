@@ -1,4 +1,4 @@
-# Install script for directory: /Users/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp
+# Install script for directory: /home/tamphuc/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -27,6 +27,11 @@ if(NOT CMAKE_INSTALL_COMPONENT)
   endif()
 endif()
 
+# Install shared libraries without execute permission?
+if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
+  set(CMAKE_INSTALL_SO_NO_EXE "1")
+endif()
+
 # Is this installation the result of a crosscompile?
 if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
@@ -40,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/thanhqng/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/tamphuc/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

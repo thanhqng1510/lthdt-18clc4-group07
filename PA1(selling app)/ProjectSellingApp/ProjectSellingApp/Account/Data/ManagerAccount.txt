@@ -1,2 +1,1 @@
-manager2 1234 m2@m2.com
-manager1 1234 m1@m1.com
+manager1 1234 manager1@gmail.com
