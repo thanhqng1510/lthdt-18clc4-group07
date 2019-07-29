@@ -151,19 +151,19 @@ void Manager::ShowMenu() {
             DeleteCustomer();
             break;
         case 9: 
-            BookStore::PrintAll();
+            m_book_store.PrintAll();
             break;
         case 10:
-            BookStore::ViewByName();
+            m_book_store.ViewByName();
             break;
         case 11: 
-            BookStore::ViewByAuthor();
+            m_book_store.ViewByAuthor();
             break;
         case 12:
-            BookStore::Add();
+            m_book_store.Add();
             break;
         case 13:
-            BookStore::Remove();
+            m_book_store.Remove();
             break;
         case 14:
             PersonInterface::LogOut();

@@ -23,6 +23,7 @@ PersonInterface::~PersonInterface() {
 }
 
 void PersonInterface::ShowInfo() const {
+    system("clear");
     std::cout << "---------------------\n"
               << "Username : " << m_self_account->m_username << "\n"
               << "Email : " << m_self_account->m_email << "\n"

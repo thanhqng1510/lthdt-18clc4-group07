@@ -1,2 +1,0 @@
-seller1 1234 seller1@gmail.com
-seller2 1234 seller2@gmail.com

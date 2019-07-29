@@ -1,4 +1,4 @@
-# Install script for directory: /home/tamphuc/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp
+# Install script for directory: /home/thanhqng1510/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/tamphuc/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/thanhqng1510/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

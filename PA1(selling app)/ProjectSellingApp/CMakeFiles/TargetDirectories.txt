@@ -1,3 +1,3 @@
-/home/tamphuc/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/CMakeFiles/rebuild_cache.dir
-/home/tamphuc/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/CMakeFiles/Output.dir
-/home/tamphuc/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/CMakeFiles/edit_cache.dir
+/home/thanhqng1510/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/CMakeFiles/rebuild_cache.dir
+/home/thanhqng1510/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/CMakeFiles/Output.dir
+/home/thanhqng1510/Desktop/GITHUB/lthdt-18clc4-group07/PA1(selling app)/ProjectSellingApp/CMakeFiles/edit_cache.dir

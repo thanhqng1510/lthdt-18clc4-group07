@@ -7,7 +7,7 @@
 #include "../BookStore/BookStore.h"
 #include "../Account/Account.h"
 
-class PersonInterface : public BookStore {
+class PersonInterface {
 public:
     static const std::string s_customer_account_path;
 	static const std::string s_seller_account_path;

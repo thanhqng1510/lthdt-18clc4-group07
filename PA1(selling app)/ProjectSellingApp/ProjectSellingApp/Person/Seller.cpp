@@ -53,19 +53,19 @@ void Seller::ShowMenu() {
 			m_menu_option = 11;
             break;
         case 6:
-            BookStore::PrintAll();
+            m_book_store.PrintAll();
             break;
 		case 7:
-			BookStore::ViewByName();
+			m_book_store.ViewByName();
 			break;
 		case 8:
-			BookStore::ViewByAuthor();
+			m_book_store.ViewByAuthor();
 			break;
 		case 9:
-			BookStore::Add();
+			m_book_store.Add();
 			break;
 		case 10:
-			BookStore::Remove();
+			m_book_store.Remove();
 			break;
 		case 11:
 			PersonInterface::LogOut();
